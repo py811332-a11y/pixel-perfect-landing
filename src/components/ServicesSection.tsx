@@ -92,7 +92,7 @@ function ServiceItem({ service, index, isExpanded, onToggle }: {
       ref={ref}
       className="border-t transition-all duration-600"
       style={{
-        borderColor: 'hsl(var(--primary-foreground) / 0.15)',
+        borderColor: 'hsl(var(--services-fg) / 0.15)',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
         transitionDelay: `${index * 80}ms`,
