@@ -38,6 +38,8 @@
 
     --hero-overlay: rgba(0, 0, 0, 0.25);
     --nav-bg: 40 20% 96%;
+    --services-bg: 0 0% 8%;
+    --services-fg: 40 20% 96%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
