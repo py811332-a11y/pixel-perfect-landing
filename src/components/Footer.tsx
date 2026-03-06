@@ -1,11 +1,30 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useEffect, useRef, useState } from "react";
 
 const Footer = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [isVisible, setIsVisible] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <footer
-      ref={ref}
+      ref={footerRef}
       className="px-6 md:px-16 py-16 border-t border-border transition-all duration-700"
       style={{
         opacity: isVisible ? 1 : 0,
