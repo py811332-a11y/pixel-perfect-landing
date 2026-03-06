@@ -73,7 +73,7 @@ const ServicesSection = () => {
             onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
           />
         ))}
-        <div style={{ borderTop: '1px solid hsl(var(--primary-foreground) / 0.15)' }} />
+        <div style={{ borderTop: '1px solid hsl(var(--services-fg) / 0.15)' }} />
       </div>
     </section>
   );
