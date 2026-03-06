@@ -44,7 +44,7 @@ const ServicesSection = () => {
   const { containerRef, revealedCount } = useScrollReveal(introWords.length);
 
   return (
-    <section id="services" className="px-6 md:px-16 py-24 md:py-36 bg-foreground text-primary-foreground transition-colors duration-500">
+    <section id="services" className="px-6 md:px-16 py-24 md:py-36 transition-colors duration-500" style={{ backgroundColor: 'hsl(var(--services-bg))', color: 'hsl(var(--services-fg))' }}>
       <h2 className="text-sm font-semibold tracking-[0.15em] uppercase opacity-60 mb-6">
         What We Offer
       </h2>
