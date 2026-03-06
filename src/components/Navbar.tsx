@@ -1,17 +1,25 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isDark, toggle } = useTheme();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm transition-colors duration-500">
       <nav className="flex items-center justify-between px-6 py-4 md:px-10">
-        {/* Dark mode toggle placeholder */}
-        <button className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground/5 transition-colors">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
+        {/* Dark mode toggle */}
+        <button
+          onClick={toggle}
+          className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground/5 transition-colors"
+          aria-label="Toggle theme"
+        >
+          {isDark ? (
+            <Sun className="w-[18px] h-[18px] text-foreground transition-transform duration-300" />
+          ) : (
+            <Moon className="w-[18px] h-[18px] text-foreground transition-transform duration-300" />
+          )}
         </button>
 
         {/* Logo */}

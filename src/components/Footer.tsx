@@ -1,6 +1,17 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const Footer = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <footer className="px-6 md:px-16 py-16 border-t border-border">
+    <footer
+      ref={ref}
+      className="px-6 md:px-16 py-16 border-t border-border transition-all duration-700"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+      }}
+    >
       <div className="flex flex-col md:flex-row justify-between items-start gap-10">
         <div>
           <div className="flex items-center gap-2 mb-6">
