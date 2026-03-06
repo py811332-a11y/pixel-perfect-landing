@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
@@ -41,7 +40,31 @@ const introWords = introText.split(" ");
 
 const ServicesSection = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const { containerRef, revealedCount } = useScrollReveal(introWords.length);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const idx = entry.target.getAttribute("data-service-index");
+          if (idx !== null) {
+            setVisibleItems((prev) => new Set(prev).add(Number(idx)));
+          }
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -30px 0px" }
+    );
+
+    itemRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="services" className="px-6 md:px-16 py-24 md:py-36 transition-colors duration-500" style={{ backgroundColor: 'hsl(var(--services-bg))', color: 'hsl(var(--services-fg))' }}>
@@ -65,72 +88,55 @@ const ServicesSection = () => {
 
       <div className="space-y-0">
         {services.map((service, index) => (
-          <ServiceItem
+          <div
             key={index}
-            service={service}
-            index={index}
-            isExpanded={expandedIndex === index}
-            onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
-          />
+            ref={(el) => { itemRefs.current[index] = el; }}
+            data-service-index={index}
+            className="border-t transition-all duration-600"
+            style={{
+              borderColor: 'hsl(var(--services-fg) / 0.15)',
+              opacity: visibleItems.has(index) ? 1 : 0,
+              transform: visibleItems.has(index) ? 'translateY(0)' : 'translateY(20px)',
+              transitionDelay: `${index * 80}ms`,
+            }}
+          >
+            <button
+              onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+              className="w-full flex items-center justify-between py-8 text-left group"
+            >
+              <div className="flex items-baseline gap-6 md:gap-12">
+                <span className="text-sm opacity-40 font-mono">{service.number}</span>
+                <h3 className="text-2xl md:text-3xl font-light">{service.title}</h3>
+              </div>
+              <ChevronDown
+                className={`w-5 h-5 opacity-40 transition-transform duration-300 ${
+                  expandedIndex === index ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            <div
+              className="overflow-hidden transition-all duration-500"
+              style={{
+                maxHeight: expandedIndex === index ? "300px" : "0",
+                opacity: expandedIndex === index ? 1 : 0,
+              }}
+            >
+              <div className="pl-12 md:pl-24 pb-8 max-w-2xl">
+                <h4 className="text-sm font-semibold tracking-wider uppercase opacity-60 mb-3">
+                  {service.subtitle}
+                </h4>
+                <p className="text-base font-light leading-relaxed opacity-70">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          </div>
         ))}
         <div style={{ borderTop: '1px solid hsl(var(--services-fg) / 0.15)' }} />
       </div>
     </section>
   );
 };
-
-function ServiceItem({ service, index, isExpanded, onToggle }: {
-  service: typeof services[0];
-  index: number;
-  isExpanded: boolean;
-  onToggle: () => void;
-}) {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-
-  return (
-    <div
-      ref={ref}
-      className="border-t transition-all duration-600"
-      style={{
-        borderColor: 'hsl(var(--services-fg) / 0.15)',
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transitionDelay: `${index * 80}ms`,
-      }}
-    >
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-8 text-left group"
-      >
-        <div className="flex items-baseline gap-6 md:gap-12">
-          <span className="text-sm opacity-40 font-mono">{service.number}</span>
-          <h3 className="text-2xl md:text-3xl font-light">{service.title}</h3>
-        </div>
-        <ChevronDown
-          className={`w-5 h-5 opacity-40 transition-transform duration-300 ${
-            isExpanded ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      <div
-        className="overflow-hidden transition-all duration-500"
-        style={{
-          maxHeight: isExpanded ? "300px" : "0",
-          opacity: isExpanded ? 1 : 0,
-        }}
-      >
-        <div className="pl-12 md:pl-24 pb-8 max-w-2xl">
-          <h4 className="text-sm font-semibold tracking-wider uppercase opacity-60 mb-3">
-            {service.subtitle}
-          </h4>
-          <p className="text-base font-light leading-relaxed opacity-70">
-            {service.description}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default ServicesSection;

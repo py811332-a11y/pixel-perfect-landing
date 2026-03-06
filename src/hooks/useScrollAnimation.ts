@@ -1,27 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface ScrollAnimationOptions {
   threshold?: number;
   rootMargin?: string;
-  once?: boolean;
 }
 
 export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
-  const { threshold = 0.15, rootMargin = "0px 0px -50px 0px", once = true } = options;
-  const ref = useRef<HTMLDivElement>(null);
+  const { threshold = 0.15, rootMargin = "0px 0px -50px 0px" } = options;
   const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLElement | null>(null);
+
+  const setRef = useCallback((node: HTMLElement | null) => {
+    elementRef.current = node;
+  }, []);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = elementRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          if (once) observer.unobserve(el);
-        } else if (!once) {
-          setIsVisible(false);
+          observer.unobserve(el);
         }
       },
       { threshold, rootMargin }
@@ -29,7 +30,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+  }, [threshold, rootMargin]);
 
-  return { ref, isVisible };
+  return { setRef, isVisible };
 }
