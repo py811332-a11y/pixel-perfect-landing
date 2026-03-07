@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Play, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap } from "lucide-react";
+import { ArrowRight, Play, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
 
 function HeroParticles() {
