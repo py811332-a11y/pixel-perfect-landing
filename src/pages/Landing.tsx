@@ -307,18 +307,21 @@ function PricingPreview() {
 }
 
 function FAQ() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Frequently Asked Questions</h2>
-        <Accordion type="single" collapsible className="w-full">
-          {faqItems.map((item, i) => (
-            <AccordionItem key={i} value={`faq-${i}`}>
-              <AccordionTrigger className="font-display font-semibold text-left text-foreground">{item.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Frequently Asked Questions</h2>
+        <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <Accordion type="single" collapsible className="w-full">
+            {faqItems.map((item, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="font-display font-semibold text-left text-foreground">{item.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );
