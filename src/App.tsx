@@ -40,6 +40,7 @@ import ParentDashboard from "./pages/ParentDashboard";
 import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
 import ParentPortal from "./pages/ParentPortal";
+import ParentLogin from "./pages/ParentLogin";
 import Billing from "./pages/Billing";
 import Admin from "./pages/Admin";
 import StudyGroups from "./pages/StudyGroups";
@@ -98,6 +99,7 @@ const App = () => (
           <Route path="/billing" element={<Billing />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/parent" element={<ParentPortal />} />
+          <Route path="/parent/login" element={<ParentLogin />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/virtual-lab" element={<VirtualLab />} />
