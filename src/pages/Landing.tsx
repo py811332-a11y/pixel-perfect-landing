@@ -4,9 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp } from "lucide-react";
+import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp, Globe, Flag, Rocket } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
 import logo from "@/assets/logo.png";
+import indiaFlagGlow from "@/assets/india-flag-glow.png";
+import globeIndia from "@/assets/globe-india.png";
+import indiaRocket from "@/assets/india-rocket.png";
+import { useMemo, lazy, Suspense } from "react";
+const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -538,6 +543,143 @@ function FAQ() {
   );
 }
 
+/* ── Made in India ──────────────────────────────────── */
+function MadeInIndia() {
+  const { ref, visible } = useReveal();
+  const hyperspeedOptions = useMemo(() => ({
+    distortion: 'turbulentDistortion',
+    length: 400,
+    roadWidth: 10,
+    islandWidth: 2,
+    lanesPerRoad: 3,
+    fov: 90,
+    fovSpeedUp: 150,
+    speedUp: 2,
+    carLightsFade: 0.4,
+    totalSideLightSticks: 20,
+    lightPairsPerRoadWay: 40,
+    shoulderLinesWidthPercentage: 0.05,
+    brokenLinesWidthPercentage: 0.1,
+    brokenLinesLengthPercentage: 0.5,
+    lightStickWidth: [0.12, 0.5] as [number, number],
+    lightStickHeight: [1.3, 1.7] as [number, number],
+    movingAwaySpeed: [60, 80] as [number, number],
+    movingCloserSpeed: [-120, -160] as [number, number],
+    carLightsLength: [12, 80] as [number, number],
+    carLightsRadius: [0.05, 0.14] as [number, number],
+    carWidthPercentage: [0.3, 0.5] as [number, number],
+    carShiftX: [-0.8, 0.8] as [number, number],
+    carFloorSeparation: [0, 5] as [number, number],
+    colors: {
+      roadColor: 0x080808,
+      islandColor: 0x0a0a0a,
+      background: 0x000000,
+      shoulderLines: 0x131318,
+      brokenLines: 0x131318,
+      leftCars: [0xff6b35, 0xff8c42, 0xe85d26],
+      rightCars: [0x138808, 0x1a9e0e, 0x0f6b06],
+      sticks: 0xff9933
+    }
+  }), []);
+
+  const achievements = [
+    { icon: <Globe className="w-6 h-6" />, title: "First in the World", desc: "AI-powered NCERT tutor with real-time whiteboard lectures — no one else has done this" },
+    { icon: <Flag className="w-6 h-6" />, title: "100% Made in India", desc: "Built in Kota, Rajasthan. All data stays on Indian servers. Designed for Indian students" },
+    { icon: <Rocket className="w-6 h-6" />, title: "Pioneering EdTech", desc: "Virtual PCMB labs, FSRS flashcards, and group test battles — technology India hasn't seen before" },
+  ];
+
+  return (
+    <section ref={ref} className="relative min-h-[80vh] overflow-hidden bg-black">
+      {/* Hyperspeed background */}
+      <div className="absolute inset-0 opacity-40">
+        <Suspense fallback={null}>
+          <Hyperspeed effectOptions={hyperspeedOptions} />
+        </Suspense>
+      </div>
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-[1]" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0A0F1E] to-transparent z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0F1E] to-transparent z-[1]" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 flex flex-col items-center">
+        {/* Indian flag ribbon */}
+        <div className={`mb-8 reveal-base reveal-scale ${visible ? "revealed" : ""}`}>
+          <img src={indiaFlagGlow} alt="Indian tricolor" className="w-64 md:w-80 h-auto opacity-90" />
+        </div>
+
+        {/* Main heading */}
+        <div className="text-center mb-16">
+          <Badge className={`bg-[hsl(38,92%,50%)]/20 text-[hsl(38,92%,50%)] border-[hsl(38,92%,50%)]/30 mb-6 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+            🇮🇳 Proudly Indian
+          </Badge>
+          <h2 className={`font-display font-extrabold text-5xl md:text-7xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+            Made in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(24,90%,55%)] via-white to-[hsl(140,70%,40%)]" style={{ WebkitBackgroundClip: "text" }}>India</span>
+          </h2>
+          <h3 className={`font-display font-bold text-2xl md:text-4xl text-white/70 mb-6 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "200ms" }}>
+            First in the <span className="text-[hsl(38,92%,50%)]">World</span>
+          </h3>
+          <ScrollRevealText
+            text="The world's first AI tutor that writes on a whiteboard, explains like a real teacher, and adapts to every Indian student's unique learning style."
+            className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto"
+          />
+        </div>
+
+        {/* Globe + achievements grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center w-full max-w-5xl">
+          {/* Globe image */}
+          <div className={`flex justify-center reveal-base reveal-left ${visible ? "revealed" : ""}`} style={{ transitionDelay: "400ms" }}>
+            <div className="relative">
+              <img src={globeIndia} alt="India on the globe" className="w-56 md:w-72 h-auto drop-shadow-[0_0_60px_rgba(255,153,51,0.3)] animate-float" />
+              <img src={indiaRocket} alt="Indian rocket" className="absolute -top-8 -right-8 w-20 md:w-28 h-auto animate-float drop-shadow-[0_0_30px_rgba(255,153,51,0.4)]" style={{ animationDelay: "1s" }} />
+            </div>
+          </div>
+
+          {/* Achievement cards */}
+          <div className="space-y-5">
+            {achievements.map((item, i) => (
+              <div
+                key={i}
+                className={`group reveal-base reveal-right ${visible ? "revealed" : ""}`}
+                style={{ transitionDelay: `${500 + i * 150}ms` }}
+              >
+                <ElectricBorder>
+                  <div className="p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-start gap-4 transition-all duration-300 group-hover:bg-white/10">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(24,90%,55%)] to-[hsl(38,92%,50%)] flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-white mb-1">{item.title}</h4>
+                      <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </ElectricBorder>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom stats */}
+        <div className={`mt-16 grid grid-cols-3 gap-8 text-center reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "900ms" }}>
+          <div>
+            <p className="font-display font-extrabold text-3xl md:text-4xl text-[hsl(38,92%,50%)]"><Counter end={100} suffix="%" /></p>
+            <p className="text-white/40 text-sm mt-1">Indian Data Servers</p>
+          </div>
+          <div>
+            <p className="font-display font-extrabold text-3xl md:text-4xl text-white"><Counter end={1} suffix="st" /></p>
+            <p className="text-white/40 text-sm mt-1">AI Whiteboard Tutor</p>
+          </div>
+          <div>
+            <p className="font-display font-extrabold text-3xl md:text-4xl text-[hsl(140,70%,40%)]"><Counter end={0} suffix="" /></p>
+            <p className="text-white/40 text-sm mt-1">Data Sent Abroad</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Final CTA ─────────────────────────────────────── */
 function FinalCTA() {
   const { ref, visible } = useReveal();
@@ -640,6 +782,7 @@ export default function Landing() {
       <Testimonials />
       <PricingPreview />
       <FAQ />
+      <MadeInIndia />
       <FinalCTA />
       <Footer />
     </div>
