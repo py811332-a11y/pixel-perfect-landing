@@ -46,6 +46,11 @@ import subjectSocial from "@/assets/subject-social.png";
 const subjectImages: Record<string, string> = {
   science: subjectScience, math: subjectMath, social: subjectSocial,
 };
+
+import labPhysics from "@/assets/lab-physics.png";
+import labChemistry from "@/assets/lab-chemistry.png";
+import labBiology from "@/assets/lab-biology.png";
+import labMath from "@/assets/lab-math.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
