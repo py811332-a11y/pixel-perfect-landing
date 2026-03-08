@@ -207,9 +207,15 @@ export const faqItems = [
 ];
 
 export const testimonials = [
-  { quote: "Scored 94% in Class 9 Science boards after using ShikshaGuruji for 2 months", name: "Sneha", location: "Kota" },
-  { quote: "The Group Test feature is addictive. Me and 5 friends compete every night", name: "Arjun", location: "Jaipur" },
-  { quote: "AI lecture for Mole Concept was better than my tuition teacher", name: "Priya", location: "Delhi" },
+  { quote: "Scored 94% in Class 10 Science boards after using ShikshaGuruji for 2 months", name: "Sneha", location: "Kota", class: 10 },
+  { quote: "The Group Test feature is addictive. Me and 5 friends compete every night before exams", name: "Arjun", location: "Jaipur", class: 9 },
+  { quote: "AI lecture for Mole Concept was better than my tuition teacher. Seriously mind-blown!", name: "Priya", location: "Delhi", class: 10 },
+  { quote: "Virtual Physics Lab helped me understand circuits without any equipment. Best thing ever", name: "Rohan", location: "Mumbai", class: 10 },
+  { quote: "I went from 55% to 89% in Maths in just 3 months. The FSRS flashcards are magic", name: "Kavya", location: "Lucknow", class: 9 },
+  { quote: "Parent Dashboard lets my mom track my progress. She's finally proud of my study habits!", name: "Dev", location: "Pune", class: 10 },
+  { quote: "The AI whiteboard explains like a real teacher. I paused my coaching classes", name: "Ananya", location: "Chandigarh", class: 10 },
+  { quote: "Group test battles with my school friends made studying actually fun for the first time", name: "Vikram", location: "Hyderabad", class: 9 },
+  { quote: "Finished entire Class 10 Social Science revision in 2 weeks using the flashcard system", name: "Meera", location: "Bangalore", class: 10 },
 ];
 
 export const whiteboardSteps = [
