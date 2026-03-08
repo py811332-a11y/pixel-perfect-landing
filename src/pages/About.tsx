@@ -13,10 +13,10 @@ export default function About() {
         <p className="text-muted-foreground leading-relaxed">We use local AI technology (Ollama) that runs on Indian servers, ensuring your data never leaves the country. Our AI generates personalized whiteboard lectures that adapt to each student's learning pace and weak areas.</p>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { icon: "💰", title: "Affordable", desc: "Free forever plan. Premium starts at ₹299/mo" },
-            { icon: "🎯", title: "Personalized", desc: "AI adapts to your strengths and weaknesses" },
-            { icon: "🇮🇳", title: "Indian", desc: "Built in Kota, data stays in India" },
-            { icon: "🔒", title: "Private", desc: "Your data is yours. No selling, no ads" },
+            { title: "Affordable", desc: "Free forever plan. Premium starts at ₹299/mo" },
+            { title: "Personalized", desc: "AI adapts to your strengths and weaknesses" },
+            { title: "Indian", desc: "Built in Kota, data stays in India" },
+            { title: "Private", desc: "Your data is yours. No selling, no ads" },
           ].map((v, i) => (
             <div key={i} className="p-6 bg-card rounded-xl border border-border">
               <span className="text-3xl block mb-2">{v.icon}</span>
