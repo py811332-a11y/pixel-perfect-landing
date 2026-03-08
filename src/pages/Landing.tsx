@@ -288,24 +288,28 @@ function Hero() {
           </div>
         </div>
         <div className="lg:col-span-2 hidden lg:block">
-          <ElectricBorder>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-1 animate-float">
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
-                <div className="bg-white rounded-lg p-6 shadow-xl">
-                  <div className="h-1 w-16 bg-primary/20 rounded mb-4" />
-                  <h3 className="font-display font-bold text-foreground text-lg typewriter" style={{ maxWidth: "200px" }}>States of Matter</h3>
-                  <div className="mt-4 space-y-2 opacity-0 animate-fade-up" style={{ animationDelay: "3.5s" }}>
-                    <p className="text-sm text-muted-foreground">Solid → Liquid → Gas</p>
-                    <div className="flex gap-2 mt-3">
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">S</div>
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">L</div>
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">G</div>
-                    </div>
-                  </div>
-                </div>
+          <div className="relative animate-fade-up stagger-2">
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-3xl blur-2xl" />
+            <img
+              src={heroStudent}
+              alt="Indian student learning with AI"
+              className="relative w-full rounded-2xl shadow-2xl shadow-primary/20 border border-white/10 animate-float"
+            />
+            <div className="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 flex items-center gap-2 animate-fade-up" style={{ animationDelay: "1.5s" }}>
+              <div className="w-8 h-8 rounded-lg bg-[hsl(140,70%,40%)] flex items-center justify-center text-white text-xs font-bold">✓</div>
+              <div>
+                <p className="text-white text-xs font-semibold">CBSE Aligned</p>
+                <p className="text-white/50 text-[10px]">Class 6-10</p>
               </div>
             </div>
-          </ElectricBorder>
+            <div className="absolute -top-3 -right-3 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 flex items-center gap-2 animate-fade-up" style={{ animationDelay: "2s" }}>
+              <div className="w-8 h-8 rounded-lg bg-[hsl(38,92%,50%)] flex items-center justify-center text-white text-xs font-bold">AI</div>
+              <div>
+                <p className="text-white text-xs font-semibold">Live Whiteboard</p>
+                <p className="text-white/50 text-[10px]">Personalized</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
