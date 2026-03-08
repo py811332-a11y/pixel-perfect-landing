@@ -6,9 +6,9 @@ import { Users, Plus, Video, MessageSquare } from "lucide-react";
 import AppLayout from "@/components/layout/AppLayout";
 
 const groups = [
-  { id: "g1", name: "Science Toppers 🔬", members: 6, subject: "Science", lastActive: "2 hours ago", online: 3 },
-  { id: "g2", name: "Math Warriors 📐", members: 4, subject: "Math", lastActive: "1 day ago", online: 0 },
-  { id: "g3", name: "JEE Prep Squad 🚀", members: 8, subject: "All", lastActive: "30 min ago", online: 5 },
+  { id: "g1", name: "Science Toppers", members: 6, subject: "Science", lastActive: "2 hours ago", online: 3 },
+  { id: "g2", name: "Math Warriors", members: 4, subject: "Math", lastActive: "1 day ago", online: 0 },
+  { id: "g3", name: "JEE Prep Squad", members: 8, subject: "All", lastActive: "30 min ago", online: 5 },
 ];
 
 export default function StudyGroups() {
