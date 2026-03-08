@@ -16,6 +16,11 @@ import indiaVirtualLab from "@/assets/india-virtual-lab.png";
 import indiaFlashcards from "@/assets/india-flashcards.png";
 import indiaGroupBattle from "@/assets/india-group-battle.png";
 import indiaServers from "@/assets/india-servers.png";
+import heroStudent from "@/assets/hero-student.png";
+import landingAiTutor from "@/assets/landing-ai-tutor.png";
+import landingGroupTest from "@/assets/landing-group-test.png";
+import landingFlashcards from "@/assets/landing-flashcards.png";
+import landingParent from "@/assets/landing-parent.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
@@ -283,31 +288,87 @@ function Hero() {
           </div>
         </div>
         <div className="lg:col-span-2 hidden lg:block">
-          <ElectricBorder>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-1 animate-float">
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
-                <div className="bg-white rounded-lg p-6 shadow-xl">
-                  <div className="h-1 w-16 bg-primary/20 rounded mb-4" />
-                  <h3 className="font-display font-bold text-foreground text-lg typewriter" style={{ maxWidth: "200px" }}>States of Matter</h3>
-                  <div className="mt-4 space-y-2 opacity-0 animate-fade-up" style={{ animationDelay: "3.5s" }}>
-                    <p className="text-sm text-muted-foreground">Solid → Liquid → Gas</p>
-                    <div className="flex gap-2 mt-3">
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">S</div>
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">L</div>
-                      <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">G</div>
-                    </div>
-                  </div>
-                </div>
+          <div className="relative animate-fade-up stagger-2">
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-3xl blur-2xl" />
+            <img
+              src={heroStudent}
+              alt="Indian student learning with AI"
+              className="relative w-full rounded-2xl shadow-2xl shadow-primary/20 border border-white/10 animate-float"
+            />
+            <div className="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 flex items-center gap-2 animate-fade-up" style={{ animationDelay: "1.5s" }}>
+              <div className="w-8 h-8 rounded-lg bg-[hsl(140,70%,40%)] flex items-center justify-center text-white text-xs font-bold">✓</div>
+              <div>
+                <p className="text-white text-xs font-semibold">CBSE Aligned</p>
+                <p className="text-white/50 text-[10px]">Class 6-10</p>
               </div>
             </div>
-          </ElectricBorder>
+            <div className="absolute -top-3 -right-3 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 flex items-center gap-2 animate-fade-up" style={{ animationDelay: "2s" }}>
+              <div className="w-8 h-8 rounded-lg bg-[hsl(38,92%,50%)] flex items-center justify-center text-white text-xs font-bold">AI</div>
+              <div>
+                <p className="text-white text-xs font-semibold">Live Whiteboard</p>
+                <p className="text-white/50 text-[10px]">Personalized</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ── Subjects Strip ────────────────────────────────── */
+/* ── Visual Showcase ──────────────────────────────── */
+function VisualShowcase() {
+  const { ref, visible } = useReveal();
+  const features = [
+    { img: landingAiTutor, title: "AI Whiteboard Lectures", desc: "Watch your AI teacher explain on a real whiteboard", color: "from-[hsl(24,90%,55%)] to-[hsl(38,92%,50%)]" },
+    { img: landingGroupTest, title: "Group Test Battles", desc: "Challenge friends in real-time quiz competitions", color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]" },
+    { img: landingFlashcards, title: "FSRS Smart Flashcards", desc: "Never forget — AI schedules your revisions perfectly", color: "from-[hsl(258,90%,66%)] to-[hsl(280,80%,50%)]" },
+    { img: landingParent, title: "Parent Dashboard", desc: "Parents track progress, streaks, and weak areas", color: "from-[hsl(160,84%,39%)] to-[hsl(140,70%,40%)]" },
+  ];
+  return (
+    <section ref={ref} className="py-20 bg-[#0A0F1E] relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/3 w-80 h-80 bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent/8 rounded-full blur-[100px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <h2 className={`font-display font-bold text-3xl md:text-4xl text-center text-white mb-3 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+          Everything You Need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary" style={{ WebkitBackgroundClip: "text" }}>Ace Your Exams</span>
+        </h2>
+        <p className={`text-center text-white/50 mb-14 max-w-2xl mx-auto reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+          Built by Kota educators and AI engineers — every feature designed for Indian students
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className={`group relative overflow-hidden rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 reveal-base ${i % 2 === 0 ? "reveal-left" : "reveal-right"} ${visible ? "revealed" : ""}`}
+              style={{ transitionDelay: `${200 + i * 150}ms` }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={f.img}
+                  alt={f.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${f.color} text-white text-xs font-semibold mb-3`}>
+                  <Sparkles className="w-3 h-3" /> {f.title}
+                </div>
+                <p className="text-white/70 text-sm">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function SubjectsStrip() {
   const { ref, visible } = useReveal();
   const subjectColors: Record<string, string> = {
@@ -820,6 +881,7 @@ export default function Landing() {
       <MouseSpotlight />
       <LandingNavbar />
       <Hero />
+      <VisualShowcase />
       <SubjectsStrip />
       <HowItWorks />
       <FeatureHighlights />
