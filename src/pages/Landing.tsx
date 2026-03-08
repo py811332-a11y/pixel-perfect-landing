@@ -149,19 +149,17 @@ function Hero() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-wrap gap-8 mt-10 animate-fade-up stagger-4">
-            <div>
-              <span className="text-2xl font-display font-bold text-white"><Counter end={50000} suffix="+" /></span>
-              <p className="text-sm text-white/50">Students</p>
-            </div>
-            <div>
-              <span className="text-2xl font-display font-bold text-white"><Counter end={567} suffix="+" /></span>
-              <p className="text-sm text-white/50">Questions</p>
-            </div>
-            <div>
-              <span className="text-2xl font-display font-bold text-white">Class 6–10</span>
-              <p className="text-sm text-white/50">CBSE</p>
-            </div>
+          <div className="flex flex-wrap gap-6 mt-10 animate-fade-up stagger-4">
+            {[
+              { end: 10000, suffix: "+", label: "Active Students" },
+              { end: 5000, suffix: "+", label: "Practice Questions" },
+              { end: 80, suffix: "+", label: "NCERT Chapters" },
+            ].map((stat, i) => (
+              <div key={i} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/10">
+                <span className="text-2xl font-display font-bold text-white"><Counter end={stat.end} suffix={stat.suffix} /></span>
+                <span className="text-sm text-white/50">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="lg:col-span-2 hidden lg:block">
