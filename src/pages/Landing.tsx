@@ -487,8 +487,8 @@ function VirtualLabShowcase() {
     </section>
   );
 }
-      color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]",
-      features: ["Drag & drop circuit builder", "Pendulum simulator with adjustable gravity", "Real-time velocity-time graph plotter", "Wave interference patterns"],
+
+
       demo: (
         <div className="relative h-full flex items-center justify-center">
           <svg viewBox="0 0 300 200" className="w-full max-w-xs">
