@@ -127,7 +127,7 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-5 gap-12 items-center relative z-10">
         <div className="lg:col-span-3">
           <Badge className="bg-accent/20 text-accent border-accent/30 mb-6 animate-fade-up">
-            🇮🇳 Made in Kota, Rajasthan
+            Made in Kota, Rajasthan
           </Badge>
           <h1 className="font-display font-extrabold text-5xl md:text-7xl text-white leading-tight animate-fade-up stagger-1">
             India's Smartest<br />
