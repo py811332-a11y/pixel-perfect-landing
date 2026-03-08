@@ -27,7 +27,7 @@ export default function FlashcardReview() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center space-y-6 animate-fade-up">
-          <div className="text-6xl">🎉</div>
+          <div className="w-16 h-16 rounded-2xl bg-success/10 flex items-center justify-center"><CheckCircle className="w-8 h-8 text-success" /></div>
           <h1 className="font-display font-bold text-2xl text-foreground">Session Complete!</h1>
           <p className="text-muted-foreground">{sampleFlashcards.length} cards reviewed</p>
           <div className="flex justify-center gap-6 text-sm">
