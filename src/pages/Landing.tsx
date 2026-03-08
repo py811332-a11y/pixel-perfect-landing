@@ -489,10 +489,7 @@ function VirtualLabShowcase() {
 }
 
 
-      demo: (
-        <div className="relative h-full flex items-center justify-center">
-          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
-            <rect x="30" y="80" width="240" height="2" rx="1" fill="hsl(224, 76%, 40%)" opacity={0.3} />
+
             <rect x="30" y="120" width="240" height="2" rx="1" fill="hsl(224, 76%, 40%)" opacity={0.3} />
             <rect x="30" y="70" width="40" height="30" rx="4" fill="hsl(var(--muted))" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
             <line x1="42" y1="76" x2="42" y2="94" stroke="hsl(224, 76%, 40%)" strokeWidth="3" />
