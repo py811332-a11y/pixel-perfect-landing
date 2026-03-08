@@ -22,7 +22,7 @@ export default function StudyGroupSession() {
       <header className="flex items-center justify-between px-4 py-3 border-b border-white/10">
         <div className="flex items-center gap-3">
           <Link to="/study-groups" className="text-white/60 hover:text-white"><ArrowLeft className="w-5 h-5" /></Link>
-          <span className="font-display font-semibold text-white">Science Toppers 🔬</span>
+          <span className="font-display font-semibold text-white">Science Toppers</span>
           <Badge className="bg-success/20 text-success border-0 text-xs">● Live</Badge>
         </div>
         <p className="text-sm text-white/60">4 participants · 12:34 elapsed</p>
