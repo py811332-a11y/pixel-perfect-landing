@@ -16,6 +16,11 @@ import indiaVirtualLab from "@/assets/india-virtual-lab.png";
 import indiaFlashcards from "@/assets/india-flashcards.png";
 import indiaGroupBattle from "@/assets/india-group-battle.png";
 import indiaServers from "@/assets/india-servers.png";
+import heroStudent from "@/assets/hero-student.png";
+import landingAiTutor from "@/assets/landing-ai-tutor.png";
+import landingGroupTest from "@/assets/landing-group-test.png";
+import landingFlashcards from "@/assets/landing-flashcards.png";
+import landingParent from "@/assets/landing-parent.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
