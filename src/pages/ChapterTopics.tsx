@@ -25,7 +25,7 @@ export default function ChapterTopics() {
             </div>
           </div>
           <Link to="/books/9/science">
-            <Button variant="outline" size="sm">📖 Open NCERT Book</Button>
+            <Button variant="outline" size="sm">Open NCERT Book</Button>
           </Link>
         </div>
         <div className="space-y-3">
