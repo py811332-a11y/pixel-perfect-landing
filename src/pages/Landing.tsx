@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
+import logo from "@/assets/logo.png";
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
