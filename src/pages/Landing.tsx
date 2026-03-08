@@ -632,7 +632,7 @@ function Footer() {
         <div className="grid md:grid-cols-5 gap-8">
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
+              <img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-display font-bold text-foreground">ShikshaGuruji</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-2">India's Smartest AI Tutor</p>
