@@ -207,9 +207,15 @@ export const faqItems = [
 ];
 
 export const testimonials = [
-  { quote: "Scored 94% in Class 9 Science boards after using ShikshaGuruji for 2 months", name: "Sneha", location: "Kota" },
-  { quote: "The Group Test feature is addictive. Me and 5 friends compete every night", name: "Arjun", location: "Jaipur" },
-  { quote: "AI lecture for Mole Concept was better than my tuition teacher", name: "Priya", location: "Delhi" },
+  { quote: "Scored 94% in Class 10 Science boards after using ShikshaGuruji for 2 months", name: "Sneha", location: "Kota", class: 10 },
+  { quote: "The Group Test feature is addictive. Me and 5 friends compete every night before exams", name: "Arjun", location: "Jaipur", class: 9 },
+  { quote: "AI lecture for Mole Concept was better than my tuition teacher. Seriously mind-blown!", name: "Priya", location: "Delhi", class: 10 },
+  { quote: "Virtual Physics Lab helped me understand circuits without any equipment. Best thing ever", name: "Rohan", location: "Mumbai", class: 10 },
+  { quote: "I went from 55% to 89% in Maths in just 3 months. The FSRS flashcards are magic", name: "Kavya", location: "Lucknow", class: 9 },
+  { quote: "Parent Dashboard lets my mom track my progress. She's finally proud of my study habits!", name: "Dev", location: "Pune", class: 10 },
+  { quote: "The AI whiteboard explains like a real teacher. I paused my coaching classes", name: "Ananya", location: "Chandigarh", class: 10 },
+  { quote: "Group test battles with my school friends made studying actually fun for the first time", name: "Vikram", location: "Hyderabad", class: 9 },
+  { quote: "Finished entire Class 10 Social Science revision in 2 weeks using the flashcard system", name: "Meera", location: "Bangalore", class: 10 },
 ];
 
 export const whiteboardSteps = [
@@ -234,9 +240,29 @@ export const whiteboardSteps = [
 ];
 
 export const ncertBooks = [
-  { id: "science-9", subject: "Science", class: 9, chapters: 15, icon: "SC" },
-  { id: "math-9", subject: "Mathematics", class: 9, chapters: 15, icon: "MA" },
-  { id: "social-9", subject: "Social Science", class: 9, chapters: 27, icon: "SS" },
-  { id: "english-9", subject: "English", class: 9, chapters: 10, icon: "EN" },
-  { id: "hindi-9", subject: "Hindi", class: 9, chapters: 12, icon: "HI" },
+  { id: "science-9", subject: "Science", class: 9, chapters: 15, icon: "🔬" },
+  { id: "math-9", subject: "Mathematics", class: 9, chapters: 15, icon: "📐" },
+  { id: "social-9", subject: "Social Science", class: 9, chapters: 27, icon: "🌍" },
+  { id: "english-9", subject: "English", class: 9, chapters: 10, icon: "📖" },
+  { id: "hindi-9", subject: "Hindi", class: 9, chapters: 12, icon: "📝" },
+  { id: "science-10", subject: "Science", class: 10, chapters: 16, icon: "🔬" },
+  { id: "math-10", subject: "Mathematics", class: 10, chapters: 15, icon: "📐" },
+  { id: "social-10", subject: "Social Science", class: 10, chapters: 24, icon: "🌍" },
+  { id: "english-10", subject: "English", class: 10, chapters: 11, icon: "📖" },
+  { id: "hindi-10", subject: "Hindi", class: 10, chapters: 14, icon: "📝" },
+  { id: "science-6", subject: "Science", class: 6, chapters: 16, icon: "🔬" },
+  { id: "math-6", subject: "Mathematics", class: 6, chapters: 14, icon: "📐" },
+  { id: "social-6", subject: "Social Science", class: 6, chapters: 25, icon: "🌍" },
+  { id: "english-6", subject: "English", class: 6, chapters: 10, icon: "📖" },
+  { id: "hindi-6", subject: "Hindi", class: 6, chapters: 12, icon: "📝" },
+  { id: "science-7", subject: "Science", class: 7, chapters: 18, icon: "🔬" },
+  { id: "math-7", subject: "Mathematics", class: 7, chapters: 15, icon: "📐" },
+  { id: "social-7", subject: "Social Science", class: 7, chapters: 22, icon: "🌍" },
+  { id: "english-7", subject: "English", class: 7, chapters: 10, icon: "📖" },
+  { id: "hindi-7", subject: "Hindi", class: 7, chapters: 13, icon: "📝" },
+  { id: "science-8", subject: "Science", class: 8, chapters: 18, icon: "🔬" },
+  { id: "math-8", subject: "Mathematics", class: 8, chapters: 16, icon: "📐" },
+  { id: "social-8", subject: "Social Science", class: 8, chapters: 24, icon: "🌍" },
+  { id: "english-8", subject: "English", class: 8, chapters: 11, icon: "📖" },
+  { id: "hindi-8", subject: "Hindi", class: 8, chapters: 13, icon: "📝" },
 ];

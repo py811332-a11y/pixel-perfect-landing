@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,17 +7,26 @@ import { ncertBooks } from "@/data/mockData";
 
 export default function Books() {
   const classes = [6, 7, 8, 9, 10];
+  const [selectedClass, setSelectedClass] = useState(10);
+  const filtered = ncertBooks.filter(b => b.class === selectedClass);
+
   return (
     <AppLayout>
       <div className="p-6 lg:p-8 max-w-6xl mx-auto">
         <h1 className="font-display font-bold text-2xl text-foreground mb-6">NCERT Textbooks</h1>
         <div className="flex gap-2 mb-6">
           {classes.map(c => (
-            <button key={c} className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${c === 9 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>{c}</button>
+            <button
+              key={c}
+              onClick={() => setSelectedClass(c)}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${c === selectedClass ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+            >
+              Class {c}
+            </button>
           ))}
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
-          {ncertBooks.map(book => (
+          {filtered.map(book => (
             <Link key={book.id} to={`/books/${book.class}/${book.subject.toLowerCase().replace(" ", "-")}`}>
               <Card className="card-hover h-full">
                 <CardContent className="p-6 text-center">
