@@ -38,7 +38,7 @@ export default function StudyGroupSession() {
               </div>
               <div className="absolute bottom-3 left-3 flex items-center gap-2">
                 <span className="text-sm text-white font-medium">{p.name}</span>
-                {p.speaking && <span className="text-xs text-success">🎤 Speaking</span>}
+                {p.speaking && <span className="text-xs text-success">Speaking</span>}
               </div>
             </div>
           ))}
