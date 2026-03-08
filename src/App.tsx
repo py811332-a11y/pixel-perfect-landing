@@ -92,6 +92,7 @@ const App = () => (
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/billing" element={<Billing />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+          <Route path="/parent" element={<ParentPortal />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
