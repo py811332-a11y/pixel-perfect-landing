@@ -39,6 +39,11 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import ParentDashboard from "./pages/ParentDashboard";
 import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
+import Billing from "./pages/Billing";
+import Admin from "./pages/Admin";
+import StudyGroups from "./pages/StudyGroups";
+import StudyGroupSession from "./pages/StudyGroupSession";
+import GroupTestLobby from "./pages/GroupTestLobby";
 
 const queryClient = new QueryClient();
 
