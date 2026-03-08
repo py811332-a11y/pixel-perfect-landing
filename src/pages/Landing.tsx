@@ -23,6 +23,21 @@ import landingFlashcards from "@/assets/landing-flashcards.png";
 import landingParent from "@/assets/landing-parent.png";
 import parentDashboardUi from "@/assets/parent-dashboard-ui.png";
 import parentCheckingProgress from "@/assets/parent-checking-progress.png";
+import studentSneha from "@/assets/student-sneha.png";
+import studentArjun from "@/assets/student-arjun.png";
+import studentPriya from "@/assets/student-priya.png";
+import studentRohan from "@/assets/student-rohan.png";
+import studentKavya from "@/assets/student-kavya.png";
+import studentDev from "@/assets/student-dev.png";
+import studentAnanya from "@/assets/student-ananya.png";
+import studentVikram from "@/assets/student-vikram.png";
+import studentMeera from "@/assets/student-meera.png";
+
+const studentAvatars: Record<string, string> = {
+  sneha: studentSneha, arjun: studentArjun, priya: studentPriya,
+  rohan: studentRohan, kavya: studentKavya, dev: studentDev,
+  ananya: studentAnanya, vikram: studentVikram, meera: studentMeera,
+};
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
@@ -553,7 +568,7 @@ function Testimonials() {
                 <p className="text-muted-foreground italic leading-relaxed">"{t.quote}"</p>
                 <div className="mt-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">{t.name[0]}</div>
+                    <img src={studentAvatars[t.avatar]} alt={t.name} className="w-10 h-10 rounded-full object-cover border-2 border-primary/20" />
                     <p className="text-sm text-muted-foreground">{t.name}, {t.location}</p>
                   </div>
                   <Badge variant="outline" className="text-xs">Class {t.class}</Badge>
