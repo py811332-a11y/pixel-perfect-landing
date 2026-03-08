@@ -17,10 +17,10 @@ export default function Practice() {
 
   const q = diagnosticQuestions[qIndex % diagnosticQuestions.length];
   const modes = [
-    { id: "weak", label: "🎯 Weak Focus" },
-    { id: "chapter", label: "📚 Chapter Drill" },
-    { id: "mixed", label: "🎲 Mixed" },
-    { id: "jee", label: "🚀 JEE Simulation" },
+    { id: "weak", label: "Weak Focus" },
+    { id: "chapter", label: "Chapter Drill" },
+    { id: "mixed", label: "Mixed" },
+    { id: "jee", label: "JEE Simulation" },
   ];
 
   const handleSubmit = () => {
