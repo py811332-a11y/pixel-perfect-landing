@@ -21,6 +21,8 @@ import landingAiTutor from "@/assets/landing-ai-tutor.png";
 import landingGroupTest from "@/assets/landing-group-test.png";
 import landingFlashcards from "@/assets/landing-flashcards.png";
 import landingParent from "@/assets/landing-parent.png";
+import parentDashboardUi from "@/assets/parent-dashboard-ui.png";
+import parentCheckingProgress from "@/assets/parent-checking-progress.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
