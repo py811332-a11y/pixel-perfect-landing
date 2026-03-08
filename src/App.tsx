@@ -45,6 +45,11 @@ import Admin from "./pages/Admin";
 import StudyGroups from "./pages/StudyGroups";
 import StudyGroupSession from "./pages/StudyGroupSession";
 import GroupTestLobby from "./pages/GroupTestLobby";
+import VirtualLab from "./pages/VirtualLab";
+import PhysicsLab from "./pages/lab/PhysicsLab";
+import ChemistryLab from "./pages/lab/ChemistryLab";
+import MathLab from "./pages/lab/MathLab";
+import BiologyLab from "./pages/lab/BiologyLab";
 
 const queryClient = new QueryClient();
 
@@ -95,6 +100,11 @@ const App = () => (
           <Route path="/parent" element={<ParentPortal />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/virtual-lab" element={<VirtualLab />} />
+          <Route path="/virtual-lab/physics" element={<PhysicsLab />} />
+          <Route path="/virtual-lab/chemistry" element={<ChemistryLab />} />
+          <Route path="/virtual-lab/math" element={<MathLab />} />
+          <Route path="/virtual-lab/biology" element={<BiologyLab />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

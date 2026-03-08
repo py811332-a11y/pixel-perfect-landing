@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers } from "lucide-react";
+import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
 
 /* ── Scroll reveal hook ───────────────────────────── */
@@ -90,16 +90,16 @@ function LandingNavbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0A0F1E]/95 backdrop-blur-lg shadow-lg" : "bg-transparent"} border-b border-white/10`}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-2xl">🎓</span>
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
           <span className="font-display font-bold text-white text-lg">ShikshaGuruji</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {[
             { to: "/features", label: "Features" },
+            { to: "/virtual-lab", label: "Virtual Lab" },
             { to: "/pricing", label: "Pricing" },
             { to: "/chatbot", label: "AI Chatbot", icon: <MessageCircle className="w-3.5 h-3.5" /> },
             { to: "/about", label: "About" },
-            { to: "/contact", label: "Contact" },
           ].map(l => (
             <Link key={l.to} to={l.to} className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-1">
               {l.icon}{l.label}
@@ -120,7 +120,6 @@ function Hero() {
   return (
     <section className="relative min-h-screen bg-[#0A0F1E] flex items-center overflow-hidden">
       <HeroParticles />
-      {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/15 rounded-full blur-[100px] animate-float" style={{ animationDelay: "1.5s" }} />
 
@@ -234,13 +233,219 @@ function SubjectsStrip() {
   );
 }
 
+/* ── Virtual Lab Showcase ──────────────────────────── */
+function VirtualLabShowcase() {
+  const { ref, visible } = useReveal();
+  const [activeTab, setActiveTab] = useState(0);
+
+  const labs = [
+    {
+      icon: <Atom className="w-6 h-6" />,
+      title: "Physics",
+      color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]",
+      features: ["Drag & drop circuit builder", "Pendulum simulator with adjustable gravity", "Real-time velocity-time graph plotter", "Wave interference patterns"],
+      demo: (
+        <div className="relative h-full flex items-center justify-center">
+          {/* Circuit demo visual */}
+          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
+            <rect x="30" y="80" width="240" height="2" rx="1" fill="hsl(224, 76%, 40%)" opacity={0.3} />
+            <rect x="30" y="120" width="240" height="2" rx="1" fill="hsl(224, 76%, 40%)" opacity={0.3} />
+            {/* Battery */}
+            <rect x="30" y="70" width="40" height="30" rx="4" fill="hsl(var(--muted))" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <line x1="42" y1="76" x2="42" y2="94" stroke="hsl(224, 76%, 40%)" strokeWidth="3" />
+            <line x1="58" y1="72" x2="58" y2="98" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            {/* Bulb glowing */}
+            <circle cx="150" cy="80" r="18" fill="hsl(38, 92%, 50%)" />
+            <circle cx="150" cy="80" r="28" fill="hsl(38, 92%, 50%)" opacity="0.2" className="animate-pulse" />
+            <circle cx="150" cy="80" r="38" fill="hsl(38, 92%, 50%)" opacity="0.1" className="animate-pulse" />
+            <line x1="142" y1="72" x2="158" y2="88" stroke="white" strokeWidth="1.5" />
+            <line x1="158" y1="72" x2="142" y2="88" stroke="white" strokeWidth="1.5" />
+            {/* Resistor */}
+            <path d="M220,80 L230,70 L240,90 L250,70 L260,90 L270,80" fill="none" stroke="hsl(0, 84%, 60%)" strokeWidth="2" />
+            {/* Wires */}
+            <line x1="70" y1="85" x2="132" y2="81" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <line x1="168" y1="81" x2="220" y2="81" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <line x1="270" y1="81" x2="270" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <line x1="270" y1="120" x2="30" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <line x1="30" y1="100" x2="30" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
+            <text x="150" y="140" textAnchor="middle" fontSize="10" fill="hsl(224, 76%, 40%)" fontWeight="bold">Circuit Complete — Bulb Glowing!</text>
+          </svg>
+        </div>
+      ),
+    },
+    {
+      icon: <FlaskConical className="w-6 h-6" />,
+      title: "Chemistry",
+      color: "from-[hsl(160,84%,39%)] to-[hsl(160,84%,25%)]",
+      features: ["Mix chemicals in virtual beakers", "Watch real-time colour changes", "pH indicator testing lab", "Acid-base neutralization"],
+      demo: (
+        <div className="relative h-full flex items-center justify-center">
+          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
+            {/* Beaker */}
+            <path d="M100,40 L100,150 Q100,170 120,170 L180,170 Q200,170 200,150 L200,40" fill="none" stroke="hsl(var(--border))" strokeWidth="2.5" />
+            <line x1="90" y1="40" x2="210" y2="40" stroke="hsl(var(--border))" strokeWidth="3" strokeLinecap="round" />
+            {/* Liquid mixing */}
+            <path d="M103,80 L103,150 Q103,167 120,167 L180,167 Q197,167 197,150 L197,80" fill="hsla(330, 80%, 65%, 0.7)" className="animate-pulse" />
+            {/* Bubbles */}
+            {[120, 140, 160, 175, 130, 155, 145].map((x, i) => (
+              <circle key={i} cx={x} cy={150 - i * 12} r={2 + Math.random() * 3} fill="white" opacity={0.7} className="animate-float" style={{ animationDelay: `${i * 0.2}s` }} />
+            ))}
+            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(160, 84%, 39%)" fontWeight="bold">NaOH + Phenolphthalein → Pink!</text>
+          </svg>
+        </div>
+      ),
+    },
+    {
+      icon: <Ruler className="w-6 h-6" />,
+      title: "Mathematics",
+      color: "from-[hsl(258,90%,66%)] to-[hsl(258,90%,50%)]",
+      features: ["Interactive coordinate grid plotter", "Fraction bar visualizer", "Number line with operations", "Geometry construction tools"],
+      demo: (
+        <div className="relative h-full flex items-center justify-center">
+          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
+            {/* Grid */}
+            {Array.from({ length: 11 }).map((_, i) => (
+              <g key={i}>
+                <line x1={30 + i * 24} y1="10" x2={30 + i * 24} y2="190" stroke="hsl(var(--border))" strokeWidth="0.5" />
+                <line x1="30" y1={10 + i * 18} x2="270" y2={10 + i * 18} stroke="hsl(var(--border))" strokeWidth="0.5" />
+              </g>
+            ))}
+            {/* Axes */}
+            <line x1="150" y1="10" x2="150" y2="190" stroke="hsl(222, 84%, 5%)" strokeWidth="1.5" />
+            <line x1="30" y1="100" x2="270" y2="100" stroke="hsl(222, 84%, 5%)" strokeWidth="1.5" />
+            {/* Plotted line */}
+            <line x1="78" y1="136" x2="222" y2="64" stroke="hsl(258, 90%, 66%)" strokeWidth="2.5" />
+            {/* Points */}
+            <circle cx="78" cy="136" r="5" fill="hsl(258, 90%, 66%)" />
+            <circle cx="150" cy="100" r="5" fill="hsl(258, 90%, 66%)" />
+            <circle cx="222" cy="64" r="5" fill="hsl(258, 90%, 66%)" />
+            <text x="80" y="155" fontSize="9" fill="hsl(258, 90%, 66%)">(-3,-2)</text>
+            <text x="155" y="95" fontSize="9" fill="hsl(258, 90%, 66%)">(0,0)</text>
+            <text x="225" y="60" fontSize="9" fill="hsl(258, 90%, 66%)">(3,2)</text>
+            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(258, 90%, 66%)" fontWeight="bold">y = (2/3)x — Slope = 0.67</text>
+          </svg>
+        </div>
+      ),
+    },
+    {
+      icon: <Microscope className="w-6 h-6" />,
+      title: "Biology",
+      color: "from-[hsl(38,92%,50%)] to-[hsl(25,90%,45%)]",
+      features: ["Interactive human anatomy explorer", "Virtual microscope with zoom", "Genetics Punnett square lab", "Cell structure exploration"],
+      demo: (
+        <div className="relative h-full flex items-center justify-center">
+          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
+            {/* Microscope circle */}
+            <circle cx="150" cy="100" r="85" fill="white" stroke="hsl(var(--border))" strokeWidth="3" />
+            {/* Cells */}
+            {[[110, 70], [170, 60], [130, 120], [180, 130], [100, 140]].map(([cx, cy], i) => (
+              <g key={i}>
+                <ellipse cx={cx} cy={cy} rx={30} ry={25} fill="hsl(120, 30%, 88%)" stroke="hsl(120, 40%, 60%)" strokeWidth="1.5" />
+                <ellipse cx={cx} cy={cy} rx={8} ry={6} fill="hsl(270, 50%, 50%)" />
+                {i === 2 && (
+                  <>
+                    <ellipse cx={cx} cy={cy} rx={15} ry={8} fill="none" stroke="hsl(120, 60%, 40%)" strokeWidth="1.5" />
+                    <ellipse cx={cx} cy={cy} rx={5} ry={2} fill="hsl(120, 40%, 70%)" />
+                  </>
+                )}
+              </g>
+            ))}
+            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(38, 92%, 50%)" fontWeight="bold">Leaf Stomata — 400x magnification</text>
+          </svg>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-[#0A0F1E] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <Badge className={`bg-primary/20 text-primary-light border-primary/30 mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+            New — No Equipment Required
+          </Badge>
+          <h2 className={`font-display font-extrabold text-4xl md:text-5xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+            Virtual PCMB Lab
+          </h2>
+          <p className={`text-lg text-white/60 max-w-2xl mx-auto reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "200ms" }}>
+            Perform real NCERT experiments right in your browser. Build circuits, mix chemicals, plot graphs, and explore anatomy — all interactive.
+          </p>
+        </div>
+
+        {/* Tab selector */}
+        <div className={`flex justify-center gap-3 mb-10 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "300ms" }}>
+          {labs.map((lab, i) => (
+            <button key={i} onClick={() => setActiveTab(i)}
+              className={`flex items-center gap-2 px-5 py-3 rounded-xl font-display font-semibold text-sm transition-all duration-300 ${activeTab === i
+                ? `bg-gradient-to-r ${lab.color} text-white shadow-lg scale-105`
+                : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"}`}>
+              {lab.icon}
+              <span className="hidden md:inline">{lab.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Active lab content */}
+        <div className={`reveal-base reveal-scale ${visible ? "revealed" : ""}`} style={{ transitionDelay: "400ms" }}>
+          <Card className="bg-white/5 backdrop-blur-sm border-white/10 overflow-hidden">
+            <CardContent className="p-0">
+              <div className="grid lg:grid-cols-2">
+                {/* Demo visualization */}
+                <div className={`bg-gradient-to-br ${labs[activeTab].color} p-8 min-h-[320px] flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-10">
+                    {Array.from({ length: 15 }).map((_, i) => (
+                      <div key={i} className="absolute w-1 h-1 bg-white rounded-full animate-float" style={{
+                        left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`,
+                        animationDelay: `${i * 0.3}s`, animationDuration: `${2 + Math.random() * 3}s`
+                      }} />
+                    ))}
+                  </div>
+                  <div className="relative z-10 w-full">
+                    {labs[activeTab].demo}
+                  </div>
+                </div>
+
+                {/* Feature list */}
+                <div className="p-8 flex flex-col justify-center">
+                  <h3 className="font-display font-bold text-2xl text-white mb-2">{labs[activeTab].title} Lab</h3>
+                  <p className="text-white/50 text-sm mb-6">Interactive experiments aligned with NCERT curriculum</p>
+                  <ul className="space-y-4">
+                    {labs[activeTab].features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-3 animate-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
+                        <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3.5 h-3.5 text-white" />
+                        </div>
+                        <span className="text-white/80 text-sm">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/virtual-lab" className="mt-8">
+                    <Button size="lg" className="bg-white text-foreground hover:bg-white/90 gap-2 glow-hover">
+                      Enter Virtual Lab <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── How It Works ──────────────────────────────────── */
 function HowItWorks() {
   const { ref, visible } = useReveal();
   const steps = [
-    { icon: "🧪", title: "Take Diagnostic", desc: "40 questions, AI maps your weak areas", color: "from-primary/20 to-primary/5" },
-    { icon: "🎓", title: "Watch AI Lecture", desc: "Personalized whiteboard lecture just for you", color: "from-accent/20 to-accent/5" },
-    { icon: "🎯", title: "Test Yourself", desc: "Topic tests + challenge friends", color: "from-success/20 to-success/5" },
+    { icon: <Target className="w-8 h-8 text-primary" />, title: "Take Diagnostic", desc: "40 questions, AI maps your weak areas", color: "from-primary/20 to-primary/5" },
+    { icon: <BookOpen className="w-8 h-8 text-accent" />, title: "Watch AI Lecture", desc: "Personalized whiteboard lecture just for you", color: "from-accent/20 to-accent/5" },
+    { icon: <Trophy className="w-8 h-8 text-success" />, title: "Test Yourself", desc: "Topic tests + challenge friends", color: "from-success/20 to-success/5" },
   ];
 
   return (
@@ -249,11 +454,10 @@ function HowItWorks() {
         <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>How It Works</h2>
         <p className={`text-center text-muted-foreground mb-14 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>3 simple steps to better grades</p>
         <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line */}
           <div className="hidden md:block absolute top-1/3 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-primary/30 via-accent/30 to-success/30" />
           {steps.map((step, i) => (
             <div key={i} className={`text-center relative reveal-base ${i === 0 ? "reveal-left" : i === 2 ? "reveal-right" : "reveal-up"} ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 200}ms` }}>
-              <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} mx-auto flex items-center justify-center text-5xl mb-4 transition-transform duration-500 hover:scale-110 hover:-rotate-3`}>
+              <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} mx-auto flex items-center justify-center mb-4 transition-transform duration-500 hover:scale-110 hover:-rotate-3`}>
                 {step.icon}
               </div>
               <div className="absolute -top-2 -right-2 md:right-auto md:left-1/2 md:-translate-x-1/2 md:-top-3 w-8 h-8 rounded-full bg-primary text-primary-foreground font-display font-bold text-sm flex items-center justify-center shadow-lg">
@@ -311,25 +515,24 @@ function FeatureHighlights() {
 function Testimonials() {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="py-20 bg-[#0A0F1E] relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[150px]" />
+    <section ref={ref} className="py-20 bg-card relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <h2 className={`font-display font-bold text-3xl text-center text-white mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`}>What Students Say</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`}>What Students Say</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <Card key={i} className={`glass-card hover:bg-white/10 transition-all duration-500 group reveal-base reveal-rotate ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 180}ms` }}>
+            <Card key={i} className={`card-hover transition-all duration-500 group reveal-base reveal-rotate ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 180}ms` }}>
               <CardContent className="p-6">
                 <div className="flex gap-1 mb-3">
                   {Array(5).fill(0).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-accent text-accent transition-transform duration-300 group-hover:scale-110" style={{ transitionDelay: `${j * 50}ms` }} />
                   ))}
                 </div>
-                <p className="text-white/80 italic leading-relaxed">"{t.quote}"</p>
+                <p className="text-muted-foreground italic leading-relaxed">"{t.quote}"</p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/30 flex items-center justify-center text-sm font-bold text-primary-foreground">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">
                     {t.name[0]}
                   </div>
-                  <p className="text-white/50 text-sm">{t.name}, {t.location}</p>
+                  <p className="text-sm text-muted-foreground">{t.name}, {t.location}</p>
                 </div>
               </CardContent>
             </Card>
@@ -361,13 +564,13 @@ function PricingPreview() {
                 <div className="relative z-10">
                   <h3 className="font-display font-bold text-foreground">{plan.name}</h3>
                   <div className="mt-2">
-                    <span className="font-display text-3xl font-bold text-foreground">₹{plan.price}</span>
+                    <span className="font-display text-3xl font-bold text-foreground">{plan.price}</span>
                     <span className="text-sm text-muted-foreground">/{plan.period}</span>
                   </div>
                   <ul className="mt-4 space-y-2">
                     {plan.features.slice(0, 4).map((f, j) => (
                       <li key={j} className="text-sm flex items-start gap-2">
-                        <span className={f.included ? "text-success" : "text-destructive"}>{f.included ? "✅" : "❌"}</span>
+                        {f.included ? <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" /> : <X className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />}
                         <span className={f.included ? "text-foreground" : "text-muted-foreground"}>{f.text}</span>
                       </li>
                     ))}
@@ -426,7 +629,7 @@ function FinalCTA() {
           <Sparkles className="w-4 h-4" /> Join 50,000+ students
         </div>
         <h2 className="font-display font-bold text-4xl text-white mb-4">Start your free account in 30 seconds</h2>
-        <p className="text-white/60 mb-8 text-lg">No credit card required. Class 6-10 CBSE. Made in India 🇮🇳</p>
+        <p className="text-white/60 mb-8 text-lg">No credit card required. Class 6-10 CBSE. Made in India.</p>
         <Link to="/register">
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-14 px-10 text-lg glow-hover">
             Create Free Account <ArrowRight className="w-5 h-5" />
@@ -442,6 +645,7 @@ function Footer() {
   const links = {
     Product: [
       { label: "Features", path: "/features" },
+      { label: "Virtual Lab", path: "/virtual-lab" },
       { label: "Pricing", path: "/pricing" },
       { label: "Group Test", path: "/group-test" },
       { label: "NCERT Books", path: "/books" },
@@ -471,7 +675,7 @@ function Footer() {
         <div className="grid md:grid-cols-5 gap-8">
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl">🎓</span>
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
               <span className="font-display font-bold text-foreground">ShikshaGuruji</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-2">India's Smartest AI Tutor</p>
@@ -506,6 +710,7 @@ export default function Landing() {
       <LandingNavbar />
       <Hero />
       <SubjectsStrip />
+      <VirtualLabShowcase />
       <HowItWorks />
       <FeatureHighlights />
       <Testimonials />
