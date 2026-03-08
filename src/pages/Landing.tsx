@@ -176,9 +176,9 @@ function Hero() {
                 <div className="mt-4 space-y-2 opacity-0 animate-fade-up" style={{ animationDelay: "3.5s" }}>
                   <p className="text-sm text-muted-foreground">Solid → Liquid → Gas</p>
                   <div className="flex gap-2 mt-3">
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">🧊</div>
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">💧</div>
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">💨</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">S</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">L</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">G</div>
                   </div>
                 </div>
               </div>

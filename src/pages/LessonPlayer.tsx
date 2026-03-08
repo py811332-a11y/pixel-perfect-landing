@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, ArrowRight, Pause, Play, Bookmark, FileText } from "lucide-react";
+import { ArrowLeft, ArrowRight, Pause, Play, Bookmark, FileText, CheckCircle } from "lucide-react";
 import { whiteboardSteps } from "@/data/mockData";
 
 export default function LessonPlayer() {

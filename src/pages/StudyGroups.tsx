@@ -18,7 +18,7 @@ export default function StudyGroups() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="font-display font-bold text-2xl text-foreground">Study Groups</h1>
-            <p className="text-sm text-muted-foreground mt-1">Study together, score together 🎯</p>
+            <p className="text-sm text-muted-foreground mt-1">Study together, score together</p>
           </div>
           <Button className="gap-2"><Plus className="w-4 h-4" /> Create Group</Button>
         </div>

@@ -9,7 +9,7 @@ export default function BookViewer() {
         <Link to="/books" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6">
           <ArrowLeft className="w-4 h-4" /> Back to Library
         </Link>
-        <h1 className="font-display font-bold text-2xl text-foreground mb-6">📘 Science — Class 9</h1>
+        <h1 className="font-display font-bold text-2xl text-foreground mb-6">Science — Class 9</h1>
         <div className="bg-card border border-border rounded-xl overflow-hidden shadow-md">
           <div className="grid md:grid-cols-2 min-h-[600px]">
             <div className="border-r border-border p-8 bg-[#FFF8F0]">

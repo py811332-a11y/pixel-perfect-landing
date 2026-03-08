@@ -187,7 +187,7 @@ export default function Chatbot() {
             <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
               <Bot className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="font-display font-bold text-2xl text-white mb-2">Hi! I'm ShikshaGuruji AI 🎓</h2>
+            <h2 className="font-display font-bold text-2xl text-white mb-2">Hi! I'm ShikshaGuruji AI</h2>
             <p className="text-white/50 max-w-md mb-8">
               Ask me anything about NCERT topics for Class 6-10. I'll explain concepts, solve problems, and help you study!
             </p>

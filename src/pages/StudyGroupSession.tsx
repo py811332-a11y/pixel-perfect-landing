@@ -47,7 +47,7 @@ export default function StudyGroupSession() {
         {/* Whiteboard Area */}
         <div className="hidden lg:flex flex-col w-96 border-l border-white/10">
           <div className="p-3 border-b border-white/10 flex items-center justify-between">
-            <span className="text-sm text-white font-medium">📝 Shared Whiteboard</span>
+            <span className="text-sm text-white font-medium">Shared Whiteboard</span>
             <Button variant="ghost" size="sm" className="text-white/60 hover:text-white text-xs">Clear</Button>
           </div>
           <div className="flex-1 bg-white rounded-lg m-3 p-4">

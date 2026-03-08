@@ -25,7 +25,7 @@ export default function GroupTestCreate() {
                 <Button variant="outline" className="gap-2"><Copy className="w-4 h-4" /> Copy Code</Button>
                 <Button className="gap-2 bg-success hover:bg-success/90 text-success-foreground"><Share2 className="w-4 h-4" /> Share on WhatsApp</Button>
               </div>
-              <p className="text-sm text-muted-foreground mt-6">⏱ Code expires in 29:45</p>
+              <p className="text-sm text-muted-foreground mt-6">Code expires in 29:45</p>
             </CardContent>
           </Card>
           <div className="text-left">

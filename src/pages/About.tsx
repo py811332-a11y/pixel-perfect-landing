@@ -19,7 +19,7 @@ export default function About() {
             { title: "Private", desc: "Your data is yours. No selling, no ads" },
           ].map((v, i) => (
             <div key={i} className="p-6 bg-card rounded-xl border border-border">
-              <span className="text-3xl block mb-2">{v.icon}</span>
+              <h3 className="font-display font-semibold text-foreground">{v.title}</h3>
               <h3 className="font-display font-semibold text-foreground">{v.title}</h3>
               <p className="text-sm text-muted-foreground mt-1">{v.desc}</p>
             </div>

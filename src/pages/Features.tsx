@@ -41,7 +41,7 @@ export default function Features() {
               ))}</ul>
             </div>
             <div className={`bg-muted rounded-xl p-12 flex items-center justify-center ${f.reverse ? "md:order-1" : ""}`}>
-              <span className="text-7xl">{f.emoji}</span>
+              <span className="font-display font-bold text-4xl text-primary">{f.title.split(" ")[0]}</span>
             </div>
           </div>
         ))}

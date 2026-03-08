@@ -48,7 +48,7 @@ export default function Flashcards() {
                   <div className="mt-3 space-y-1.5 text-sm">
                     <p className="text-foreground">{deck.cards} cards</p>
                     <p className={deck.due > 0 ? "text-destructive font-medium" : "text-success"}>
-                      {deck.due > 0 ? `${deck.due} due today 🔴` : "0 due ✅"}
+                      {deck.due > 0 ? `${deck.due} due today` : "0 due"}
                     </p>
                     <p className="text-muted-foreground">Mastery: {deck.mastery}%</p>
                   </div>

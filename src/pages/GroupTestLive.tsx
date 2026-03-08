@@ -47,7 +47,7 @@ export default function GroupTestLive() {
 
       <div className="border-t border-border p-4">
         <p className="text-sm text-muted-foreground text-center">
-          👥 ✓ Sneha submitted · ✓ Dev submitted · ⌛ Priya... · ⌛ Ananya...
+          Sneha submitted · Dev submitted · Priya... · Ananya...
         </p>
       </div>
     </div>

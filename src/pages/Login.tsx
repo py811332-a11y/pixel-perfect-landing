@@ -25,7 +25,7 @@ export default function Login() {
       <div className="lg:col-span-3 flex items-center justify-center p-8">
         <div className="w-full max-w-md space-y-6">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <span className="text-2xl">🎓</span>
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
             <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
           </div>
 
