@@ -127,7 +127,7 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-5 gap-12 items-center relative z-10">
         <div className="lg:col-span-3">
           <Badge className="bg-accent/20 text-accent border-accent/30 mb-6 animate-fade-up">
-            🇮🇳 Made in Kota, Rajasthan
+            Made in Kota, Rajasthan
           </Badge>
           <h1 className="font-display font-extrabold text-5xl md:text-7xl text-white leading-tight animate-fade-up stagger-1">
             India's Smartest<br />
@@ -176,9 +176,9 @@ function Hero() {
                 <div className="mt-4 space-y-2 opacity-0 animate-fade-up" style={{ animationDelay: "3.5s" }}>
                   <p className="text-sm text-muted-foreground">Solid → Liquid → Gas</p>
                   <div className="flex gap-2 mt-3">
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">🧊</div>
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">💧</div>
-                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs">💨</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">S</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">L</div>
+                    <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">G</div>
                   </div>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, BookOpen } from "lucide-react";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,12 +12,12 @@ export default function Login() {
       {/* Left panel */}
       <div className="hidden lg:flex lg:col-span-2 bg-[#0A0F1E] flex-col justify-center items-center p-12">
         <Link to="/" className="flex items-center gap-2 mb-8">
-          <span className="text-4xl">🎓</span>
+          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">SG</div>
           <span className="font-display font-bold text-2xl text-white">ShikshaGuruji</span>
         </Link>
-        <p className="text-white/60 text-center text-lg">Welcome back, future topper 🎯</p>
+        <p className="text-white/60 text-center text-lg">Welcome back, future topper</p>
         <div className="mt-12 w-32 h-32 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-          <div className="text-6xl">📚</div>
+          <BookOpen className="w-12 h-12 text-white/40" />
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export default function Login() {
       <div className="lg:col-span-3 flex items-center justify-center p-8">
         <div className="w-full max-w-md space-y-6">
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <span className="text-2xl">🎓</span>
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
             <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
           </div>
 

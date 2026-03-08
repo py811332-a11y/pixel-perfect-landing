@@ -40,7 +40,7 @@ export default function SubjectChapters() {
                   </div>
                   <span className="text-xs text-muted-foreground">{ch.topics} topics</span>
                   <Badge variant="secondary" className="text-xs">
-                    {ch.status === "mastered" ? "⭐ Mastered" : ch.status === "in-progress" ? "✅ In Progress" : "🔒 Locked"}
+                    {ch.status === "mastered" ? "Mastered" : ch.status === "in-progress" ? "In Progress" : "Locked"}
                   </Badge>
                 </CardContent>
               </Card>

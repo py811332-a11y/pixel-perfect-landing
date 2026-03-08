@@ -17,10 +17,10 @@ export default function Practice() {
 
   const q = diagnosticQuestions[qIndex % diagnosticQuestions.length];
   const modes = [
-    { id: "weak", label: "🎯 Weak Focus" },
-    { id: "chapter", label: "📚 Chapter Drill" },
-    { id: "mixed", label: "🎲 Mixed" },
-    { id: "jee", label: "🚀 JEE Simulation" },
+    { id: "weak", label: "Weak Focus" },
+    { id: "chapter", label: "Chapter Drill" },
+    { id: "mixed", label: "Mixed" },
+    { id: "jee", label: "JEE Simulation" },
   ];
 
   const handleSubmit = () => {
@@ -88,7 +88,7 @@ export default function Practice() {
         <div className="flex gap-6 mt-4 text-sm text-muted-foreground">
           <span>Correct: <strong className="text-success">{correct}</strong></span>
           <span>Wrong: <strong className="text-destructive">{wrong}</strong></span>
-          <span>Streak: <strong className="text-accent">{streak} 🔥</strong></span>
+          <span>Streak: <strong className="text-accent">{streak}</strong></span>
         </div>
       </div>
     </AppLayout>

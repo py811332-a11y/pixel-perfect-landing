@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, AlertTriangle, TrendingUp, CheckCircle } from "lucide-react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import { diagnosticQuestions, subjects } from "@/data/mockData";
 
@@ -35,7 +35,7 @@ export default function Diagnostic() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="max-w-md text-center space-y-6 animate-fade-up">
-          <div className="text-6xl">🧪</div>
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"><Sparkles className="w-8 h-8 text-primary" /></div>
           <h1 className="font-display font-bold text-3xl text-foreground">Let's find your strengths</h1>
           <p className="text-muted-foreground">{questions.length} questions across 5 subjects. No timer. Be honest!</p>
           <p className="text-sm text-muted-foreground">This helps us personalize your lessons</p>
@@ -86,7 +86,7 @@ export default function Diagnostic() {
     <div className="min-h-screen bg-background flex items-center justify-center p-6">
       <div className="max-w-lg w-full space-y-6 animate-fade-up">
         <div className="text-center">
-          <h1 className="font-display font-bold text-2xl text-foreground">Here's what we found about you! 🎉</h1>
+          <h1 className="font-display font-bold text-2xl text-foreground">Here's what we found about you!</h1>
         </div>
         <div className="w-full h-64">
           <ResponsiveContainer>
@@ -105,7 +105,7 @@ export default function Diagnostic() {
               <Progress value={s.progress} className="flex-1 h-2" />
               <span className="text-sm font-semibold text-foreground w-10 text-right">{s.progress}%</span>
               <span className="text-xs">
-                {s.progress >= 70 ? "💪" : s.progress >= 50 ? "👍" : "⚠️"}
+                {s.progress >= 70 ? <TrendingUp className="w-4 h-4 text-success" /> : s.progress >= 50 ? <CheckCircle className="w-4 h-4 text-primary" /> : <AlertTriangle className="w-4 h-4 text-accent" />}
               </span>
             </div>
           ))}

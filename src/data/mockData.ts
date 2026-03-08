@@ -18,11 +18,11 @@ export const studentProfile = {
 };
 
 export const subjects = [
-  { id: "science", name: "Science", icon: "🔬", color: "subject-science", chapters: 15, progress: 78, topicsMastered: 11, totalTopics: 15 },
-  { id: "math", name: "Mathematics", icon: "📐", color: "subject-math", chapters: 15, progress: 62, topicsMastered: 9, totalTopics: 15 },
-  { id: "social", name: "Social Science", icon: "🌍", color: "subject-social", chapters: 27, progress: 48, topicsMastered: 7, totalTopics: 27 },
-  { id: "english", name: "English", icon: "📖", color: "subject-english", chapters: 10, progress: 71, topicsMastered: 7, totalTopics: 10 },
-  { id: "hindi", name: "Hindi", icon: "🇮🇳", color: "subject-hindi", chapters: 12, progress: 38, topicsMastered: 4, totalTopics: 12 },
+  { id: "science", name: "Science", icon: "SC", color: "subject-science", chapters: 15, progress: 78, topicsMastered: 11, totalTopics: 15 },
+  { id: "math", name: "Mathematics", icon: "MA", color: "subject-math", chapters: 15, progress: 62, topicsMastered: 9, totalTopics: 15 },
+  { id: "social", name: "Social Science", icon: "SS", color: "subject-social", chapters: 27, progress: 48, topicsMastered: 7, totalTopics: 27 },
+  { id: "english", name: "English", icon: "EN", color: "subject-english", chapters: 10, progress: 71, topicsMastered: 7, totalTopics: 10 },
+  { id: "hindi", name: "Hindi", icon: "HI", color: "subject-hindi", chapters: 12, progress: 38, topicsMastered: 4, totalTopics: 12 },
 ];
 
 export const scienceChapters = [
@@ -55,9 +55,9 @@ export const chapterTopics = [
 ];
 
 export const leaderboard = [
-  { rank: 1, name: "Sneha Gupta", xp: 8450, avatar: "", badge: "🥇" },
-  { rank: 2, name: "Rahul Verma", xp: 7200, avatar: "", badge: "🥈" },
-  { rank: 3, name: "Priya Sharma", xp: 6890, avatar: "", badge: "🥉" },
+  { rank: 1, name: "Sneha Gupta", xp: 8450, avatar: "", badge: "#1" },
+  { rank: 2, name: "Rahul Verma", xp: 7200, avatar: "", badge: "#2" },
+  { rank: 3, name: "Priya Sharma", xp: 6890, avatar: "", badge: "#3" },
   { rank: 4, name: "Arjun Kumar", xp: 5420, avatar: "", isYou: true },
   { rank: 5, name: "Dev Sharma", xp: 4800, avatar: "" },
   { rank: 6, name: "Ananya Singh", xp: 4200, avatar: "" },
@@ -79,164 +79,44 @@ export const flashcardDecks = [
 export const sampleFlashcards = [
   { id: "fc1", front: "What is Brownian Motion?", back: "Brownian Motion is the random, zigzag movement of particles suspended in a fluid (liquid or gas), caused by collisions with the surrounding fast-moving molecules.\n\nExample: Dust particles dancing in a sunbeam" },
   { id: "fc2", front: "Define Evaporation", back: "Evaporation is a surface phenomenon where liquid changes to gas at any temperature below its boiling point. It causes a cooling effect.\n\nFactors: Temperature, surface area, humidity, wind speed" },
-  { id: "fc3", front: "What is Sublimation?", back: "Sublimation is the direct conversion of a solid to gas without passing through the liquid state.\n\nExamples: Dry ice (solid CO₂), Naphthalene balls, Camphor" },
-  { id: "fc4", front: "State Boyle's Law", back: "At constant temperature, the volume of a gas is inversely proportional to its pressure.\n\nP₁V₁ = P₂V₂" },
+  { id: "fc3", front: "What is Sublimation?", back: "Sublimation is the direct conversion of a solid to gas without passing through the liquid state.\n\nExamples: Dry ice (solid CO2), Naphthalene balls, Camphor" },
+  { id: "fc4", front: "State Boyle's Law", back: "At constant temperature, the volume of a gas is inversely proportional to its pressure.\n\nP1V1 = P2V2" },
 ];
 
 export const diagnosticQuestions = [
-  {
-    id: 1, subject: "Science", chapter: "Chapter 1",
-    question: "A mixture of sand and water is an example of:",
-    options: ["Compound", "Heterogeneous mixture", "Homogeneous mixture", "Element"],
-    correct: 1,
-  },
-  {
-    id: 2, subject: "Science", chapter: "Chapter 3",
-    question: "Which of the following is NOT a subatomic particle?",
-    options: ["Proton", "Neutron", "Photon", "Electron"],
-    correct: 2,
-  },
-  {
-    id: 3, subject: "Math", chapter: "Chapter 1",
-    question: "Which of these is an irrational number?",
-    options: ["3/4", "√2", "0.5", "7"],
-    correct: 1,
-  },
-  {
-    id: 4, subject: "Math", chapter: "Chapter 2",
-    question: "The degree of the polynomial 4x³ + 2x² + 7 is:",
-    options: ["1", "2", "3", "7"],
-    correct: 2,
-  },
-  {
-    id: 5, subject: "Social", chapter: "Chapter 1",
-    question: "The French Revolution began in:",
-    options: ["1776", "1789", "1799", "1804"],
-    correct: 1,
-  },
-  {
-    id: 6, subject: "English", chapter: "Chapter 1",
-    question: "A word that modifies a verb is called:",
-    options: ["Adjective", "Adverb", "Pronoun", "Conjunction"],
-    correct: 1,
-  },
-  {
-    id: 7, subject: "Hindi", chapter: "Chapter 1",
-    question: "संज्ञा के कितने भेद होते हैं?",
-    options: ["3", "4", "5", "6"],
-    correct: 2,
-  },
-  {
-    id: 8, subject: "Science", chapter: "Chapter 8",
-    question: "A car starts from rest and accelerates at 4 m/s². What is its velocity after 5 seconds?",
-    options: ["10 m/s", "15 m/s", "20 m/s", "25 m/s"],
-    correct: 2,
-  },
-  {
-    id: 9, subject: "Science", chapter: "Chapter 1",
-    question: "Which property distinguishes a liquid from a gas?",
-    options: ["Has definite shape", "Has definite volume but no fixed shape", "Has neither definite shape nor volume", "Has both definite shape and volume"],
-    correct: 1,
-  },
-  {
-    id: 10, subject: "Math", chapter: "Chapter 5",
-    question: "If two angles are supplementary and one is 60°, the other is:",
-    options: ["30°", "90°", "120°", "150°"],
-    correct: 2,
-  },
+  { id: 1, subject: "Science", chapter: "Chapter 1", question: "A mixture of sand and water is an example of:", options: ["Compound", "Heterogeneous mixture", "Homogeneous mixture", "Element"], correct: 1 },
+  { id: 2, subject: "Science", chapter: "Chapter 3", question: "Which of the following is NOT a subatomic particle?", options: ["Proton", "Neutron", "Photon", "Electron"], correct: 2 },
+  { id: 3, subject: "Math", chapter: "Chapter 1", question: "Which of these is an irrational number?", options: ["3/4", "√2", "0.5", "7"], correct: 1 },
+  { id: 4, subject: "Math", chapter: "Chapter 2", question: "The degree of the polynomial 4x3 + 2x2 + 7 is:", options: ["1", "2", "3", "7"], correct: 2 },
+  { id: 5, subject: "Social", chapter: "Chapter 1", question: "The French Revolution began in:", options: ["1776", "1789", "1799", "1804"], correct: 1 },
+  { id: 6, subject: "English", chapter: "Chapter 1", question: "A word that modifies a verb is called:", options: ["Adjective", "Adverb", "Pronoun", "Conjunction"], correct: 1 },
+  { id: 7, subject: "Hindi", chapter: "Chapter 1", question: "संज्ञा के कितने भेद होते हैं?", options: ["3", "4", "5", "6"], correct: 2 },
+  { id: 8, subject: "Science", chapter: "Chapter 8", question: "A car starts from rest and accelerates at 4 m/s2. What is its velocity after 5 seconds?", options: ["10 m/s", "15 m/s", "20 m/s", "25 m/s"], correct: 2 },
+  { id: 9, subject: "Science", chapter: "Chapter 1", question: "Which property distinguishes a liquid from a gas?", options: ["Has definite shape", "Has definite volume but no fixed shape", "Has neither definite shape nor volume", "Has both definite shape and volume"], correct: 1 },
+  { id: 10, subject: "Math", chapter: "Chapter 5", question: "If two angles are supplementary and one is 60 degrees, the other is:", options: ["30 degrees", "90 degrees", "120 degrees", "150 degrees"], correct: 2 },
 ];
 
 export const topicTestQuestions = [
-  {
-    id: 1,
-    question: "Which property distinguishes a liquid from a gas?",
-    options: ["Has definite shape", "Has definite volume but no fixed shape", "Has neither definite shape nor volume", "Has both definite shape and volume"],
-    correct: 1,
-    explanation: "Liquids have definite volume but take the shape of their container.",
-  },
-  {
-    id: 2,
-    question: "What happens when a solid is heated?",
-    options: ["Particles slow down", "Particles move faster and farther apart", "Particles stop moving", "Particles get smaller"],
-    correct: 1,
-    explanation: "Heating provides energy which increases kinetic energy of particles, making them vibrate faster and move farther apart.",
-  },
-  {
-    id: 3,
-    question: "Sublimation is the process of converting:",
-    options: ["Solid to liquid", "Liquid to gas", "Solid directly to gas", "Gas to liquid"],
-    correct: 2,
-    explanation: "Sublimation is the direct conversion from solid to gas without passing through the liquid state. Examples: dry ice, camphor.",
-  },
-  {
-    id: 4,
-    question: "Which of the following is NOT a factor affecting evaporation?",
-    options: ["Surface area", "Temperature", "Color of liquid", "Wind speed"],
-    correct: 2,
-    explanation: "Evaporation depends on surface area, temperature, humidity, and wind speed — not the color of the liquid.",
-  },
-  {
-    id: 5,
-    question: "The boiling point of water is:",
-    options: ["90°C", "100°C", "110°C", "120°C"],
-    correct: 1,
-    explanation: "Water boils at 100°C (212°F) at standard atmospheric pressure.",
-  },
-  {
-    id: 6,
-    question: "Brownian motion proves that:",
-    options: ["Liquids expand on heating", "Particles of matter are in constant motion", "Gas is lighter than liquid", "Solids are hard"],
-    correct: 1,
-    explanation: "Brownian motion — the random zigzag movement of particles — proves that matter is made of particles in constant motion.",
-  },
-  {
-    id: 7,
-    question: "Which state of matter has the highest kinetic energy?",
-    options: ["Solid", "Liquid", "Gas", "All have equal"],
-    correct: 2,
-    explanation: "Gas particles have the highest kinetic energy, which is why they move freely and rapidly in all directions.",
-  },
-  {
-    id: 8,
-    question: "Latent heat is the heat required to:",
-    options: ["Raise temperature by 1°C", "Change state without changing temperature", "Cool a substance", "Melt ice at 0°C only"],
-    correct: 1,
-    explanation: "Latent heat is the heat energy absorbed or released during a change of state without any change in temperature.",
-  },
-  {
-    id: 9,
-    question: "Dry ice is an example of:",
-    options: ["Freezing", "Evaporation", "Sublimation", "Condensation"],
-    correct: 2,
-    explanation: "Dry ice (solid CO₂) directly converts from solid to gas — this process is called sublimation.",
-  },
-  {
-    id: 10,
-    question: "Plasma is sometimes called the:",
-    options: ["First state of matter", "Second state of matter", "Third state of matter", "Fourth state of matter"],
-    correct: 3,
-    explanation: "Plasma is called the fourth state of matter. It exists in stars, fluorescent lights, and lightning.",
-  },
+  { id: 1, question: "Which property distinguishes a liquid from a gas?", options: ["Has definite shape", "Has definite volume but no fixed shape", "Has neither definite shape nor volume", "Has both definite shape and volume"], correct: 1, explanation: "Liquids have definite volume but take the shape of their container." },
+  { id: 2, question: "What happens when a solid is heated?", options: ["Particles slow down", "Particles move faster and farther apart", "Particles stop moving", "Particles get smaller"], correct: 1, explanation: "Heating provides energy which increases kinetic energy of particles, making them vibrate faster and move farther apart." },
+  { id: 3, question: "Sublimation is the process of converting:", options: ["Solid to liquid", "Liquid to gas", "Solid directly to gas", "Gas to liquid"], correct: 2, explanation: "Sublimation is the direct conversion from solid to gas without passing through the liquid state. Examples: dry ice, camphor." },
+  { id: 4, question: "Which of the following is NOT a factor affecting evaporation?", options: ["Surface area", "Temperature", "Color of liquid", "Wind speed"], correct: 2, explanation: "Evaporation depends on surface area, temperature, humidity, and wind speed — not the color of the liquid." },
+  { id: 5, question: "The boiling point of water is:", options: ["90 C", "100 C", "110 C", "120 C"], correct: 1, explanation: "Water boils at 100 C (212 F) at standard atmospheric pressure." },
+  { id: 6, question: "Brownian motion proves that:", options: ["Liquids expand on heating", "Particles of matter are in constant motion", "Gas is lighter than liquid", "Solids are hard"], correct: 1, explanation: "Brownian motion — the random zigzag movement of particles — proves that matter is made of particles in constant motion." },
+  { id: 7, question: "Which state of matter has the highest kinetic energy?", options: ["Solid", "Liquid", "Gas", "All have equal"], correct: 2, explanation: "Gas particles have the highest kinetic energy, which is why they move freely and rapidly in all directions." },
+  { id: 8, question: "Latent heat is the heat required to:", options: ["Raise temperature by 1 C", "Change state without changing temperature", "Cool a substance", "Melt ice at 0 C only"], correct: 1, explanation: "Latent heat is the heat energy absorbed or released during a change of state without any change in temperature." },
+  { id: 9, question: "Dry ice is an example of:", options: ["Freezing", "Evaporation", "Sublimation", "Condensation"], correct: 2, explanation: "Dry ice (solid CO2) directly converts from solid to gas — this process is called sublimation." },
+  { id: 10, question: "Plasma is sometimes called the:", options: ["First state of matter", "Second state of matter", "Third state of matter", "Fourth state of matter"], correct: 3, explanation: "Plasma is called the fourth state of matter. It exists in stars, fluorescent lights, and lightning." },
 ];
 
 export const groupTestHistory = [
-  {
-    code: "ABC123",
-    subject: "Science",
-    chapter: "Chapter 1",
-    questions: 10,
-    timeLimit: 15,
-    date: "2 days ago",
-    rank: 1,
-    total: 6,
-    score: 90,
-  },
+  { code: "ABC123", subject: "Science", chapter: "Chapter 1", questions: 10, timeLimit: 15, date: "2 days ago", rank: 1, total: 6, score: 90 },
 ];
 
 export const groupTestResults = [
-  { rank: 1, name: "Sneha", score: 90, correct: 18, total: 20, time: "4:12 min", badge: "🥇" },
-  { rank: 2, name: "Arjun", score: 85, correct: 17, total: 20, time: "4:45 min", badge: "🥈", isYou: true },
-  { rank: 3, name: "Priya", score: 70, correct: 14, total: 20, time: "6:30 min", badge: "🥉" },
+  { rank: 1, name: "Sneha", score: 90, correct: 18, total: 20, time: "4:12 min", badge: "#1" },
+  { rank: 2, name: "Arjun", score: 85, correct: 17, total: 20, time: "4:45 min", badge: "#2", isYou: true },
+  { rank: 3, name: "Priya", score: 70, correct: 14, total: 20, time: "6:30 min", badge: "#3" },
   { rank: 4, name: "Dev", score: 65, correct: 13, total: 20, time: "7:15 min" },
   { rank: 5, name: "Ananya", score: 50, correct: 10, total: 20, time: "9:20 min" },
 ];
@@ -252,29 +132,26 @@ export const weeklyXP = [
 ];
 
 export const badges = [
-  { name: "First Lesson", icon: "🥇", earned: true, date: "Jan 15" },
-  { name: "3-Day Streak", icon: "🔥", earned: true, date: "Jan 18" },
-  { name: "Topic Master", icon: "⭐", earned: true, date: "Feb 2" },
-  { name: "100 Problems", icon: "💪", earned: true, date: "Feb 10" },
-  { name: "Group Test Win", icon: "🎯", earned: true, date: "Feb 15" },
-  { name: "7-Day Streak", icon: "🔥", earned: true, date: "Feb 20" },
-  { name: "Speed Demon", icon: "⚡", earned: true, date: "Mar 1" },
-  { name: "Perfect Score", icon: "💯", earned: true, date: "Mar 3" },
-  { name: "Book Worm", icon: "📚", earned: true, date: "Mar 4" },
-  { name: "Social Star", icon: "🌟", earned: true, date: "Mar 5" },
-  { name: "Math Wizard", icon: "🧙", earned: true, date: "Mar 6" },
-  { name: "Science Pro", icon: "🔬", earned: true, date: "Mar 7" },
-  { name: "30-Day Streak", icon: "🔥", earned: false },
-  { name: "All Subjects", icon: "🌈", earned: false },
-  { name: "JEE Ready", icon: "🚀", earned: false },
+  { name: "First Lesson", icon: "FL", earned: true, date: "Jan 15" },
+  { name: "3-Day Streak", icon: "3D", earned: true, date: "Jan 18" },
+  { name: "Topic Master", icon: "TM", earned: true, date: "Feb 2" },
+  { name: "100 Problems", icon: "HP", earned: true, date: "Feb 10" },
+  { name: "Group Test Win", icon: "GW", earned: true, date: "Feb 15" },
+  { name: "7-Day Streak", icon: "7D", earned: true, date: "Feb 20" },
+  { name: "Speed Demon", icon: "SD", earned: true, date: "Mar 1" },
+  { name: "Perfect Score", icon: "PS", earned: true, date: "Mar 3" },
+  { name: "Book Worm", icon: "BW", earned: true, date: "Mar 4" },
+  { name: "Social Star", icon: "SS", earned: true, date: "Mar 5" },
+  { name: "Math Wizard", icon: "MW", earned: true, date: "Mar 6" },
+  { name: "Science Pro", icon: "SP", earned: true, date: "Mar 7" },
+  { name: "30-Day Streak", icon: "30", earned: false },
+  { name: "All Subjects", icon: "AS", earned: false },
+  { name: "JEE Ready", icon: "JR", earned: false },
 ];
 
 export const pricingPlans = [
   {
-    id: "free",
-    name: "FREE",
-    price: 0,
-    period: "forever",
+    id: "free", name: "FREE", price: 0, period: "forever",
     features: [
       { text: "5 Subjects (Class 9 only)", included: true },
       { text: "Basic practice problems", included: true },
@@ -283,15 +160,10 @@ export const pricingPlans = [
       { text: "AI Lectures", included: false },
       { text: "Analytics", included: false },
     ],
-    cta: "Start Free",
-    variant: "outline" as const,
-    popular: false,
+    cta: "Start Free", variant: "outline" as const, popular: false,
   },
   {
-    id: "basic",
-    name: "BASIC",
-    price: 299,
-    period: "month",
+    id: "basic", name: "BASIC", price: 299, period: "month",
     features: [
       { text: "Everything in Free", included: true },
       { text: "AI Whiteboard Lectures", included: true },
@@ -300,15 +172,10 @@ export const pricingPlans = [
       { text: "Progress Analytics", included: true },
       { text: "All classes 6-10", included: true },
     ],
-    cta: "Start Free Trial",
-    variant: "default" as const,
-    popular: false,
+    cta: "Start Free Trial", variant: "default" as const, popular: false,
   },
   {
-    id: "pro",
-    name: "PRO",
-    price: 599,
-    period: "month",
+    id: "pro", name: "PRO", price: 599, period: "month",
     features: [
       { text: "Everything in Basic", included: true },
       { text: "AI Tutor (unlimited)", included: true },
@@ -317,15 +184,10 @@ export const pricingPlans = [
       { text: "Parent Dashboard", included: true },
       { text: "Progress PDF Reports", included: true },
     ],
-    cta: "Upgrade to PRO",
-    variant: "default" as const,
-    popular: true,
+    cta: "Upgrade to PRO", variant: "default" as const, popular: true,
   },
   {
-    id: "jee",
-    name: "JEE ELITE",
-    price: 999,
-    period: "month",
+    id: "jee", name: "JEE ELITE", price: 999, period: "month",
     features: [
       { text: "Everything in Pro", included: true },
       { text: "JEE Mock Tests (3-hour)", included: true },
@@ -334,9 +196,7 @@ export const pricingPlans = [
       { text: "Class 11-12 content", included: true },
       { text: "Priority support", included: true },
     ],
-    cta: "Go JEE Elite",
-    variant: "default" as const,
-    popular: false,
+    cta: "Go JEE Elite", variant: "default" as const, popular: false,
   },
 ];
 
@@ -356,29 +216,29 @@ export const testimonials = [
 
 export const whiteboardSteps = [
   { title: "States of Matter", content: "Matter exists in 3 main states:" },
-  { title: "", content: "• Solid → Definite shape & volume\n  Examples: Ice, Iron, Wood" },
-  { title: "", content: "• Liquid → Definite volume, no fixed shape\n  Examples: Water, Milk, Oil" },
-  { title: "", content: "• Gas → No fixed shape or volume\n  Examples: Air, Steam, CO₂" },
+  { title: "", content: "- Solid: Definite shape & volume\n  Examples: Ice, Iron, Wood" },
+  { title: "", content: "- Liquid: Definite volume, no fixed shape\n  Examples: Water, Milk, Oil" },
+  { title: "", content: "- Gas: No fixed shape or volume\n  Examples: Air, Steam, CO2" },
   { title: "Key Properties", content: "Arrangement of particles:\n  Solid: Tightly packed\n  Liquid: Loosely packed\n  Gas: Very loosely packed" },
   { title: "", content: "Kinetic Energy:\n  Solid < Liquid < Gas" },
-  { title: "Important Formula", content: "Density: ρ = m/V\n\nwhere:\n  ρ = density (kg/m³)\n  m = mass (kg)\n  V = volume (m³)" },
-  { title: "Change of State", content: "Solid ──heat──→ Liquid ──heat──→ Gas\n         (melting)         (boiling)" },
-  { title: "", content: "Gas ──cool──→ Liquid ──cool──→ Solid\n      (condensation)    (freezing)" },
+  { title: "Important Formula", content: "Density: p = m/V\n\nwhere:\n  p = density (kg/m3)\n  m = mass (kg)\n  V = volume (m3)" },
+  { title: "Change of State", content: "Solid --heat--> Liquid --heat--> Gas\n         (melting)         (boiling)" },
+  { title: "", content: "Gas --cool--> Liquid --cool--> Solid\n      (condensation)    (freezing)" },
   { title: "Latent Heat", content: "Heat absorbed during state change\nwithout temperature change.\n\nLatent heat of fusion: 334 J/g\nLatent heat of vaporization: 2260 J/g" },
-  { title: "Evaporation", content: "Surface phenomenon\nOccurs at ANY temperature\n\nFactors:\n  ↑ Temperature → ↑ Evaporation\n  ↑ Surface area → ↑ Evaporation\n  ↑ Wind speed → ↑ Evaporation\n  ↓ Humidity → ↑ Evaporation" },
+  { title: "Evaporation", content: "Surface phenomenon\nOccurs at ANY temperature\n\nFactors:\n  Higher Temperature = More Evaporation\n  Higher Surface area = More Evaporation\n  Higher Wind speed = More Evaporation\n  Lower Humidity = More Evaporation" },
   { title: "", content: "Evaporation causes COOLING\nExample: We feel cold after a bath" },
-  { title: "Sublimation", content: "Direct solid → gas conversion\n\nExamples:\n  • Dry ice (solid CO₂)\n  • Naphthalene balls\n  • Camphor" },
+  { title: "Sublimation", content: "Direct solid to gas conversion\n\nExamples:\n  - Dry ice (solid CO2)\n  - Naphthalene balls\n  - Camphor" },
   { title: "Brownian Motion", content: "Random zigzag movement of particles\nin a fluid.\n\nProves: Matter is made of particles\nthat are constantly moving." },
-  { title: "Boyle's Law", content: "At constant temperature:\n\nP₁V₁ = P₂V₂\n\nPressure ∝ 1/Volume" },
-  { title: "Charles's Law", content: "At constant pressure:\n\nV₁/T₁ = V₂/T₂\n\nVolume ∝ Temperature" },
+  { title: "Boyle's Law", content: "At constant temperature:\n\nP1V1 = P2V2\n\nPressure is inversely proportional to Volume" },
+  { title: "Charles's Law", content: "At constant pressure:\n\nV1/T1 = V2/T2\n\nVolume is directly proportional to Temperature" },
   { title: "Ideal Gas Equation", content: "PV = nRT\n\nwhere:\n  P = pressure\n  V = volume\n  n = moles\n  R = gas constant\n  T = temperature (K)" },
-  { title: "Summary", content: "✓ 3 states: Solid, Liquid, Gas\n✓ Particles: arrangement & energy\n✓ State changes: melting, boiling, etc.\n✓ Evaporation: surface, cooling\n✓ PV = nRT\n\n🎉 Great job! Ready for the test?" },
+  { title: "Summary", content: "- 3 states: Solid, Liquid, Gas\n- Particles: arrangement & energy\n- State changes: melting, boiling, etc.\n- Evaporation: surface, cooling\n- PV = nRT\n\nGreat job! Ready for the test?" },
 ];
 
 export const ncertBooks = [
-  { id: "science-9", subject: "Science", class: 9, chapters: 15, icon: "📘" },
-  { id: "math-9", subject: "Mathematics", class: 9, chapters: 15, icon: "📗" },
-  { id: "social-9", subject: "Social Science", class: 9, chapters: 27, icon: "📙" },
-  { id: "english-9", subject: "English", class: 9, chapters: 10, icon: "📕" },
-  { id: "hindi-9", subject: "Hindi", class: 9, chapters: 12, icon: "📔" },
+  { id: "science-9", subject: "Science", class: 9, chapters: 15, icon: "SC" },
+  { id: "math-9", subject: "Mathematics", class: 9, chapters: 15, icon: "MA" },
+  { id: "social-9", subject: "Social Science", class: 9, chapters: 27, icon: "SS" },
+  { id: "english-9", subject: "English", class: 9, chapters: 10, icon: "EN" },
+  { id: "hindi-9", subject: "Hindi", class: 9, chapters: 12, icon: "HI" },
 ];

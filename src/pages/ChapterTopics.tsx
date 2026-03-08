@@ -25,7 +25,7 @@ export default function ChapterTopics() {
             </div>
           </div>
           <Link to="/books/9/science">
-            <Button variant="outline" size="sm">📖 Open NCERT Book</Button>
+            <Button variant="outline" size="sm">Open NCERT Book</Button>
           </Link>
         </div>
         <div className="space-y-3">
@@ -38,7 +38,7 @@ export default function ChapterTopics() {
                     <p className="text-sm font-medium text-foreground">{topic.name}</p>
                   </div>
                   <Badge variant="secondary" className="text-xs">
-                    {topic.status === "mastered" ? "⭐ Mastered" : topic.status === "in-progress" ? "✅ In Progress" : topic.status === "not-started" ? "○ Not started" : "🔒 Locked"}
+                    {topic.status === "mastered" ? "Mastered" : topic.status === "in-progress" ? "In Progress" : topic.status === "not-started" ? "Not started" : "Locked"}
                   </Badge>
                 </CardContent>
               </Card>

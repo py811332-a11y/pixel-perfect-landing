@@ -16,7 +16,7 @@ export default function GroupTestCreate() {
     return (
       <AppLayout>
         <div className="p-6 lg:p-8 max-w-lg mx-auto text-center">
-          <h1 className="font-display font-bold text-2xl text-foreground mb-8">Your test is ready! 🎉</h1>
+          <h1 className="font-display font-bold text-2xl text-foreground mb-8">Your test is ready!</h1>
           <Card className="mb-6">
             <CardContent className="p-8">
               <p className="text-sm text-muted-foreground mb-4">Share this code with friends:</p>
@@ -25,7 +25,7 @@ export default function GroupTestCreate() {
                 <Button variant="outline" className="gap-2"><Copy className="w-4 h-4" /> Copy Code</Button>
                 <Button className="gap-2 bg-success hover:bg-success/90 text-success-foreground"><Share2 className="w-4 h-4" /> Share on WhatsApp</Button>
               </div>
-              <p className="text-sm text-muted-foreground mt-6">⏱ Code expires in 29:45</p>
+              <p className="text-sm text-muted-foreground mt-6">Code expires in 29:45</p>
             </CardContent>
           </Card>
           <div className="text-left">

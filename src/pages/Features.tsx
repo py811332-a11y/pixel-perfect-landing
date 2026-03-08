@@ -17,7 +17,7 @@ export default function Features() {
   return (
     <div className="min-h-screen bg-background">
       <nav className="h-16 border-b border-border flex items-center px-6">
-        <Link to="/" className="flex items-center gap-2"><span className="text-2xl">🎓</span><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
+        <Link to="/" className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
         <div className="ml-auto flex gap-4 items-center">
           <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground">Pricing</Link>
           <Link to="/login"><Button size="sm">Login</Button></Link>
@@ -26,11 +26,11 @@ export default function Features() {
 
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-20">
         {[
-          { title: "AI Whiteboard Lectures", desc: "Lectures that know your weaknesses", points: ["Personalized per student", "Bilingual EN/Hindi", "Pauses for doubts", "Adjusts difficulty"], emoji: "🤖", reverse: false },
-          { title: "Group Test Challenge", desc: "Study alone is boring. Challenge your friends.", points: ["Create test in 30 seconds", "Share 6-digit code", "Real-time leaderboard"], emoji: "🎯", reverse: true },
-          { title: "FSRS Smart Flashcards", desc: "Review cards just before you forget them", points: ["Spaced repetition algorithm", "Optimal review scheduling", "Track mastery per topic"], emoji: "🃏", reverse: false },
-          { title: "NCERT Flipbook", desc: "Your textbook. Right here. Page-turn and everything.", points: ["All NCERT books Class 6-10", "Linked to lessons and tests", "Bookmark and highlight"], emoji: "📖", reverse: true },
-          { title: "Progress Analytics", desc: "Radar chart, error patterns, AI study tips", points: ["5-subject radar chart", "Weekly improvement tracking", "AI-powered study recommendations"], emoji: "📊", reverse: false },
+          { title: "AI Whiteboard Lectures", desc: "Lectures that know your weaknesses", points: ["Personalized per student", "Bilingual EN/Hindi", "Pauses for doubts", "Adjusts difficulty"], reverse: false },
+          { title: "Group Test Challenge", desc: "Study alone is boring. Challenge your friends.", points: ["Create test in 30 seconds", "Share 6-digit code", "Real-time leaderboard"], reverse: true },
+          { title: "FSRS Smart Flashcards", desc: "Review cards just before you forget them", points: ["Spaced repetition algorithm", "Optimal review scheduling", "Track mastery per topic"], reverse: false },
+          { title: "NCERT Flipbook", desc: "Your textbook. Right here. Page-turn and everything.", points: ["All NCERT books Class 6-10", "Linked to lessons and tests", "Bookmark and highlight"], reverse: true },
+          { title: "Progress Analytics", desc: "Radar chart, error patterns, AI study tips", points: ["5-subject radar chart", "Weekly improvement tracking", "AI-powered study recommendations"], reverse: false },
         ].map((f, i) => (
           <div key={i} className={`grid md:grid-cols-2 gap-12 items-center ${f.reverse ? "direction-rtl" : ""}`}>
             <div className={f.reverse ? "md:order-2" : ""}>
@@ -41,7 +41,7 @@ export default function Features() {
               ))}</ul>
             </div>
             <div className={`bg-muted rounded-xl p-12 flex items-center justify-center ${f.reverse ? "md:order-1" : ""}`}>
-              <span className="text-7xl">{f.emoji}</span>
+              <span className="font-display font-bold text-4xl text-primary">{f.title.split(" ")[0]}</span>
             </div>
           </div>
         ))}

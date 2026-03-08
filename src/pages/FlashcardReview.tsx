@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckCircle } from "lucide-react";
 import { sampleFlashcards } from "@/data/mockData";
 
 export default function FlashcardReview() {
@@ -27,7 +27,7 @@ export default function FlashcardReview() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center space-y-6 animate-fade-up">
-          <div className="text-6xl">🎉</div>
+          <div className="w-16 h-16 rounded-2xl bg-success/10 flex items-center justify-center"><CheckCircle className="w-8 h-8 text-success" /></div>
           <h1 className="font-display font-bold text-2xl text-foreground">Session Complete!</h1>
           <p className="text-muted-foreground">{sampleFlashcards.length} cards reviewed</p>
           <div className="flex justify-center gap-6 text-sm">
@@ -79,10 +79,10 @@ export default function FlashcardReview() {
         <div className="border-t border-border p-6 animate-fade-up">
           <p className="text-center text-sm text-muted-foreground mb-4">How well did you know this?</p>
           <div className="flex justify-center gap-3">
-            <Button variant="outline" className="border-destructive text-destructive hover:bg-destructive/10" onClick={() => handleRate("again")}>😰 Again</Button>
-            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10" onClick={() => handleRate("hard")}>😐 Hard</Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => handleRate("good")}>🙂 Good</Button>
-            <Button variant="outline" className="border-success text-success hover:bg-success/10" onClick={() => handleRate("easy")}>😄 Easy</Button>
+            <Button variant="outline" className="border-destructive text-destructive hover:bg-destructive/10" onClick={() => handleRate("again")}>Again</Button>
+            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10" onClick={() => handleRate("hard")}>Hard</Button>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => handleRate("good")}>Good</Button>
+            <Button variant="outline" className="border-success text-success hover:bg-success/10" onClick={() => handleRate("easy")}>Easy</Button>
           </div>
         </div>
       )}

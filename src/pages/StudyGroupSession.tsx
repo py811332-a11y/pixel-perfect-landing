@@ -22,7 +22,7 @@ export default function StudyGroupSession() {
       <header className="flex items-center justify-between px-4 py-3 border-b border-white/10">
         <div className="flex items-center gap-3">
           <Link to="/study-groups" className="text-white/60 hover:text-white"><ArrowLeft className="w-5 h-5" /></Link>
-          <span className="font-display font-semibold text-white">Science Toppers 🔬</span>
+          <span className="font-display font-semibold text-white">Science Toppers</span>
           <Badge className="bg-success/20 text-success border-0 text-xs">● Live</Badge>
         </div>
         <p className="text-sm text-white/60">4 participants · 12:34 elapsed</p>
@@ -38,7 +38,7 @@ export default function StudyGroupSession() {
               </div>
               <div className="absolute bottom-3 left-3 flex items-center gap-2">
                 <span className="text-sm text-white font-medium">{p.name}</span>
-                {p.speaking && <span className="text-xs text-success">🎤 Speaking</span>}
+                {p.speaking && <span className="text-xs text-success">Speaking</span>}
               </div>
             </div>
           ))}
@@ -47,7 +47,7 @@ export default function StudyGroupSession() {
         {/* Whiteboard Area */}
         <div className="hidden lg:flex flex-col w-96 border-l border-white/10">
           <div className="p-3 border-b border-white/10 flex items-center justify-between">
-            <span className="text-sm text-white font-medium">📝 Shared Whiteboard</span>
+            <span className="text-sm text-white font-medium">Shared Whiteboard</span>
             <Button variant="ghost" size="sm" className="text-white/60 hover:text-white text-xs">Clear</Button>
           </div>
           <div className="flex-1 bg-white rounded-lg m-3 p-4">

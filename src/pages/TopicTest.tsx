@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, CheckCircle, XCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, XCircle, TrendingUp } from "lucide-react";
 import { topicTestQuestions } from "@/data/mockData";
 
 type Phase = "test" | "feedback" | "results";
@@ -43,7 +43,7 @@ export default function TopicTest() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center space-y-6 animate-fade-up">
-          <div className="text-6xl">{passed ? "🎉" : "💪"}</div>
+          <div className="text-6xl">{passed ? <CheckCircle className="w-16 h-16 text-success" /> : <TrendingUp className="w-16 h-16 text-primary" />}</div>
           <h1 className="font-display font-bold text-2xl text-foreground">
             {passed ? "Topic Mastered!" : "Almost there!"}
           </h1>

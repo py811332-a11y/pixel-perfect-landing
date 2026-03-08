@@ -13,9 +13,9 @@ export default function TeacherDashboard() {
           <Card><CardContent className="p-6">
             <h2 className="font-display font-semibold text-foreground mb-4">Class Heatmap — Weak Topics</h2>
             <div className="space-y-3">
-              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.3: Atoms and Molecules</span><Badge variant="destructive">🔴 42% accuracy</Badge></div>
-              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.8: Motion</span><Badge className="bg-accent/20 text-accent border-0">🟡 58% accuracy</Badge></div>
-              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.1: States of Matter</span><Badge className="bg-success/20 text-success border-0">🟢 76% accuracy</Badge></div>
+              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.3: Atoms and Molecules</span><Badge variant="destructive">42% accuracy</Badge></div>
+              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.8: Motion</span><Badge className="bg-accent/20 text-accent border-0">58% accuracy</Badge></div>
+              <div className="flex items-center justify-between"><span className="text-sm text-foreground">Ch.1: States of Matter</span><Badge className="bg-success/20 text-success border-0">76% accuracy</Badge></div>
             </div>
           </CardContent></Card>
           <Card><CardContent className="p-6">

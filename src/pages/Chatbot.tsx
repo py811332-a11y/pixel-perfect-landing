@@ -18,7 +18,7 @@ const SUGGESTIONS = [
 ];
 
 const AI_RESPONSES: Record<string, string> = {
-  "explain states of matter": `**States of Matter** 🧊💧💨
+  "explain states of matter": `**States of Matter**
 
 Matter exists in three main states:
 
@@ -32,75 +32,75 @@ Matter exists in three main states:
    - Example: Oxygen, Steam, Carbon dioxide
 
 **Key Formula:** Energy input causes state changes:
-- Solid → Liquid (Melting)
-- Liquid → Gas (Evaporation/Boiling)
-- Solid → Gas (Sublimation)
+- Solid to Liquid (Melting)
+- Liquid to Gas (Evaporation/Boiling)
+- Solid to Gas (Sublimation)
 
-Want me to explain any of these in more detail? 🎓`,
+Want me to explain any of these in more detail?`,
 
-  "what is newton's second law?": `**Newton's Second Law of Motion** ⚡
+  "what is newton's second law?": `**Newton's Second Law of Motion**
 
 > *The rate of change of momentum of an object is directly proportional to the applied force and takes place in the direction of the force.*
 
 **Formula:**
-\`F = m × a\`
+F = m x a
 
 Where:
 - **F** = Force (in Newtons, N)
 - **m** = Mass (in kg)
-- **a** = Acceleration (in m/s²)
+- **a** = Acceleration (in m/s2)
 
 **Example:**
-If a 10 kg object accelerates at 3 m/s²:
-F = 10 × 3 = **30 N**
+If a 10 kg object accelerates at 3 m/s2:
+F = 10 x 3 = **30 N**
 
 **Key Points for CBSE:**
 - More force = more acceleration
 - More mass = less acceleration (for same force)
 - Force and acceleration are in the same direction
 
-Shall I solve a numerical problem on this? 📐`,
+Shall I solve a numerical problem on this?`,
 
-  "solve: find velocity if a=4m/s², t=5s": `**Solution** 📝
+  "solve: find velocity if a=4m/s², t=5s": `**Solution**
 
 **Given:**
-- Acceleration (a) = 4 m/s²
+- Acceleration (a) = 4 m/s2
 - Time (t) = 5 seconds
 - Initial velocity (u) = 0 m/s (starts from rest)
 
 **Using the first equation of motion:**
-\`v = u + at\`
+v = u + at
 
 **Substituting values:**
-v = 0 + (4 × 5)
-v = **20 m/s** ✅
+v = 0 + (4 x 5)
+v = **20 m/s**
 
 **Answer:** The velocity after 5 seconds is **20 m/s**.
 
-Want to try a similar problem? 🎯`,
+Want to try a similar problem?`,
 
-  "explain the mole concept simply": `**The Mole Concept** 🔬
+  "explain the mole concept simply": `**The Mole Concept**
 
 Think of "mole" as a **counting word** — like "dozen" means 12, a **mole** means:
 
-> **6.022 × 10²³** particles (Avogadro's Number)
+> **6.022 x 10^23** particles (Avogadro's Number)
 
 **Why do we need it?**
 Atoms are too tiny to count one by one. So chemists use moles!
 
 **Simple Analogy:**
 - 1 dozen eggs = 12 eggs
-- 1 mole of atoms = 6.022 × 10²³ atoms
+- 1 mole of atoms = 6.022 x 10^23 atoms
 
 **Key Formulas:**
 - Moles = Mass / Molar Mass
-- Number of particles = Moles × 6.022 × 10²³
+- Number of particles = Moles x 6.022 x 10^23
 
 **Example:**
-Molar mass of Water (H₂O) = 18 g/mol
-So, 18g of water = 1 mole = 6.022 × 10²³ molecules of water!
+Molar mass of Water (H2O) = 18 g/mol
+So, 18g of water = 1 mole = 6.022 x 10^23 molecules of water!
 
-Need help with a numerical? 🧪`,
+Need help with a numerical?`,
 };
 
 function getAIResponse(input: string): string {
@@ -108,7 +108,7 @@ function getAIResponse(input: string): string {
   for (const [key, value] of Object.entries(AI_RESPONSES)) {
     if (lower.includes(key) || key.includes(lower)) return value;
   }
-  return `Great question! 🎓
+  return `Great question!
 
 Here's what I can help you with:
 
@@ -116,12 +116,12 @@ Here's what I can help you with:
 
 As ShikshaGuruji's AI tutor, I can explain NCERT concepts for Class 6-10 across all subjects. Try asking me about:
 
-- 📚 Science concepts (Physics, Chemistry, Biology)
-- 📐 Math formulas and problem solving
-- 🌍 Social Studies topics
-- 📖 English grammar and literature
+- Science concepts (Physics, Chemistry, Biology)
+- Math formulas and problem solving
+- Social Studies topics
+- English grammar and literature
 
-*Sign up for a free account to unlock personalized AI lectures, flashcards, and group tests!* ✨`;
+*Sign up for a free account to unlock personalized AI lectures, flashcards, and group tests!*`;
 }
 
 export default function Chatbot() {
@@ -187,7 +187,7 @@ export default function Chatbot() {
             <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
               <Bot className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="font-display font-bold text-2xl text-white mb-2">Hi! I'm ShikshaGuruji AI 🎓</h2>
+            <h2 className="font-display font-bold text-2xl text-white mb-2">Hi! I'm ShikshaGuruji AI</h2>
             <p className="text-white/50 max-w-md mb-8">
               Ask me anything about NCERT topics for Class 6-10. I'll explain concepts, solve problems, and help you study!
             </p>

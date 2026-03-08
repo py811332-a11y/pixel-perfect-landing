@@ -20,7 +20,7 @@ export default function Flashcards() {
 
         {totalDue > 0 && (
           <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 mb-6 flex items-center justify-between">
-            <span className="text-sm font-medium text-foreground">📅 Today's Review: {totalDue} cards due</span>
+            <span className="text-sm font-medium text-foreground">Today's Review: {totalDue} cards due</span>
             <Link to={`/flashcards/${flashcardDecks.find(d => d.due > 0)?.id}`}>
               <Button size="sm">Review Now</Button>
             </Link>
@@ -48,7 +48,7 @@ export default function Flashcards() {
                   <div className="mt-3 space-y-1.5 text-sm">
                     <p className="text-foreground">{deck.cards} cards</p>
                     <p className={deck.due > 0 ? "text-destructive font-medium" : "text-success"}>
-                      {deck.due > 0 ? `${deck.due} due today 🔴` : "0 due ✅"}
+                      {deck.due > 0 ? `${deck.due} due today` : "0 due"}
                     </p>
                     <p className="text-muted-foreground">Mastery: {deck.mastery}%</p>
                   </div>

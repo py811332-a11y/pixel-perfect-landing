@@ -84,8 +84,8 @@ export default function TopicOverview() {
           <div>
             <h2 className="font-display font-semibold text-foreground mb-2">Common Mistakes to Avoid</h2>
             <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">⚠️ Don't confuse evaporation with boiling</p>
-              <p className="text-sm text-muted-foreground">⚠️ Brownian motion proves particles exist, not that liquids expand</p>
+              <p className="text-sm text-muted-foreground">Don't confuse evaporation with boiling</p>
+              <p className="text-sm text-muted-foreground">Brownian motion proves particles exist, not that liquids expand</p>
             </div>
           </div>
         </div>

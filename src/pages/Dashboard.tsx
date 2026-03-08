@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Flame, Zap, CheckCircle, Layers, TrendingUp, Trophy } from "lucide-react";
+import { ArrowRight, Flame, Zap, CheckCircle, Layers, TrendingUp, Trophy, BookOpen } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import AppLayout from "@/components/layout/AppLayout";
 import { studentProfile, subjects, weeklyXP, leaderboard, badges } from "@/data/mockData";
@@ -12,9 +12,8 @@ export default function Dashboard() {
   return (
     <AppLayout>
       <div className="p-6 lg:p-8 max-w-6xl mx-auto space-y-6">
-        <h1 className="font-display font-bold text-2xl text-foreground">Welcome back, {studentProfile.name.split(" ")[0]}! 👋</h1>
+        <h1 className="font-display font-bold text-2xl text-foreground">Welcome back, {studentProfile.name.split(" ")[0]}!</h1>
 
-        {/* Quick Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { icon: <Flame className="w-5 h-5 text-orange-500" />, label: "Day Streak", value: studentProfile.streak, color: "text-orange-500" },
@@ -34,10 +33,9 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* Continue Learning */}
         <Card className="bg-gradient-to-r from-primary to-primary-light border-0">
           <CardContent className="p-6 text-primary-foreground">
-            <p className="text-sm opacity-80">▶ Continue where you left off</p>
+            <p className="text-sm opacity-80">Continue where you left off</p>
             <h3 className="font-display font-bold text-xl mt-1">States of Matter — Science Chapter 1</h3>
             <div className="mt-3 flex items-center gap-3">
               <Progress value={75} className="flex-1 h-2 bg-white/20" />
@@ -51,19 +49,18 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Today's Study Plan */}
         <div>
           <h2 className="font-display font-semibold text-lg text-foreground mb-3">Today's Study Plan</h2>
           <div className="space-y-3">
             {[
-              { icon: "📖", task: "Watch lesson: Atoms and Molecules", time: "~12 min", path: "/topics/t2/lesson" },
-              { icon: "⚡", task: "Review 23 flashcards", time: "~8 min", path: "/flashcards" },
-              { icon: "🎯", task: "Topic test: States of Matter", time: "~10 min", path: "/topics/t1/test" },
+              { icon: <BookOpen className="w-5 h-5 text-primary" />, task: "Watch lesson: Atoms and Molecules", time: "~12 min", path: "/topics/t2/lesson" },
+              { icon: <Zap className="w-5 h-5 text-accent" />, task: "Review 23 flashcards", time: "~8 min", path: "/flashcards" },
+              { icon: <CheckCircle className="w-5 h-5 text-success" />, task: "Topic test: States of Matter", time: "~10 min", path: "/topics/t1/test" },
             ].map((item, i) => (
               <Link key={i} to={item.path}>
                 <Card className="card-hover">
                   <CardContent className="p-4 flex items-center gap-3">
-                    <span className="text-xl">{item.icon}</span>
+                    {item.icon}
                     <div className="flex-1">
                       <p className="text-sm font-medium text-foreground">{item.task}</p>
                       <p className="text-xs text-muted-foreground">{item.time}</p>
@@ -76,7 +73,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Subjects */}
         <div>
           <h2 className="font-display font-semibold text-lg text-foreground mb-3">Your Subjects</h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
@@ -84,7 +80,7 @@ export default function Dashboard() {
               <Link key={s.id} to={`/subjects/${s.id}`}>
                 <Card className="card-hover">
                   <CardContent className="p-4 text-center">
-                    <span className="text-2xl">{s.icon}</span>
+                    <span className="text-sm font-display font-bold text-primary">{s.icon}</span>
                     <h3 className="font-display font-semibold text-sm text-foreground mt-2">{s.name}</h3>
                     <Progress value={s.progress} className="h-1.5 mt-2" />
                     <p className="text-xs text-muted-foreground mt-1">{s.topicsMastered}/{s.totalTopics} topics</p>
@@ -95,11 +91,10 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Challenge Friends */}
         <Card className="bg-gradient-to-r from-accent/20 to-accent/5 border-accent/20">
           <CardContent className="p-6 flex flex-col md:flex-row items-center gap-4">
             <div className="flex-1">
-              <h3 className="font-display font-bold text-lg text-foreground">🎯 Challenge Your Classmates!</h3>
+              <h3 className="font-display font-bold text-lg text-foreground">Challenge Your Classmates!</h3>
               <p className="text-sm text-muted-foreground mt-1">Start a Group Test and see who's the real topper</p>
             </div>
             <div className="flex gap-3">
@@ -110,7 +105,6 @@ export default function Dashboard() {
         </Card>
 
         <div className="grid lg:grid-cols-2 gap-6">
-          {/* Weekly Progress */}
           <Card>
             <CardContent className="p-6">
               <h3 className="font-display font-semibold text-foreground mb-4">Weekly XP</h3>
@@ -125,12 +119,11 @@ export default function Dashboard() {
             </CardContent>
           </Card>
 
-          {/* Leaderboard Peek */}
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-display font-semibold text-foreground">Leaderboard</h3>
-                <Link to="/leaderboard" className="text-sm text-primary hover:underline">See all →</Link>
+                <Link to="/leaderboard" className="text-sm text-primary hover:underline">See all</Link>
               </div>
               <div className="space-y-3">
                 {leaderboard.slice(0, 5).map((entry) => (
@@ -147,13 +140,12 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Badges */}
         <div>
           <h2 className="font-display font-semibold text-lg text-foreground mb-3">Recent Achievements</h2>
           <div className="flex gap-3 overflow-x-auto pb-2">
             {badges.filter(b => b.earned).slice(0, 6).map((badge, i) => (
               <div key={i} className="flex-shrink-0 w-20 text-center">
-                <div className="w-14 h-14 rounded-xl bg-accent/10 mx-auto flex items-center justify-center text-2xl">{badge.icon}</div>
+                <div className="w-14 h-14 rounded-xl bg-accent/10 mx-auto flex items-center justify-center text-sm font-display font-bold text-accent">{badge.icon}</div>
                 <p className="text-xs font-medium text-foreground mt-1">{badge.name}</p>
                 <p className="text-[10px] text-muted-foreground">{badge.date}</p>
               </div>

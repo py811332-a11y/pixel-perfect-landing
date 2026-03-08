@@ -23,7 +23,7 @@ export default function Admin() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">🎓</span>
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
           <h1 className="font-display font-bold text-lg text-foreground">ShikshaGuruji Admin</h1>
           <Badge className="bg-destructive/10 text-destructive border-0 text-xs">Admin Panel</Badge>
         </div>
