@@ -99,6 +99,7 @@ const App = () => (
           <Route path="/billing" element={<Billing />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/parent" element={<ParentPortal />} />
+          <Route path="/parent/login" element={<ParentLogin />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/virtual-lab" element={<VirtualLab />} />
