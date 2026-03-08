@@ -38,6 +38,14 @@ const studentAvatars: Record<string, string> = {
   rohan: studentRohan, kavya: studentKavya, dev: studentDev,
   ananya: studentAnanya, vikram: studentVikram, meera: studentMeera,
 };
+
+import subjectScience from "@/assets/subject-science.png";
+import subjectMath from "@/assets/subject-math.png";
+import subjectSocial from "@/assets/subject-social.png";
+
+const subjectImages: Record<string, string> = {
+  science: subjectScience, math: subjectMath, social: subjectSocial,
+};
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
