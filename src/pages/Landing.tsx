@@ -237,13 +237,14 @@ function FeatureHighlights() {
 }
 
 function Testimonials() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-[#0A0F1E]">
+    <section ref={ref} className="py-20 bg-[#0A0F1E]">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-white mb-12">What Students Say</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-white mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>What Students Say</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <Card key={i} className={`bg-white/5 border-white/10 animate-fade-up stagger-${i + 1}`}>
+            <Card key={i} className={`bg-white/5 border-white/10 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 150}ms` : "0ms" }}>
               <CardContent className="p-6">
                 <div className="flex gap-1 mb-3">
                   {Array(5).fill(0).map((_, j) => <Star key={j} className="w-4 h-4 fill-accent text-accent" />)}
