@@ -39,6 +39,11 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import ParentDashboard from "./pages/ParentDashboard";
 import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
+import Billing from "./pages/Billing";
+import Admin from "./pages/Admin";
+import StudyGroups from "./pages/StudyGroups";
+import StudyGroupSession from "./pages/StudyGroupSession";
+import GroupTestLobby from "./pages/GroupTestLobby";
 
 const queryClient = new QueryClient();
 
@@ -75,14 +80,19 @@ const App = () => (
           <Route path="/group-test" element={<GroupTest />} />
           <Route path="/group-test/create" element={<GroupTestCreate />} />
           <Route path="/group-test/join" element={<GroupTestJoin />} />
+          <Route path="/group-test/:code/lobby" element={<GroupTestLobby />} />
           <Route path="/group-test/:code/test" element={<GroupTestLive />} />
           <Route path="/group-test/:code/results" element={<GroupTestResults />} />
+          <Route path="/study-groups" element={<StudyGroups />} />
+          <Route path="/study-groups/:groupId/session" element={<StudyGroupSession />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/subscription" element={<Subscription />} />
+          <Route path="/billing" element={<Billing />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
