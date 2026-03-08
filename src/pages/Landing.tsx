@@ -664,7 +664,42 @@ function MadeInIndia() {
           </div>
         </div>
 
-        {/* Bottom stats */}
+        {/* Feature showcase gallery */}
+        <div className={`mt-20 w-full max-w-6xl reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "800ms" }}>
+          <h3 className="font-display font-bold text-2xl text-white text-center mb-10">
+            What Makes Us <span className="text-[hsl(38,92%,50%)]">Different</span>
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { img: indiaAiWhiteboard, label: "AI Whiteboard Lectures", delay: "0s" },
+              { img: indiaStudentFuture, label: "Future-Ready Learning", delay: "0.1s" },
+              { img: indiaVirtualLab, label: "Virtual PCMB Labs", delay: "0.2s" },
+              { img: indiaFlashcards, label: "Smart Flashcards", delay: "0.3s" },
+              { img: indiaGroupBattle, label: "Group Test Battles", delay: "0.4s" },
+              { img: indiaServers, label: "100% Indian Servers", delay: "0.5s" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-[hsl(38,92%,50%)]/30 transition-all duration-500"
+                style={{ animationDelay: item.delay }}
+              >
+                <img
+                  src={item.img}
+                  alt={item.label}
+                  className="w-full h-40 md:h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-white font-display font-semibold text-sm md:text-base">{item.label}</p>
+                </div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[hsl(38,92%,50%)]/5 pointer-events-none" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+
         <div className={`mt-16 grid grid-cols-3 gap-8 text-center reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "900ms" }}>
           <div>
             <p className="font-display font-extrabold text-3xl md:text-4xl text-[hsl(38,92%,50%)]"><Counter end={100} suffix="%" /></p>
