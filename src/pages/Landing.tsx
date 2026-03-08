@@ -644,17 +644,15 @@ function MadeInIndia() {
                 className={`group reveal-base reveal-right ${visible ? "revealed" : ""}`}
                 style={{ transitionDelay: `${500 + i * 150}ms` }}
               >
-                <ElectricBorder>
-                  <div className="p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-start gap-4 transition-all duration-300 group-hover:bg-white/10">
+                <div className="p-5 rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/15 flex items-start gap-4 transition-all duration-300 group-hover:bg-white/[0.14] group-hover:border-[hsl(38,92%,50%)]/30 group-hover:shadow-[0_0_30px_rgba(255,153,51,0.1)]">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(24,90%,55%)] to-[hsl(38,92%,50%)] flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                       {item.icon}
                     </div>
                     <div>
                       <h4 className="font-display font-bold text-lg text-white mb-1">{item.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                      <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
-                </ElectricBorder>
               </div>
             ))}
           </div>
