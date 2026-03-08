@@ -46,6 +46,11 @@ import subjectSocial from "@/assets/subject-social.png";
 const subjectImages: Record<string, string> = {
   science: subjectScience, math: subjectMath, social: subjectSocial,
 };
+
+import labPhysics from "@/assets/lab-physics.png";
+import labChemistry from "@/assets/lab-chemistry.png";
+import labBiology from "@/assets/lab-biology.png";
+import labMath from "@/assets/lab-math.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
@@ -498,7 +503,108 @@ function FeatureHighlights() {
   );
 }
 
-/* ── Parent Section ────────────────────────────────── */
+/* ── Virtual PCMB Labs ─────────────────────────────── */
+function VirtualLabsShowcase() {
+  const { ref, visible } = useReveal();
+  const labs = [
+    {
+      title: "Physics Lab",
+      img: labPhysics,
+      color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]",
+      experiments: ["Circuit Builder", "Pendulum Simulator", "Wave Interference"],
+      desc: "Build circuits, simulate pendulums, and visualize wave patterns — all without equipment.",
+      count: 12,
+    },
+    {
+      title: "Chemistry Lab",
+      img: labChemistry,
+      color: "from-[hsl(160,84%,39%)] to-[hsl(160,84%,25%)]",
+      experiments: ["Acid-Base Reactions", "Electrolysis", "pH Indicator"],
+      desc: "Mix chemicals, watch colour changes, and observe gas collection in real time.",
+      count: 10,
+    },
+    {
+      title: "Biology Lab",
+      img: labBiology,
+      color: "from-[hsl(24,90%,55%)] to-[hsl(38,92%,50%)]",
+      experiments: ["3D Anatomy Explorer", "Virtual Microscope", "DNA Structure"],
+      desc: "Explore human organs, observe cells under a microscope, and build Punnett squares.",
+      count: 9,
+    },
+    {
+      title: "Mathematics Lab",
+      img: labMath,
+      color: "from-[hsl(258,90%,66%)] to-[hsl(258,90%,50%)]",
+      experiments: ["Coordinate Plotter", "Geometry Tools", "Fraction Visualizer"],
+      desc: "Plot graphs, construct geometric figures, and visualize fractions interactively.",
+      count: 8,
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-[#0A0F1E] relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[hsl(258,90%,66%)]/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-[hsl(217,91%,60%)]/8 rounded-full blur-[120px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <Badge className={`bg-[hsl(258,90%,66%)]/20 text-[hsl(258,90%,66%)] border-[hsl(258,90%,66%)]/30 mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+            <Atom className="w-3 h-3 mr-1" /> No Equipment Needed
+          </Badge>
+          <h2 className={`font-display font-extrabold text-4xl md:text-5xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+            Virtual <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(258,90%,66%)] to-[hsl(38,92%,50%)]" style={{ WebkitBackgroundClip: "text" }}>PCMB Labs</span>
+          </h2>
+          <p className={`text-white/50 text-lg max-w-2xl mx-auto reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "200ms" }}>
+            Perform real NCERT experiments right in your browser. 39 interactive experiments across Physics, Chemistry, Biology, and Mathematics.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {labs.map((lab, i) => (
+            <Link key={i} to={`/virtual-lab/${lab.title.split(" ")[0].toLowerCase()}`}>
+              <div
+                className={`group relative overflow-hidden rounded-2xl border border-white/10 hover:border-white/25 transition-all duration-500 reveal-base ${i % 2 === 0 ? "reveal-left" : "reveal-right"} ${visible ? "revealed" : ""}`}
+                style={{ transitionDelay: `${300 + i * 150}ms` }}
+              >
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden">
+                  <img src={lab.img} alt={lab.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                  <div className={`absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r ${lab.color} text-white text-xs font-bold`}>
+                    {lab.count} experiments
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-6 bg-white/[0.03]">
+                  <h3 className="font-display font-bold text-xl text-white mb-2 group-hover:text-[hsl(38,92%,50%)] transition-colors">{lab.title}</h3>
+                  <p className="text-white/50 text-sm mb-4">{lab.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {lab.experiments.map((exp, j) => (
+                      <span key={j} className="px-3 py-1 rounded-full bg-white/[0.08] text-white/70 text-xs border border-white/10 group-hover:border-white/20 transition-colors">
+                        {exp}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link to="/virtual-lab">
+            <Button size="lg" className="bg-gradient-to-r from-[hsl(217,91%,60%)] to-[hsl(258,90%,66%)] hover:opacity-90 text-white gap-2 h-12 px-8 shadow-[0_0_30px_hsl(258,90%,66%,0.3)]">
+              <FlaskConical className="w-4 h-4" /> Explore All Labs <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function ParentSection() {
   const { ref, visible } = useReveal();
   return (
@@ -929,6 +1035,7 @@ export default function Landing() {
       <SubjectsStrip />
       <HowItWorks />
       <FeatureHighlights />
+      <VirtualLabsShowcase />
       <ParentSection />
       <Testimonials />
       <PricingPreview />
