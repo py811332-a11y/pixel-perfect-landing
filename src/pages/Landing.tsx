@@ -176,6 +176,7 @@ function SubjectsStrip() {
 }
 
 function HowItWorks() {
+  const { ref, visible } = useScrollRevealSection();
   const steps = [
     { icon: "🧪", title: "Take Diagnostic", desc: "40 questions, AI maps your weak areas" },
     { icon: "🎓", title: "Watch AI Lecture", desc: "Personalized whiteboard lecture just for you" },
@@ -183,13 +184,13 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-4">How It Works</h2>
-        <p className="text-center text-muted-foreground mb-12">3 simple steps to better grades</p>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>How It Works</h2>
+        <p className={`text-center text-muted-foreground mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>3 simple steps to better grades</p>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
-            <div key={i} className={`text-center animate-fade-up stagger-${i + 1}`}>
+            <div key={i} className={`text-center transition-all duration-600 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${200 + i * 150}ms` : "0ms" }}>
               <div className="w-20 h-20 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center text-4xl mb-4">
                 {step.icon}
               </div>
