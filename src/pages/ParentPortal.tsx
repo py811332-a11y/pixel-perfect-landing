@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, TrendingUp, TrendingDown, Minus, Clock, Flame, Zap, BookOpen, AlertTriangle, BarChart3, Shield } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const children = [
   {
