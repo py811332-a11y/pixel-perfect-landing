@@ -678,7 +678,7 @@ function MadeInIndia() {
 
   const achievements = [
     { icon: <Globe className="w-6 h-6" />, title: "First in the World", desc: "AI-powered NCERT tutor with real-time whiteboard lectures — no one else has done this" },
-    { icon: <Flag className="w-6 h-6" />, title: "100% Made in India", desc: "Built in Kota, Rajasthan. All data stays on Indian servers. Designed for Indian students" },
+    { icon: <Flag className="w-6 h-6" />, title: "100% Made in India", desc: "All data stays on Indian servers. Designed for Indian students, by Indian engineers" },
     { icon: <Rocket className="w-6 h-6" />, title: "Pioneering EdTech", desc: "Virtual PCMB labs, FSRS flashcards, and group test battles — technology India hasn't seen before" },
   ];
 
