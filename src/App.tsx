@@ -40,6 +40,7 @@ import ParentDashboard from "./pages/ParentDashboard";
 import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
 import ParentPortal from "./pages/ParentPortal";
+import ParentLogin from "./pages/ParentLogin";
 import Billing from "./pages/Billing";
 import Admin from "./pages/Admin";
 import StudyGroups from "./pages/StudyGroups";
