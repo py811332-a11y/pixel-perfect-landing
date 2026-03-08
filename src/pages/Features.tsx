@@ -17,7 +17,7 @@ export default function Features() {
   return (
     <div className="min-h-screen bg-background">
       <nav className="h-16 border-b border-border flex items-center px-6">
-        <Link to="/" className="flex items-center gap-2"><span className="text-2xl">🎓</span><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
+        <Link to="/" className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
         <div className="ml-auto flex gap-4 items-center">
           <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground">Pricing</Link>
           <Link to="/login"><Button size="sm">Login</Button></Link>
