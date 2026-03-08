@@ -23,6 +23,21 @@ import landingFlashcards from "@/assets/landing-flashcards.png";
 import landingParent from "@/assets/landing-parent.png";
 import parentDashboardUi from "@/assets/parent-dashboard-ui.png";
 import parentCheckingProgress from "@/assets/parent-checking-progress.png";
+import studentSneha from "@/assets/student-sneha.png";
+import studentArjun from "@/assets/student-arjun.png";
+import studentPriya from "@/assets/student-priya.png";
+import studentRohan from "@/assets/student-rohan.png";
+import studentKavya from "@/assets/student-kavya.png";
+import studentDev from "@/assets/student-dev.png";
+import studentAnanya from "@/assets/student-ananya.png";
+import studentVikram from "@/assets/student-vikram.png";
+import studentMeera from "@/assets/student-meera.png";
+
+const studentAvatars: Record<string, string> = {
+  sneha: studentSneha, arjun: studentArjun, priya: studentPriya,
+  rohan: studentRohan, kavya: studentKavya, dev: studentDev,
+  ananya: studentAnanya, vikram: studentVikram, meera: studentMeera,
+};
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
