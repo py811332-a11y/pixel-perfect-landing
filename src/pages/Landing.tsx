@@ -7,7 +7,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
 
-/* ── Scroll reveal hook ───────────────────────────── */
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -24,12 +23,10 @@ function useReveal(threshold = 0.15) {
   return { ref, visible };
 }
 
-/* ── Animated counter ─────────────────────────────── */
 function Counter({ end, suffix = "", duration = 1800 }: { end: number; suffix?: string; duration?: number }) {
   const [val, setVal] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -49,11 +46,9 @@ function Counter({ end, suffix = "", duration = 1800 }: { end: number; suffix?: 
     obs.observe(el);
     return () => obs.disconnect();
   }, [end, duration]);
-
   return <span ref={ref}>{val.toLocaleString()}{suffix}</span>;
 }
 
-/* ── Magnetic cursor effect ───────────────────────── */
 function useMagnetic() {
   const ref = useRef<HTMLDivElement>(null);
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -70,7 +65,6 @@ function useMagnetic() {
   return { ref, onMouseMove: handleMouseMove, onMouseLeave: handleMouseLeave };
 }
 
-/* ── Text Pressure / Fuzzy Text ───────────────────── */
 function FuzzyText({ text, className = "" }: { text: string; className?: string }) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   return (
@@ -80,18 +74,8 @@ function FuzzyText({ text, className = "" }: { text: string; className?: string 
         const weight = Math.max(300, Math.min(900, 900 - dist * 100));
         const blur = hoveredIdx !== null ? Math.max(0, dist * 0.3 - 0.5) : 0;
         return (
-          <span
-            key={i}
-            onMouseEnter={() => setHoveredIdx(i)}
-            onMouseLeave={() => setHoveredIdx(null)}
-            style={{
-              fontWeight: weight,
-              filter: blur > 0 ? `blur(${blur}px)` : "none",
-              transition: "font-weight 0.2s ease, filter 0.2s ease",
-              display: "inline-block",
-              cursor: "default",
-            }}
-          >
+          <span key={i} onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}
+            style={{ fontWeight: weight, filter: blur > 0 ? `blur(${blur}px)` : "none", transition: "font-weight 0.2s ease, filter 0.2s ease", display: "inline-block", cursor: "default" }}>
             {char === " " ? "\u00A0" : char}
           </span>
         );
@@ -100,122 +84,65 @@ function FuzzyText({ text, className = "" }: { text: string; className?: string 
   );
 }
 
-/* ── Typing text effect ───────────────────────────── */
 function TypingText({ texts, className = "" }: { texts: string[]; className?: string }) {
   const [currentText, setCurrentText] = useState("");
   const [textIdx, setTextIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
-
   useEffect(() => {
     const text = texts[textIdx];
     const speed = deleting ? 40 : 80;
-
     const timer = setTimeout(() => {
       if (!deleting) {
         setCurrentText(text.slice(0, charIdx + 1));
-        if (charIdx + 1 >= text.length) {
-          setTimeout(() => setDeleting(true), 2000);
-        } else {
-          setCharIdx(charIdx + 1);
-        }
+        if (charIdx + 1 >= text.length) { setTimeout(() => setDeleting(true), 2000); } else { setCharIdx(charIdx + 1); }
       } else {
         setCurrentText(text.slice(0, charIdx));
-        if (charIdx <= 0) {
-          setDeleting(false);
-          setTextIdx((textIdx + 1) % texts.length);
-        } else {
-          setCharIdx(charIdx - 1);
-        }
+        if (charIdx <= 0) { setDeleting(false); setTextIdx((textIdx + 1) % texts.length); } else { setCharIdx(charIdx - 1); }
       }
     }, speed);
-
     return () => clearTimeout(timer);
   }, [charIdx, deleting, textIdx, texts]);
-
-  return (
-    <span className={className}>
-      {currentText}
-      <span className="animate-pulse text-accent">|</span>
-    </span>
-  );
+  return (<span className={className}>{currentText}<span className="animate-pulse text-accent">|</span></span>);
 }
 
-/* ── Electric Border ──────────────────────────────── */
 function ElectricBorder({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`relative group ${className}`}>
       <div className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background: "conic-gradient(from var(--angle, 0deg), hsl(var(--primary)), hsl(var(--accent)), hsl(217, 91%, 60%), hsl(var(--primary)))",
-          animation: "electric-spin 3s linear infinite",
-        }}
-      />
+        style={{ background: "conic-gradient(from var(--angle, 0deg), hsl(var(--primary)), hsl(var(--accent)), hsl(217, 91%, 60%), hsl(var(--primary)))", animation: "electric-spin 3s linear infinite" }} />
       <div className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-md"
-        style={{
-          background: "conic-gradient(from var(--angle, 0deg), hsl(var(--primary)), hsl(var(--accent)), hsl(217, 91%, 60%), hsl(var(--primary)))",
-          animation: "electric-spin 3s linear infinite",
-        }}
-      />
+        style={{ background: "conic-gradient(from var(--angle, 0deg), hsl(var(--primary)), hsl(var(--accent)), hsl(217, 91%, 60%), hsl(var(--primary)))", animation: "electric-spin 3s linear infinite" }} />
       <div className="relative bg-card rounded-2xl">{children}</div>
     </div>
   );
 }
 
-/* ── Antigravity floating elements ────────────────── */
 function AntigravityParticles() {
   const particles = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    size: 2 + Math.random() * 6,
-    duration: `${8 + Math.random() * 15}s`,
-    delay: `${Math.random() * 8}s`,
-    opacity: 0.1 + Math.random() * 0.4,
-    blur: Math.random() * 2,
+    id: i, left: `${Math.random() * 100}%`, size: 2 + Math.random() * 6,
+    duration: `${8 + Math.random() * 15}s`, delay: `${Math.random() * 8}s`,
+    opacity: 0.1 + Math.random() * 0.4, blur: Math.random() * 2,
   }));
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((p) => (
-        <div key={p.id} className="absolute rounded-full"
-          style={{
-            left: p.left,
-            bottom: "-20px",
-            width: p.size,
-            height: p.size,
-            background: `hsl(${200 + Math.random() * 40}, 80%, ${60 + Math.random() * 30}%)`,
-            opacity: p.opacity,
-            filter: `blur(${p.blur}px)`,
-            animation: `antigravity-rise ${p.duration} linear infinite`,
-            animationDelay: p.delay,
-          }}
-        />
+        <div key={p.id} className="absolute rounded-full" style={{
+          left: p.left, bottom: "-20px", width: p.size, height: p.size,
+          background: `hsl(${200 + Math.random() * 40}, 80%, ${60 + Math.random() * 30}%)`,
+          opacity: p.opacity, filter: `blur(${p.blur}px)`,
+          animation: `antigravity-rise ${p.duration} linear infinite`, animationDelay: p.delay,
+        }} />
       ))}
     </div>
   );
 }
 
-/* ── Curved Loop SVG ──────────────────────────────── */
 function CurvedLoop() {
   return (
     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 800" preserveAspectRatio="none">
-      <path
-        d="M0,400 C200,100 400,700 600,400 C800,100 1000,700 1200,400"
-        fill="none"
-        stroke="url(#loopGrad)"
-        strokeWidth="1.5"
-        opacity="0.15"
-        className="animate-dash"
-      />
-      <path
-        d="M0,350 C300,150 500,650 700,350 C900,50 1100,650 1200,350"
-        fill="none"
-        stroke="url(#loopGrad)"
-        strokeWidth="1"
-        opacity="0.08"
-        className="animate-dash"
-        style={{ animationDelay: "2s" }}
-      />
+      <path d="M0,400 C200,100 400,700 600,400 C800,100 1000,700 1200,400" fill="none" stroke="url(#loopGrad)" strokeWidth="1.5" opacity="0.15" className="animate-dash" />
+      <path d="M0,350 C300,150 500,650 700,350 C900,50 1100,650 1200,350" fill="none" stroke="url(#loopGrad)" strokeWidth="1" opacity="0.08" className="animate-dash" style={{ animationDelay: "2s" }} />
       <defs>
         <linearGradient id="loopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="hsl(224, 76%, 40%)" />
@@ -227,7 +154,6 @@ function CurvedLoop() {
   );
 }
 
-/* ── Mouse spotlight ──────────────────────────────── */
 function MouseSpotlight() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -242,12 +168,10 @@ function MouseSpotlight() {
   return <div ref={ref} className="fixed inset-0 pointer-events-none z-[1] transition-all duration-150" />;
 }
 
-/* ── Scroll word reveal ───────────────────────────── */
 function ScrollRevealText({ text, className = "" }: { text: string; className?: string }) {
   const words = text.split(" ");
   const ref = useRef<HTMLDivElement>(null);
   const [revealedCount, setRevealedCount] = useState(0);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -262,7 +186,6 @@ function ScrollRevealText({ text, className = "" }: { text: string; className?: 
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [words.length]);
-
   return (
     <div ref={ref} className={className}>
       {words.map((word, i) => (
@@ -270,9 +193,7 @@ function ScrollRevealText({ text, className = "" }: { text: string; className?: 
           opacity: i < revealedCount ? 1 : 0.15,
           transform: i < revealedCount ? "translateY(0)" : "translateY(8px)",
           filter: i < revealedCount ? "blur(0)" : "blur(2px)",
-        }}>
-          {word}
-        </span>
+        }}>{word}</span>
       ))}
     </div>
   );
@@ -286,7 +207,6 @@ function LandingNavbar() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0A0F1E]/95 backdrop-blur-lg shadow-lg" : "bg-transparent"} border-b border-white/10`}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -297,7 +217,6 @@ function LandingNavbar() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { to: "/features", label: "Features" },
-            { to: "/virtual-lab", label: "Virtual Lab" },
             { to: "/pricing", label: "Pricing" },
             { to: "/chatbot", label: "AI Chatbot", icon: <MessageCircle className="w-3.5 h-3.5" /> },
             { to: "/about", label: "About" },
@@ -320,29 +239,22 @@ function LandingNavbar() {
 /* ── Hero ──────────────────────────────────────────── */
 function Hero() {
   const magnetic = useMagnetic();
-
   return (
     <section className="relative min-h-screen bg-[#0A0F1E] flex items-center overflow-hidden">
       <AntigravityParticles />
       <CurvedLoop />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/15 rounded-full blur-[100px] animate-float" style={{ animationDelay: "1.5s" }} />
-
       <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-5 gap-12 items-center relative z-10">
         <div className="lg:col-span-3">
-          <Badge className="bg-accent/20 text-accent border-accent/30 mb-6 animate-fade-up">
-            Made in Kota, Rajasthan
-          </Badge>
+          <Badge className="bg-accent/20 text-accent border-accent/30 mb-6 animate-fade-up">Made in Kota, Rajasthan</Badge>
           <h1 className="font-display font-extrabold text-5xl md:text-7xl text-white leading-tight animate-fade-up stagger-1">
             <FuzzyText text="India's Smartest" /><br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-primary-light" style={{ WebkitBackgroundClip: "text" }}>
-              <TypingText texts={["AI NCERT Tutor", "Virtual Lab", "Study Partner", "Exam Cracker"]} />
+              <TypingText texts={["AI NCERT Tutor", "Study Partner", "Exam Cracker"]} />
             </span>
           </h1>
-          <ScrollRevealText
-            text="Personalized AI lectures, real CBSE questions, virtual PCMB labs, and group tests with friends. Free for every Indian student."
-            className="text-lg text-white/60 mt-6 max-w-xl"
-          />
+          <ScrollRevealText text="Personalized AI lectures, real CBSE questions, and group tests with friends. Free for every Indian student." className="text-lg text-white/60 mt-6 max-w-xl" />
           <div className="flex flex-wrap gap-4 mt-8 animate-fade-up stagger-3">
             <div {...magnetic} ref={magnetic.ref}>
               <Link to="/register">
@@ -364,9 +276,7 @@ function Hero() {
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6">
                 <div className="bg-white rounded-lg p-6 shadow-xl">
                   <div className="h-1 w-16 bg-primary/20 rounded mb-4" />
-                  <h3 className="font-display font-bold text-foreground text-lg typewriter" style={{ maxWidth: "200px" }}>
-                    States of Matter
-                  </h3>
+                  <h3 className="font-display font-bold text-foreground text-lg typewriter" style={{ maxWidth: "200px" }}>States of Matter</h3>
                   <div className="mt-4 space-y-2 opacity-0 animate-fade-up" style={{ animationDelay: "3.5s" }}>
                     <p className="text-sm text-muted-foreground">Solid → Liquid → Gas</p>
                     <div className="flex gap-2 mt-3">
@@ -392,26 +302,19 @@ function SubjectsStrip() {
     science: "bg-[hsl(217,91%,60%)]",
     math: "bg-[hsl(258,90%,66%)]",
     social: "bg-[hsl(160,84%,39%)]",
-    english: "bg-[hsl(38,92%,50%)]",
-    hindi: "bg-[hsl(0,84%,60%)]",
   };
-
   return (
     <section ref={ref} className="py-20 bg-card relative overflow-hidden">
       <div className="absolute inset-0 shimmer-bg opacity-30" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-3 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
-          Choose Your Subject
-        </h2>
-        <p className={`text-center text-muted-foreground mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
-          5 subjects, 80+ chapters, Class 6-10 CBSE
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-3 reveal-base reveal-up ${visible ? "revealed" : ""}`}>Choose Your Subject</h2>
+        <p className={`text-center text-muted-foreground mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>3 subjects, 50+ chapters, Class 6-10 CBSE</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {subjects.map((s, i) => (
             <Link key={s.id} to={`/subjects/${s.id}`}>
               <Card className={`card-hover glow-hover cursor-pointer group reveal-base reveal-scale ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 100}ms` }}>
                 <CardContent className="p-6 text-center">
-                  <div className={`w-14 h-14 rounded-xl ${subjectColors[s.id]} mx-auto flex items-center justify-center text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <div className={`w-14 h-14 rounded-xl ${subjectColors[s.id] || "bg-primary"} mx-auto flex items-center justify-center text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                     {s.icon}
                   </div>
                   <h3 className="font-display font-semibold text-foreground">{s.name}</h3>
@@ -429,232 +332,6 @@ function SubjectsStrip() {
   );
 }
 
-/* ── Virtual Lab Showcase ──────────────────────────── */
-function VirtualLabShowcase() {
-  const { ref, visible } = useReveal();
-
-  const labs = [
-    { icon: <Atom className="w-8 h-8" />, title: "Physics", desc: "Build circuits, simulate pendulums, plot velocity-time graphs, and study wave interference", color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]" },
-    { icon: <FlaskConical className="w-8 h-8" />, title: "Chemistry", desc: "Mix chemicals, watch real-time colour changes, test pH indicators, and study acid-base reactions", color: "from-[hsl(160,84%,39%)] to-[hsl(160,84%,25%)]" },
-    { icon: <Ruler className="w-8 h-8" />, title: "Mathematics", desc: "Plot coordinates, visualize fractions, use number lines, and construct geometry shapes", color: "from-[hsl(258,90%,66%)] to-[hsl(258,90%,50%)]" },
-    { icon: <Microscope className="w-8 h-8" />, title: "Biology", desc: "Explore human anatomy, use virtual microscope, study genetics with Punnett squares, and dissect digitally", color: "from-[hsl(38,92%,50%)] to-[hsl(25,90%,45%)]" },
-  ];
-
-  return (
-    <section ref={ref} className="py-24 bg-[#0A0F1E] relative overflow-hidden">
-      <AntigravityParticles />
-      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-[120px]" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <Badge className={`bg-primary/20 text-primary-light border-primary/30 mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
-            No Equipment Required
-          </Badge>
-          <h2 className={`font-display font-extrabold text-4xl md:text-5xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
-            Virtual PCMB Lab
-          </h2>
-          <ScrollRevealText
-            text="Perform real NCERT experiments right in your browser. Build circuits, mix chemicals, plot graphs, and explore anatomy — all interactive."
-            className="text-lg text-white/60 max-w-2xl mx-auto"
-          />
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {labs.map((lab, i) => (
-            <div key={i} className={`group reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${300 + i * 120}ms` }}>
-              <ElectricBorder>
-                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 h-full">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${lab.color} flex items-center justify-center text-white mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
-                    {lab.icon}
-                  </div>
-                  <h3 className="font-display font-bold text-xl text-white mb-2">{lab.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{lab.desc}</p>
-                </div>
-              </ElectricBorder>
-            </div>
-          ))}
-        </div>
-
-        <div className={`text-center mt-12 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "800ms" }}>
-          <Link to="/virtual-lab">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-12 px-8 glow-hover">
-              Enter Virtual Lab <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
-
-            <rect x="30" y="120" width="240" height="2" rx="1" fill="hsl(224, 76%, 40%)" opacity={0.3} />
-            <rect x="30" y="70" width="40" height="30" rx="4" fill="hsl(var(--muted))" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <line x1="42" y1="76" x2="42" y2="94" stroke="hsl(224, 76%, 40%)" strokeWidth="3" />
-            <line x1="58" y1="72" x2="58" y2="98" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <circle cx="150" cy="80" r="18" fill="hsl(38, 92%, 50%)" />
-            <circle cx="150" cy="80" r="28" fill="hsl(38, 92%, 50%)" opacity="0.2" className="animate-pulse" />
-            <circle cx="150" cy="80" r="38" fill="hsl(38, 92%, 50%)" opacity="0.1" className="animate-pulse" />
-            <line x1="142" y1="72" x2="158" y2="88" stroke="white" strokeWidth="1.5" />
-            <line x1="158" y1="72" x2="142" y2="88" stroke="white" strokeWidth="1.5" />
-            <path d="M220,80 L230,70 L240,90 L250,70 L260,90 L270,80" fill="none" stroke="hsl(0, 84%, 60%)" strokeWidth="2" />
-            <line x1="70" y1="85" x2="132" y2="81" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <line x1="168" y1="81" x2="220" y2="81" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <line x1="270" y1="81" x2="270" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <line x1="270" y1="120" x2="30" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <line x1="30" y1="100" x2="30" y2="120" stroke="hsl(224, 76%, 40%)" strokeWidth="2" />
-            <text x="150" y="140" textAnchor="middle" fontSize="10" fill="hsl(224, 76%, 40%)" fontWeight="bold">Circuit Complete</text>
-          </svg>
-        </div>
-      ),
-    },
-    {
-      icon: <FlaskConical className="w-6 h-6" />,
-      title: "Chemistry",
-      color: "from-[hsl(160,84%,39%)] to-[hsl(160,84%,25%)]",
-      features: ["Mix chemicals in virtual beakers", "Watch real-time colour changes", "pH indicator testing lab", "Acid-base neutralization"],
-      demo: (
-        <div className="relative h-full flex items-center justify-center">
-          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
-            <path d="M100,40 L100,150 Q100,170 120,170 L180,170 Q200,170 200,150 L200,40" fill="none" stroke="hsl(var(--border))" strokeWidth="2.5" />
-            <line x1="90" y1="40" x2="210" y2="40" stroke="hsl(var(--border))" strokeWidth="3" strokeLinecap="round" />
-            <path d="M103,80 L103,150 Q103,167 120,167 L180,167 Q197,167 197,150 L197,80" fill="hsla(330, 80%, 65%, 0.7)" className="animate-pulse" />
-            {[120, 140, 160, 175, 130, 155, 145].map((x, i) => (
-              <circle key={i} cx={x} cy={150 - i * 12} r={2 + Math.random() * 3} fill="white" opacity={0.7} className="animate-float" style={{ animationDelay: `${i * 0.2}s` }} />
-            ))}
-            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(160, 84%, 39%)" fontWeight="bold">NaOH + Phenolphthalein</text>
-          </svg>
-        </div>
-      ),
-    },
-    {
-      icon: <Ruler className="w-6 h-6" />,
-      title: "Mathematics",
-      color: "from-[hsl(258,90%,66%)] to-[hsl(258,90%,50%)]",
-      features: ["Interactive coordinate grid plotter", "Fraction bar visualizer", "Number line with operations", "Geometry construction tools"],
-      demo: (
-        <div className="relative h-full flex items-center justify-center">
-          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
-            {Array.from({ length: 11 }).map((_, i) => (
-              <g key={i}>
-                <line x1={30 + i * 24} y1="10" x2={30 + i * 24} y2="190" stroke="hsl(var(--border))" strokeWidth="0.5" />
-                <line x1="30" y1={10 + i * 18} x2="270" y2={10 + i * 18} stroke="hsl(var(--border))" strokeWidth="0.5" />
-              </g>
-            ))}
-            <line x1="150" y1="10" x2="150" y2="190" stroke="hsl(222, 84%, 5%)" strokeWidth="1.5" />
-            <line x1="30" y1="100" x2="270" y2="100" stroke="hsl(222, 84%, 5%)" strokeWidth="1.5" />
-            <line x1="78" y1="136" x2="222" y2="64" stroke="hsl(258, 90%, 66%)" strokeWidth="2.5" />
-            <circle cx="78" cy="136" r="5" fill="hsl(258, 90%, 66%)" />
-            <circle cx="150" cy="100" r="5" fill="hsl(258, 90%, 66%)" />
-            <circle cx="222" cy="64" r="5" fill="hsl(258, 90%, 66%)" />
-            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(258, 90%, 66%)" fontWeight="bold">y = (2/3)x</text>
-          </svg>
-        </div>
-      ),
-    },
-    {
-      icon: <Microscope className="w-6 h-6" />,
-      title: "Biology",
-      color: "from-[hsl(38,92%,50%)] to-[hsl(25,90%,45%)]",
-      features: ["Interactive human anatomy explorer", "Virtual microscope with zoom", "Genetics Punnett square lab", "Cell structure exploration"],
-      demo: (
-        <div className="relative h-full flex items-center justify-center">
-          <svg viewBox="0 0 300 200" className="w-full max-w-xs">
-            <circle cx="150" cy="100" r="85" fill="white" stroke="hsl(var(--border))" strokeWidth="3" />
-            {[[110, 70], [170, 60], [130, 120], [180, 130], [100, 140]].map(([cx, cy], i) => (
-              <g key={i}>
-                <ellipse cx={cx} cy={cy} rx={30} ry={25} fill="hsl(120, 30%, 88%)" stroke="hsl(120, 40%, 60%)" strokeWidth="1.5" />
-                <ellipse cx={cx} cy={cy} rx={8} ry={6} fill="hsl(270, 50%, 50%)" />
-              </g>
-            ))}
-            <text x="150" y="195" textAnchor="middle" fontSize="10" fill="hsl(38, 92%, 50%)" fontWeight="bold">Leaf Stomata — 400x</text>
-          </svg>
-        </div>
-      ),
-    },
-  ];
-
-  return (
-    <section ref={ref} className="py-24 bg-[#0A0F1E] relative overflow-hidden">
-      <AntigravityParticles />
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <Badge className={`bg-primary/20 text-primary-light border-primary/30 mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
-            New — No Equipment Required
-          </Badge>
-          <h2 className={`font-display font-extrabold text-4xl md:text-5xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
-            Virtual PCMB Lab
-          </h2>
-          <ScrollRevealText
-            text="Perform real NCERT experiments right in your browser. Build circuits, mix chemicals, plot graphs, and explore anatomy — all interactive."
-            className="text-lg text-white/60 max-w-2xl mx-auto"
-          />
-        </div>
-
-        <div className={`flex justify-center gap-3 mb-10 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "300ms" }}>
-          {labs.map((lab, i) => (
-            <button key={i} onClick={() => setActiveTab(i)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-xl font-display font-semibold text-sm transition-all duration-300 ${activeTab === i
-                ? `bg-gradient-to-r ${lab.color} text-white shadow-lg scale-105`
-                : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"}`}>
-              {lab.icon}
-              <span className="hidden md:inline">{lab.title}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className={`reveal-base reveal-scale ${visible ? "revealed" : ""}`} style={{ transitionDelay: "400ms" }}>
-          <ElectricBorder>
-            <Card className="bg-white/5 backdrop-blur-sm border-white/10 overflow-hidden rounded-2xl">
-              <CardContent className="p-0">
-                <div className="grid lg:grid-cols-2">
-                  <div className={`bg-gradient-to-br ${labs[activeTab].color} p-8 min-h-[320px] flex items-center justify-center relative overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-10">
-                      {Array.from({ length: 15 }).map((_, i) => (
-                        <div key={i} className="absolute w-1 h-1 bg-white rounded-full animate-float" style={{
-                          left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`,
-                          animationDelay: `${i * 0.3}s`, animationDuration: `${2 + Math.random() * 3}s`
-                        }} />
-                      ))}
-                    </div>
-                    <div className="relative z-10 w-full">{labs[activeTab].demo}</div>
-                  </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <h3 className="font-display font-bold text-2xl text-white mb-2">{labs[activeTab].title} Lab</h3>
-                    <p className="text-white/50 text-sm mb-6">Interactive experiments aligned with NCERT curriculum</p>
-                    <ul className="space-y-4">
-                      {labs[activeTab].features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-3 animate-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
-                          <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3.5 h-3.5 text-white" />
-                          </div>
-                          <span className="text-white/80 text-sm">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link to="/virtual-lab" className="mt-8">
-                      <Button size="lg" className="bg-white text-foreground hover:bg-white/90 gap-2 glow-hover">
-                        Enter Virtual Lab <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </ElectricBorder>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ── How It Works ──────────────────────────────────── */
 function HowItWorks() {
   const { ref, visible } = useReveal();
@@ -663,7 +340,6 @@ function HowItWorks() {
     { icon: <BookOpen className="w-8 h-8 text-accent" />, title: "Watch AI Lecture", desc: "Personalized whiteboard lecture just for you", color: "from-accent/20 to-accent/5" },
     { icon: <Trophy className="w-8 h-8 text-success" />, title: "Test Yourself", desc: "Topic tests + challenge friends", color: "from-success/20 to-success/5" },
   ];
-
   return (
     <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -700,7 +376,6 @@ function FeatureHighlights() {
     { icon: <BarChart3 className="w-6 h-6" />, title: "Progress Analytics", desc: "Radar chart, error patterns, AI study tips", gradient: "from-primary/10 to-primary/5" },
     { icon: <Trophy className="w-6 h-6" />, title: "JEE Foundation", desc: "Class 9-10 JEE track, rank predictor, 3-hour mocks", gradient: "from-accent/10 to-accent/5" },
   ];
-
   return (
     <section ref={ref} className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
@@ -712,9 +387,7 @@ function FeatureHighlights() {
               <CardContent className="p-6 relative">
                 <div className={`absolute inset-0 bg-gradient-to-br ${f.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 icon-target transition-transform duration-300">
-                    {f.icon}
-                  </div>
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 icon-target transition-transform duration-300">{f.icon}</div>
                   <h3 className="font-display font-semibold text-foreground">{f.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2">{f.desc}</p>
                 </div>
@@ -730,25 +403,17 @@ function FeatureHighlights() {
 /* ── Parent Section ────────────────────────────────── */
 function ParentSection() {
   const { ref, visible } = useReveal();
-
   return (
     <section ref={ref} className="py-24 bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className={`reveal-base reveal-left ${visible ? "revealed" : ""}`}>
-            <Badge className="bg-accent/10 text-accent border-accent/20 mb-4">
-              <Shield className="w-3 h-3 mr-1" /> For Parents
-            </Badge>
+            <Badge className="bg-accent/10 text-accent border-accent/20 mb-4"><Shield className="w-3 h-3 mr-1" /> For Parents</Badge>
             <h2 className="font-display font-extrabold text-4xl text-foreground mb-6 leading-tight">
               Stay connected to your<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent" style={{ WebkitBackgroundClip: "text" }}>
-                child's progress
-              </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent" style={{ WebkitBackgroundClip: "text" }}>child's progress</span>
             </h2>
-            <ScrollRevealText
-              text="Track subjects, monitor streaks, download PDF reports, and identify weak areas — all from your own secure parent dashboard."
-              className="text-lg text-muted-foreground mb-8"
-            />
+            <ScrollRevealText text="Track subjects, monitor streaks, download PDF reports, and identify weak areas — all from your own secure parent dashboard." className="text-lg text-muted-foreground mb-8" />
             <div className="space-y-4 mb-8">
               {[
                 { icon: <BarChart3 className="w-5 h-5 text-primary" />, text: "Subject-wise progress tracking with trends" },
@@ -757,20 +422,15 @@ function ParentSection() {
                 { icon: <TrendingUp className="w-5 h-5 text-primary" />, text: "AI-powered weak area identification" },
               ].map((f, i) => (
                 <div key={i} className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    {f.icon}
-                  </div>
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
                   <span className="text-foreground">{f.text}</span>
                 </div>
               ))}
             </div>
             <Link to="/parent/login">
-              <Button size="lg" className="gap-2 h-12 px-8 glow-hover">
-                <Shield className="w-4 h-4" /> Parent Login <ArrowRight className="w-4 h-4" />
-              </Button>
+              <Button size="lg" className="gap-2 h-12 px-8 glow-hover"><Shield className="w-4 h-4" /> Parent Login <ArrowRight className="w-4 h-4" /></Button>
             </Link>
           </div>
-
           <div className={`reveal-base reveal-right ${visible ? "revealed" : ""}`} style={{ transitionDelay: "300ms" }}>
             <ElectricBorder>
               <div className="bg-card rounded-2xl p-6 shadow-xl">
@@ -787,7 +447,6 @@ function ParentSection() {
                     { subject: "Science", progress: 78, color: "bg-[hsl(217,91%,60%)]" },
                     { subject: "Math", progress: 62, color: "bg-[hsl(258,90%,66%)]" },
                     { subject: "Social", progress: 48, color: "bg-[hsl(160,84%,39%)]" },
-                    { subject: "English", progress: 71, color: "bg-[hsl(38,92%,50%)]" },
                   ].map((s) => (
                     <div key={s.subject} className="flex items-center gap-3">
                       <span className="text-sm font-medium text-foreground w-16">{s.subject}</span>
@@ -829,9 +488,7 @@ function Testimonials() {
                 </div>
                 <p className="text-muted-foreground italic leading-relaxed">"{t.quote}"</p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">
-                    {t.name[0]}
-                  </div>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">{t.name[0]}</div>
                   <p className="text-sm text-muted-foreground">{t.name}, {t.location}</p>
                 </div>
               </CardContent>
@@ -884,9 +541,7 @@ function PricingPreview() {
           ))}
         </div>
         <div className={`text-center mt-8 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "700ms" }}>
-          <Link to="/pricing" className="text-primary hover:underline text-sm font-medium">
-            See Full Pricing <ArrowRight className="inline w-4 h-4" />
-          </Link>
+          <Link to="/pricing" className="text-primary hover:underline text-sm font-medium">See Full Pricing <ArrowRight className="inline w-4 h-4" /></Link>
         </div>
       </div>
     </section>
@@ -949,7 +604,6 @@ function Footer() {
   const links = {
     Product: [
       { label: "Features", path: "/features" },
-      { label: "Virtual Lab", path: "/virtual-lab" },
       { label: "Pricing", path: "/pricing" },
       { label: "Group Test", path: "/group-test" },
       { label: "NCERT Books", path: "/books" },
@@ -972,7 +626,6 @@ function Footer() {
       { label: "WhatsApp", path: "#" },
     ],
   };
-
   return (
     <footer className="bg-card border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -990,9 +643,7 @@ function Footer() {
               <ul className="space-y-2">
                 {items.map((item) => (
                   <li key={item.label}>
-                    <Link to={item.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {item.label}
-                    </Link>
+                    <Link to={item.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{item.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -1015,7 +666,6 @@ export default function Landing() {
       <LandingNavbar />
       <Hero />
       <SubjectsStrip />
-      <VirtualLabShowcase />
       <HowItWorks />
       <FeatureHighlights />
       <ParentSection />
