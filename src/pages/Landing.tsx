@@ -248,7 +248,7 @@ function Hero() {
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/15 rounded-full blur-[100px] animate-float" style={{ animationDelay: "1.5s" }} />
       <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-5 gap-12 items-center relative z-10">
         <div className="lg:col-span-3">
-          <Badge className="bg-accent/20 text-accent border-accent/30 mb-6 animate-fade-up">Made in Kota, Rajasthan</Badge>
+          
           <h1 className="font-display font-extrabold text-5xl md:text-7xl text-white leading-tight animate-fade-up stagger-1">
             <FuzzyText text="India's Smartest" /><br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent to-primary-light" style={{ WebkitBackgroundClip: "text" }}>
