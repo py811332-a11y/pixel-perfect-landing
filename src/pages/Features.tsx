@@ -26,11 +26,11 @@ export default function Features() {
 
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-20">
         {[
-          { title: "AI Whiteboard Lectures", desc: "Lectures that know your weaknesses", points: ["Personalized per student", "Bilingual EN/Hindi", "Pauses for doubts", "Adjusts difficulty"], emoji: "🤖", reverse: false },
-          { title: "Group Test Challenge", desc: "Study alone is boring. Challenge your friends.", points: ["Create test in 30 seconds", "Share 6-digit code", "Real-time leaderboard"], emoji: "🎯", reverse: true },
-          { title: "FSRS Smart Flashcards", desc: "Review cards just before you forget them", points: ["Spaced repetition algorithm", "Optimal review scheduling", "Track mastery per topic"], emoji: "🃏", reverse: false },
-          { title: "NCERT Flipbook", desc: "Your textbook. Right here. Page-turn and everything.", points: ["All NCERT books Class 6-10", "Linked to lessons and tests", "Bookmark and highlight"], emoji: "📖", reverse: true },
-          { title: "Progress Analytics", desc: "Radar chart, error patterns, AI study tips", points: ["5-subject radar chart", "Weekly improvement tracking", "AI-powered study recommendations"], emoji: "📊", reverse: false },
+          { title: "AI Whiteboard Lectures", desc: "Lectures that know your weaknesses", points: ["Personalized per student", "Bilingual EN/Hindi", "Pauses for doubts", "Adjusts difficulty"], reverse: false },
+          { title: "Group Test Challenge", desc: "Study alone is boring. Challenge your friends.", points: ["Create test in 30 seconds", "Share 6-digit code", "Real-time leaderboard"], reverse: true },
+          { title: "FSRS Smart Flashcards", desc: "Review cards just before you forget them", points: ["Spaced repetition algorithm", "Optimal review scheduling", "Track mastery per topic"], reverse: false },
+          { title: "NCERT Flipbook", desc: "Your textbook. Right here. Page-turn and everything.", points: ["All NCERT books Class 6-10", "Linked to lessons and tests", "Bookmark and highlight"], reverse: true },
+          { title: "Progress Analytics", desc: "Radar chart, error patterns, AI study tips", points: ["5-subject radar chart", "Weekly improvement tracking", "AI-powered study recommendations"], reverse: false },
         ].map((f, i) => (
           <div key={i} className={`grid md:grid-cols-2 gap-12 items-center ${f.reverse ? "direction-rtl" : ""}`}>
             <div className={f.reverse ? "md:order-2" : ""}>
