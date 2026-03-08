@@ -65,6 +65,7 @@ function LandingNavbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link to="/features" className="text-sm text-white/70 hover:text-white transition-colors">Features</Link>
           <Link to="/pricing" className="text-sm text-white/70 hover:text-white transition-colors">Pricing</Link>
+          <Link to="/chatbot" className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" />AI Chatbot</Link>
           <Link to="/about" className="text-sm text-white/70 hover:text-white transition-colors">About</Link>
           <Link to="/contact" className="text-sm text-white/70 hover:text-white transition-colors">Contact</Link>
         </div>
