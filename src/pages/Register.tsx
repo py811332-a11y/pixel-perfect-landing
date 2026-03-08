@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export default function Register() {
   const [step, setStep] = useState(1);
