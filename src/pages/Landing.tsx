@@ -432,39 +432,6 @@ function ParentSection() {
               <Button size="lg" className="gap-2 h-12 px-8 glow-hover"><Shield className="w-4 h-4" /> Parent Login <ArrowRight className="w-4 h-4" /></Button>
             </Link>
           </div>
-          <div className={`reveal-base reveal-right ${visible ? "revealed" : ""}`} style={{ transitionDelay: "300ms" }}>
-            <ElectricBorder>
-              <div className="bg-card rounded-2xl p-6 shadow-xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-display font-bold text-primary">AK</div>
-                  <div>
-                    <p className="font-display font-semibold text-foreground">Arjun Kumar</p>
-                    <p className="text-sm text-muted-foreground">Class 9 - CBSE</p>
-                  </div>
-                  <Badge className="ml-auto bg-success/10 text-success border-success/20">12 Day Streak</Badge>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { subject: "Science", progress: 78, color: "bg-[hsl(217,91%,60%)]" },
-                    { subject: "Math", progress: 62, color: "bg-[hsl(258,90%,66%)]" },
-                    { subject: "Social", progress: 48, color: "bg-[hsl(160,84%,39%)]" },
-                  ].map((s) => (
-                    <div key={s.subject} className="flex items-center gap-3">
-                      <span className="text-sm font-medium text-foreground w-16">{s.subject}</span>
-                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                        <div className={`h-full ${s.color} rounded-full transition-all duration-1000`} style={{ width: `${s.progress}%` }} />
-                      </div>
-                      <span className="text-sm font-bold text-foreground w-10">{s.progress}%</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">Last active: Today, 9:30 PM</span>
-                  <Button variant="outline" size="sm" className="gap-1 text-xs"><Download className="w-3 h-3" /> PDF</Button>
-                </div>
-              </div>
-            </ElectricBorder>
-          </div>
         </div>
       </div>
     </section>
