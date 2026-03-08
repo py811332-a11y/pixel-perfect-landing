@@ -15,7 +15,7 @@ export default function GroupTestLive() {
     <div className="min-h-screen bg-background flex flex-col">
       <div className="p-4 border-b border-border flex items-center justify-between">
         <span className="text-sm font-medium text-foreground">Science Group Test</span>
-        <span className="font-mono font-bold text-lg text-destructive">⏱ {timeLeft}</span>
+        <span className="font-mono font-bold text-lg text-destructive">{timeLeft}</span>
       </div>
       <div className="px-4 pt-4">
         <div className="flex items-center gap-2 mb-2">
