@@ -1,0 +1,193 @@
+import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Download, TrendingUp, TrendingDown, Minus, Clock, Flame, Zap, BookOpen, AlertTriangle, CheckCircle, BarChart3 } from "lucide-react";
+
+const children = [
+  {
+    name: "Arjun Kumar",
+    class: 9,
+    plan: "PRO",
+    streak: 12,
+    xp: 2450,
+    lastActive: "Today, 9:30 PM",
+    avatar: "AK",
+    subjects: [
+      { name: "Science", progress: 78, trend: "up", topicsDone: 11, total: 15 },
+      { name: "Math", progress: 62, trend: "steady", topicsDone: 9, total: 15 },
+      { name: "Social Studies", progress: 48, trend: "down", topicsDone: 7, total: 27 },
+      { name: "English", progress: 71, trend: "up", topicsDone: 7, total: 10 },
+      { name: "Hindi", progress: 38, trend: "down", topicsDone: 4, total: 12 },
+    ],
+    weeklyHours: 8.5,
+    testsThisWeek: 4,
+    weakAreas: ["Social: Democratic Politics Ch.2", "Hindi: Vyakaran"],
+  },
+  {
+    name: "Meera Kumar",
+    class: 7,
+    plan: "BASIC",
+    streak: 5,
+    xp: 1200,
+    lastActive: "Yesterday, 7:15 PM",
+    avatar: "MK",
+    subjects: [
+      { name: "Science", progress: 55, trend: "up", topicsDone: 6, total: 12 },
+      { name: "Math", progress: 70, trend: "up", topicsDone: 8, total: 13 },
+      { name: "Social Studies", progress: 30, trend: "steady", topicsDone: 4, total: 20 },
+    ],
+    weeklyHours: 5.2,
+    testsThisWeek: 2,
+    weakAreas: ["Social: Our Environment Ch.3"],
+  },
+];
+
+const trendIcon = (t: string) => {
+  if (t === "up") return <TrendingUp className="w-4 h-4 text-success" />;
+  if (t === "down") return <TrendingDown className="w-4 h-4 text-destructive" />;
+  return <Minus className="w-4 h-4 text-muted-foreground" />;
+};
+
+const trendLabel = (t: string) => {
+  if (t === "up") return "Improving";
+  if (t === "down") return "Needs focus";
+  return "Steady";
+};
+
+export default function ParentPortal() {
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-card px-6 py-4">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="text-2xl">🎓</span>
+              <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
+            </Link>
+            <Badge variant="secondary" className="text-xs">Parent Portal</Badge>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" className="gap-2"><Download className="w-4 h-4" /> Download Report</Button>
+            <Link to="/login"><Button variant="ghost" size="sm">Logout</Button></Link>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
+        <div>
+          <h1 className="font-display font-bold text-2xl text-foreground">Welcome, Parent 👋</h1>
+          <p className="text-muted-foreground mt-1">Track your children's learning progress</p>
+        </div>
+
+        {/* Summary cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { icon: <BookOpen className="w-5 h-5 text-primary" />, label: "Children", value: children.length },
+            { icon: <Flame className="w-5 h-5 text-accent" />, label: "Best Streak", value: "12 days" },
+            { icon: <Zap className="w-5 h-5 text-primary" />, label: "Total XP", value: "3,650" },
+            { icon: <BarChart3 className="w-5 h-5 text-success" />, label: "Tests This Week", value: 6 },
+          ].map((s, i) => (
+            <Card key={i}>
+              <CardContent className="p-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">{s.icon}</div>
+                <div>
+                  <p className="font-display font-bold text-xl text-foreground">{s.value}</p>
+                  <p className="text-xs text-muted-foreground">{s.label}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Children */}
+        {children.map((child) => (
+          <Card key={child.name} className="overflow-hidden">
+            <CardContent className="p-0">
+              {/* Child header */}
+              <div className="p-6 bg-gradient-to-r from-primary/5 to-transparent border-b border-border flex flex-col md:flex-row md:items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-lg font-display font-bold text-primary">
+                  {child.avatar}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-display font-bold text-lg text-foreground">{child.name}</h2>
+                    <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-0">{child.plan}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Class {child.class} · CBSE</p>
+                </div>
+                <div className="flex gap-6 text-center">
+                  <div>
+                    <p className="font-display font-bold text-lg text-accent">{child.streak}</p>
+                    <p className="text-xs text-muted-foreground">Day Streak</p>
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-lg text-primary">{child.xp.toLocaleString()}</p>
+                    <p className="text-xs text-muted-foreground">XP</p>
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-lg text-foreground">{child.weeklyHours}h</p>
+                    <p className="text-xs text-muted-foreground">This Week</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Subjects */}
+              <div className="p-6 space-y-4">
+                <h3 className="font-display font-semibold text-sm text-muted-foreground uppercase tracking-wider">Subject Progress</h3>
+                <div className="space-y-3">
+                  {child.subjects.map((s) => (
+                    <div key={s.name} className="flex items-center gap-3">
+                      <span className="text-sm font-medium text-foreground w-28 shrink-0">{s.name}</span>
+                      <Progress value={s.progress} className="flex-1 h-2.5" />
+                      <span className="text-sm font-bold text-foreground w-12 text-right">{s.progress}%</span>
+                      <div className="flex items-center gap-1 w-24">
+                        {trendIcon(s.trend)}
+                        <span className={`text-xs ${s.trend === "up" ? "text-success" : s.trend === "down" ? "text-destructive" : "text-muted-foreground"}`}>
+                          {trendLabel(s.trend)}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Weak areas */}
+                {child.weakAreas.length > 0 && (
+                  <div className="mt-4 p-4 rounded-lg bg-destructive/5 border border-destructive/10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <AlertTriangle className="w-4 h-4 text-destructive" />
+                      <span className="text-sm font-semibold text-foreground">Areas Needing Attention</span>
+                    </div>
+                    <ul className="space-y-1">
+                      {child.weakAreas.map((area, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-destructive" />
+                          {area}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Clock className="w-3.5 h-3.5" />
+                    Last active: {child.lastActive}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" className="gap-1"><Download className="w-3.5 h-3.5" /> PDF Report</Button>
+                    <Link to="/parent/dashboard">
+                      <Button size="sm" className="gap-1">Full Dashboard <ArrowRight className="w-3.5 h-3.5" /></Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
