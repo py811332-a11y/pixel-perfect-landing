@@ -316,7 +316,59 @@ function Hero() {
   );
 }
 
-/* ── Subjects Strip ────────────────────────────────── */
+/* ── Visual Showcase ──────────────────────────────── */
+function VisualShowcase() {
+  const { ref, visible } = useReveal();
+  const features = [
+    { img: landingAiTutor, title: "AI Whiteboard Lectures", desc: "Watch your AI teacher explain on a real whiteboard", color: "from-[hsl(24,90%,55%)] to-[hsl(38,92%,50%)]" },
+    { img: landingGroupTest, title: "Group Test Battles", desc: "Challenge friends in real-time quiz competitions", color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]" },
+    { img: landingFlashcards, title: "FSRS Smart Flashcards", desc: "Never forget — AI schedules your revisions perfectly", color: "from-[hsl(258,90%,66%)] to-[hsl(280,80%,50%)]" },
+    { img: landingParent, title: "Parent Dashboard", desc: "Parents track progress, streaks, and weak areas", color: "from-[hsl(160,84%,39%)] to-[hsl(140,70%,40%)]" },
+  ];
+  return (
+    <section ref={ref} className="py-20 bg-[#0A0F1E] relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/3 w-80 h-80 bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent/8 rounded-full blur-[100px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <h2 className={`font-display font-bold text-3xl md:text-4xl text-center text-white mb-3 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+          Everything You Need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary" style={{ WebkitBackgroundClip: "text" }}>Ace Your Exams</span>
+        </h2>
+        <p className={`text-center text-white/50 mb-14 max-w-2xl mx-auto reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+          Built by Kota educators and AI engineers — every feature designed for Indian students
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className={`group relative overflow-hidden rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500 reveal-base ${i % 2 === 0 ? "reveal-left" : "reveal-right"} ${visible ? "revealed" : ""}`}
+              style={{ transitionDelay: `${200 + i * 150}ms` }}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={f.img}
+                  alt={f.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${f.color} text-white text-xs font-semibold mb-3`}>
+                  <Sparkles className="w-3 h-3" /> {f.title}
+                </div>
+                <p className="text-white/70 text-sm">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function SubjectsStrip() {
   const { ref, visible } = useReveal();
   const subjectColors: Record<string, string> = {
