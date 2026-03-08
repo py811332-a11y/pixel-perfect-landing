@@ -139,6 +139,7 @@ function Hero() {
 }
 
 function SubjectsStrip() {
+  const { ref, visible } = useScrollRevealSection();
   const subjectColors: Record<string, string> = {
     science: "bg-[#3B82F6]",
     math: "bg-[#8B5CF6]",
@@ -148,13 +149,13 @@ function SubjectsStrip() {
   };
 
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Choose Your Subject</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Choose Your Subject</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {subjects.map((s, i) => (
             <Link key={s.id} to={`/subjects/${s.id}`}>
-              <Card className={`card-hover cursor-pointer group animate-fade-up stagger-${i + 1}`}>
+              <Card className={`card-hover cursor-pointer group transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
                 <CardContent className="p-6 text-center">
                   <div className={`w-12 h-12 rounded-lg ${subjectColors[s.id]} mx-auto flex items-center justify-center text-2xl mb-3`}>
                     {s.icon}
