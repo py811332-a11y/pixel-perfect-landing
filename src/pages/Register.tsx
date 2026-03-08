@@ -20,7 +20,7 @@ export default function Register() {
         </Link>
         <p className="text-white/60 text-center text-lg">Join 50,000+ students learning smarter</p>
         <div className="mt-12 w-32 h-32 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl">SG</div>
+          <img src={logo} alt="ShikshaGuruji" className="w-10 h-10 rounded-lg object-contain" />
         </div>
       </div>
 
