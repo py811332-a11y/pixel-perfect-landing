@@ -455,10 +455,13 @@ function Testimonials() {
   return (
     <section ref={ref} className="py-20 bg-card relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`}>What Students Say</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>What Students Say</h2>
+        <p className={`text-center text-muted-foreground mb-12 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+          Real results from real students across India
+        </p>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <Card key={i} className={`card-hover transition-all duration-500 group reveal-base reveal-rotate ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 180}ms` }}>
+            <Card key={i} className={`card-hover transition-all duration-500 group reveal-base reveal-rotate ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 120}ms` }}>
               <CardContent className="p-6">
                 <div className="flex gap-1 mb-3">
                   {Array(5).fill(0).map((_, j) => (
@@ -466,9 +469,12 @@ function Testimonials() {
                   ))}
                 </div>
                 <p className="text-muted-foreground italic leading-relaxed">"{t.quote}"</p>
-                <div className="mt-4 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">{t.name[0]}</div>
-                  <p className="text-sm text-muted-foreground">{t.name}, {t.location}</p>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">{t.name[0]}</div>
+                    <p className="text-sm text-muted-foreground">{t.name}, {t.location}</p>
+                  </div>
+                  <Badge variant="outline" className="text-xs">Class {t.class}</Badge>
                 </div>
               </CardContent>
             </Card>
