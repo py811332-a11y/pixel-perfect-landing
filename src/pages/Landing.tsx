@@ -105,7 +105,7 @@ function Hero() {
               </Button>
             </Link>
             <Link to="/chatbot">
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 h-12 px-8">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 h-12 px-8">
                 <MessageCircle className="w-4 h-4" /> Try Free AI Chatbot
               </Button>
             </Link>
