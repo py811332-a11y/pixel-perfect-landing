@@ -39,6 +39,7 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import ParentDashboard from "./pages/ParentDashboard";
 import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
+import ParentPortal from "./pages/ParentPortal";
 import Billing from "./pages/Billing";
 import Admin from "./pages/Admin";
 import StudyGroups from "./pages/StudyGroups";
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/billing" element={<Billing />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+          <Route path="/parent" element={<ParentPortal />} />
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
