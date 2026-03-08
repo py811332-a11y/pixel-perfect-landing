@@ -506,7 +506,25 @@ function ParentSection() {
               <Button size="lg" className="gap-2 h-12 px-8 glow-hover"><Shield className="w-4 h-4" /> Parent Login <ArrowRight className="w-4 h-4" /></Button>
             </Link>
           </div>
-        </div>
+          {/* Right column — images */}
+          <div className={`space-y-4 reveal-base reveal-right ${visible ? "revealed" : ""}`} style={{ transitionDelay: "400ms" }}>
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity" />
+              <img src={parentDashboardUi} alt="Parent dashboard showing student analytics" className="relative w-full rounded-2xl border border-border/50 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative group overflow-hidden rounded-xl border border-border/50">
+                <img src={parentCheckingProgress} alt="Parent checking child's progress" className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <p className="absolute bottom-2 left-3 text-white text-xs font-semibold">Real-time Tracking</p>
+              </div>
+              <div className="relative group overflow-hidden rounded-xl border border-border/50">
+                <img src={landingParent} alt="Parent and child reviewing progress together" className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <p className="absolute bottom-2 left-3 text-white text-xs font-semibold">PDF Reports</p>
+              </div>
+            </div>
+          </div>
       </div>
     </section>
   );
