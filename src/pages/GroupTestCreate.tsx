@@ -16,7 +16,7 @@ export default function GroupTestCreate() {
     return (
       <AppLayout>
         <div className="p-6 lg:p-8 max-w-lg mx-auto text-center">
-          <h1 className="font-display font-bold text-2xl text-foreground mb-8">Your test is ready! 🎉</h1>
+          <h1 className="font-display font-bold text-2xl text-foreground mb-8">Your test is ready!</h1>
           <Card className="mb-6">
             <CardContent className="p-8">
               <p className="text-sm text-muted-foreground mb-4">Share this code with friends:</p>
