@@ -261,14 +261,15 @@ function Testimonials() {
 }
 
 function PricingPreview() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-4">Simple, Transparent Pricing</h2>
-        <p className="text-center text-muted-foreground mb-12">Start free. Upgrade when you're ready.</p>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Simple, Transparent Pricing</h2>
+        <p className={`text-center text-muted-foreground mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Start free. Upgrade when you're ready.</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pricingPlans.map((plan, i) => (
-            <Card key={plan.id} className={`card-hover relative animate-fade-up stagger-${i + 1} ${plan.popular ? "border-primary shadow-md" : ""}`}>
+            <Card key={plan.id} className={`card-hover relative transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} ${plan.popular ? "border-primary shadow-md" : ""}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
@@ -295,7 +296,7 @@ function PricingPreview() {
             </Card>
           ))}
         </div>
-        <div className="text-center mt-8">
+        <div className={`text-center mt-8 transition-all duration-700 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <Link to="/pricing" className="text-primary hover:underline text-sm font-medium">
             See Full Pricing <ArrowRight className="inline w-4 h-4" />
           </Link>
