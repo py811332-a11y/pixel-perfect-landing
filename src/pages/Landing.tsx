@@ -328,9 +328,10 @@ function FAQ() {
 }
 
 function FinalCTA() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-[#0A0F1E]">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section ref={ref} className="py-20 bg-[#0A0F1E]">
+      <div className={`max-w-3xl mx-auto px-6 text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"}`}>
         <h2 className="font-display font-bold text-3xl text-white mb-4">Start your free account in 30 seconds</h2>
         <p className="text-white/60 mb-8">No credit card required. Class 6-10 CBSE. Made in India 🇮🇳</p>
         <Link to="/register">
