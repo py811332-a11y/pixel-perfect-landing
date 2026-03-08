@@ -487,10 +487,6 @@ function VirtualLabShowcase() {
     </section>
   );
 }
-  const labs = [
-    {
-      icon: <Atom className="w-6 h-6" />,
-      title: "Physics",
       color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]",
       features: ["Drag & drop circuit builder", "Pendulum simulator with adjustable gravity", "Real-time velocity-time graph plotter", "Wave interference patterns"],
       demo: (
