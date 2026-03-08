@@ -35,7 +35,7 @@ export default function Diagnostic() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="max-w-md text-center space-y-6 animate-fade-up">
-          <div className="text-6xl">🧪</div>
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"><Sparkles className="w-8 h-8 text-primary" /></div>
           <h1 className="font-display font-bold text-3xl text-foreground">Let's find your strengths</h1>
           <p className="text-muted-foreground">{questions.length} questions across 5 subjects. No timer. Be honest!</p>
           <p className="text-sm text-muted-foreground">This helps us personalize your lessons</p>
