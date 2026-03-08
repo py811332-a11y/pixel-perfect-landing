@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <nav className="h-16 border-b border-border flex items-center px-6">
-        <Link to="/" className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
+        <Link to="/" className="flex items-center gap-2"><img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" /><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
         <h1 className="font-display font-bold text-3xl text-foreground">Making Kota's coaching accessible to every student</h1>
