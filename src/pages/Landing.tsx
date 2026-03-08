@@ -1035,6 +1035,7 @@ export default function Landing() {
       <SubjectsStrip />
       <HowItWorks />
       <FeatureHighlights />
+      <VirtualLabsShowcase />
       <ParentSection />
       <Testimonials />
       <PricingPreview />
