@@ -13,7 +13,7 @@ export default function Login() {
       {/* Left panel */}
       <div className="hidden lg:flex lg:col-span-2 bg-[#0A0F1E] flex-col justify-center items-center p-12">
         <Link to="/" className="flex items-center gap-2 mb-8">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">SG</div>
+          <img src={logo} alt="ShikshaGuruji" className="w-10 h-10 rounded-lg object-contain" />
           <span className="font-display font-bold text-2xl text-white">ShikshaGuruji</span>
         </Link>
         <p className="text-white/60 text-center text-lg">Welcome back, future topper</p>
