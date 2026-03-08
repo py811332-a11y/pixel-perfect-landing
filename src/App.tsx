@@ -37,6 +37,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import ParentDashboard from "./pages/ParentDashboard";
+import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

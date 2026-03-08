@@ -103,9 +103,11 @@ function Hero() {
                 Start Free <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 h-12 px-8">
-              <Play className="w-4 h-4" /> Watch Demo
-            </Button>
+            <Link to="/chatbot">
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 h-12 px-8">
+                <MessageCircle className="w-4 h-4" /> Try Free AI Chatbot
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-wrap gap-8 mt-10 animate-fade-up stagger-4">
             <div><span className="text-2xl font-display font-bold text-white">50,000+</span><p className="text-sm text-white/50">Students</p></div>
