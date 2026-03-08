@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 import { Home, BookOpen, Target, Layers, User, BarChart3, Trophy, Book, CreditCard, Bell, Settings, LogOut } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +29,7 @@ export default function AppSidebar() {
       {/* Logo */}
       <div className="p-5 border-b border-border">
         <Link to="/dashboard" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
+          <img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" />
           <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
         </Link>
       </div>

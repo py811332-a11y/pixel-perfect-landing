@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, Shield, Users, BarChart3, Download } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export default function ParentLogin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +18,7 @@ export default function ParentLogin() {
         
         <div className="relative z-10 text-center">
           <Link to="/" className="flex items-center gap-2 mb-8 justify-center">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">SG</div>
+            <img src={logo} alt="ShikshaGuruji" className="w-10 h-10 rounded-lg object-contain" />
             <span className="font-display font-bold text-2xl text-white">ShikshaGuruji</span>
           </Link>
           <div className="inline-flex items-center gap-2 bg-accent/20 text-accent text-sm px-4 py-1.5 rounded-full mb-6">
@@ -44,7 +45,7 @@ export default function ParentLogin() {
       <div className="lg:col-span-3 flex items-center justify-center p-8">
         <div className="w-full max-w-md space-y-6">
           <div className="lg:hidden flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
+            <img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" />
             <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
           </div>
 

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Users, BookOpen, BarChart3, AlertTriangle, CheckCircle, Settings } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const stats = [
   { icon: Users, label: "Total Students", value: "50,234", change: "+1,204 this week", color: "text-primary" },
@@ -23,7 +24,7 @@ export default function Admin() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
+          <img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" />
           <h1 className="font-display font-bold text-lg text-foreground">ShikshaGuruji Admin</h1>
           <Badge className="bg-destructive/10 text-destructive border-0 text-xs">Admin Panel</Badge>
         </div>

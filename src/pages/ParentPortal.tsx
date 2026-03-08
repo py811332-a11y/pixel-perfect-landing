@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, TrendingUp, TrendingDown, Minus, Clock, Flame, Zap, BookOpen, AlertTriangle, BarChart3, Shield } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const children = [
   {
@@ -133,7 +134,7 @@ export default function ParentPortal() {
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div>
+              <img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-display font-bold text-lg text-foreground">ShikshaGuruji</span>
             </Link>
             <Badge variant="secondary" className="text-xs gap-1"><Shield className="w-3 h-3" /> Parent Portal</Badge>

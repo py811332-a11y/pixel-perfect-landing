@@ -6,13 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Check, X, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { pricingPlans } from "@/data/mockData";
+import logo from "@/assets/logo.png";
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <nav className="h-16 border-b border-border flex items-center px-6">
-        <Link to="/" className="flex items-center gap-2"><div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">SG</div><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
+        <Link to="/" className="flex items-center gap-2"><img src={logo} alt="ShikshaGuruji" className="w-8 h-8 rounded-lg object-contain" /><span className="font-display font-bold text-foreground">ShikshaGuruji</span></Link>
         <div className="ml-auto"><Link to="/login"><Button size="sm">Login</Button></Link></div>
       </nav>
       <div className="max-w-5xl mx-auto px-6 py-16">
