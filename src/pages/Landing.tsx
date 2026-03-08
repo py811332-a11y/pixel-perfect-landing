@@ -4,9 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp } from "lucide-react";
+import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers, Atom, FlaskConical, Ruler, Microscope, Check, X, Shield, Download, TrendingUp, Globe, Flag, Rocket } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
 import logo from "@/assets/logo.png";
+import indiaFlagGlow from "@/assets/india-flag-glow.png";
+import globeIndia from "@/assets/globe-india.png";
+import indiaRocket from "@/assets/india-rocket.png";
+import { useMemo, lazy, Suspense } from "react";
+const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
