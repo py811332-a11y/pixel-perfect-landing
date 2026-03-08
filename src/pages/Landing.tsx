@@ -412,8 +412,8 @@ function SubjectsStrip() {
             <Link key={s.id} to={`/subjects/${s.id}`}>
               <Card className={`card-hover glow-hover cursor-pointer group reveal-base reveal-scale ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${200 + i * 100}ms` }}>
                 <CardContent className="p-6 text-center">
-                  <div className={`w-14 h-14 rounded-xl ${subjectColors[s.id] || "bg-primary"} mx-auto flex items-center justify-center text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    {s.icon}
+                  <div className="w-20 h-20 mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <img src={subjectImages[s.id]} alt={s.name} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="font-display font-semibold text-foreground">{s.name}</h3>
                   <p className="text-sm text-muted-foreground mt-1">{s.chapters * 5}+ chapters</p>
