@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
 import { Home, BookOpen, Target, Layers, User, BarChart3, Trophy, Book, CreditCard, Bell, Settings, LogOut } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
