@@ -432,8 +432,61 @@ function SubjectsStrip() {
 /* ── Virtual Lab Showcase ──────────────────────────── */
 function VirtualLabShowcase() {
   const { ref, visible } = useReveal();
-  const [activeTab, setActiveTab] = useState(0);
 
+  const labs = [
+    { icon: <Atom className="w-8 h-8" />, title: "Physics", desc: "Build circuits, simulate pendulums, plot velocity-time graphs, and study wave interference", color: "from-[hsl(217,91%,60%)] to-[hsl(224,76%,40%)]" },
+    { icon: <FlaskConical className="w-8 h-8" />, title: "Chemistry", desc: "Mix chemicals, watch real-time colour changes, test pH indicators, and study acid-base reactions", color: "from-[hsl(160,84%,39%)] to-[hsl(160,84%,25%)]" },
+    { icon: <Ruler className="w-8 h-8" />, title: "Mathematics", desc: "Plot coordinates, visualize fractions, use number lines, and construct geometry shapes", color: "from-[hsl(258,90%,66%)] to-[hsl(258,90%,50%)]" },
+    { icon: <Microscope className="w-8 h-8" />, title: "Biology", desc: "Explore human anatomy, use virtual microscope, study genetics with Punnett squares, and dissect digitally", color: "from-[hsl(38,92%,50%)] to-[hsl(25,90%,45%)]" },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-[#0A0F1E] relative overflow-hidden">
+      <AntigravityParticles />
+      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[150px]" />
+      <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-[120px]" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <Badge className={`bg-primary/20 text-primary-light border-primary/30 mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`}>
+            No Equipment Required
+          </Badge>
+          <h2 className={`font-display font-extrabold text-4xl md:text-5xl text-white mb-4 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "100ms" }}>
+            Virtual PCMB Lab
+          </h2>
+          <ScrollRevealText
+            text="Perform real NCERT experiments right in your browser. Build circuits, mix chemicals, plot graphs, and explore anatomy — all interactive."
+            className="text-lg text-white/60 max-w-2xl mx-auto"
+          />
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {labs.map((lab, i) => (
+            <div key={i} className={`group reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: `${300 + i * 120}ms` }}>
+              <ElectricBorder>
+                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 h-full">
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${lab.color} flex items-center justify-center text-white mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+                    {lab.icon}
+                  </div>
+                  <h3 className="font-display font-bold text-xl text-white mb-2">{lab.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{lab.desc}</p>
+                </div>
+              </ElectricBorder>
+            </div>
+          ))}
+        </div>
+
+        <div className={`text-center mt-12 reveal-base reveal-up ${visible ? "revealed" : ""}`} style={{ transitionDelay: "800ms" }}>
+          <Link to="/virtual-lab">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-12 px-8 glow-hover">
+              Enter Virtual Lab <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
   const labs = [
     {
       icon: <Atom className="w-6 h-6" />,
