@@ -105,7 +105,7 @@ export default function Diagnostic() {
               <Progress value={s.progress} className="flex-1 h-2" />
               <span className="text-sm font-semibold text-foreground w-10 text-right">{s.progress}%</span>
               <span className="text-xs">
-                {s.progress >= 70 ? "💪" : s.progress >= 50 ? "👍" : "⚠️"}
+                {s.progress >= 70 ? <TrendingUp className="w-4 h-4 text-success" /> : s.progress >= 50 ? <CheckCircle className="w-4 h-4 text-primary" /> : <AlertTriangle className="w-4 h-4 text-accent" />}
               </span>
             </div>
           ))}

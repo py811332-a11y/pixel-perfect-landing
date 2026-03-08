@@ -79,10 +79,10 @@ export default function FlashcardReview() {
         <div className="border-t border-border p-6 animate-fade-up">
           <p className="text-center text-sm text-muted-foreground mb-4">How well did you know this?</p>
           <div className="flex justify-center gap-3">
-            <Button variant="outline" className="border-destructive text-destructive hover:bg-destructive/10" onClick={() => handleRate("again")}>😰 Again</Button>
-            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10" onClick={() => handleRate("hard")}>😐 Hard</Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => handleRate("good")}>🙂 Good</Button>
-            <Button variant="outline" className="border-success text-success hover:bg-success/10" onClick={() => handleRate("easy")}>😄 Easy</Button>
+            <Button variant="outline" className="border-destructive text-destructive hover:bg-destructive/10" onClick={() => handleRate("again")}>Again</Button>
+            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10" onClick={() => handleRate("hard")}>Hard</Button>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => handleRate("good")}>Good</Button>
+            <Button variant="outline" className="border-success text-success hover:bg-success/10" onClick={() => handleRate("easy")}>Easy</Button>
           </div>
         </div>
       )}
