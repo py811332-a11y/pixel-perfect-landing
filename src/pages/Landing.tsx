@@ -782,6 +782,7 @@ export default function Landing() {
       <Testimonials />
       <PricingPreview />
       <FAQ />
+      <MadeInIndia />
       <FinalCTA />
       <Footer />
     </div>
