@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff, BookOpen } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
