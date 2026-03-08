@@ -881,6 +881,7 @@ export default function Landing() {
       <MouseSpotlight />
       <LandingNavbar />
       <Hero />
+      <VisualShowcase />
       <SubjectsStrip />
       <HowItWorks />
       <FeatureHighlights />
