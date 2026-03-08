@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Target, Key } from "lucide-react";
 import AppLayout from "@/components/layout/AppLayout";
 import { groupTestHistory } from "@/data/mockData";
 
@@ -17,7 +17,7 @@ export default function GroupTest() {
           <Link to="/group-test/create">
             <Card className="card-hover h-full">
               <CardContent className="p-8 text-center">
-                <span className="text-4xl block mb-3">🎯</span>
+                <Target className="w-10 h-10 text-primary mx-auto mb-3" />
                 <h3 className="font-display font-bold text-lg text-foreground">Create a Test</h3>
                 <p className="text-sm text-muted-foreground mt-2">Set questions, invite friends, start the battle</p>
                 <Button className="mt-4 gap-2">Create Test <ArrowRight className="w-4 h-4" /></Button>
@@ -27,7 +27,7 @@ export default function GroupTest() {
           <Link to="/group-test/join">
             <Card className="card-hover h-full">
               <CardContent className="p-8 text-center">
-                <span className="text-4xl block mb-3">🔑</span>
+                <Key className="w-10 h-10 text-accent mx-auto mb-3" />
                 <h3 className="font-display font-bold text-lg text-foreground">Join a Test</h3>
                 <p className="text-sm text-muted-foreground mt-2">Have a code from a friend? Join here</p>
                 <Button variant="outline" className="mt-4 gap-2">Join with Code <ArrowRight className="w-4 h-4" /></Button>
@@ -45,7 +45,7 @@ export default function GroupTest() {
                   <p className="text-sm font-medium text-foreground">{test.subject} · {test.chapter} · {test.questions} questions · {test.timeLimit} min</p>
                   <p className="text-xs text-muted-foreground mt-1">{test.date}</p>
                 </div>
-                <Badge variant="secondary">🥇 {test.rank}st / {test.total}</Badge>
+                <Badge variant="secondary">#{test.rank} / {test.total}</Badge>
                 <span className="text-sm font-semibold text-primary">{test.score}%</span>
                 <span className="font-mono text-xs text-muted-foreground">{test.code}</span>
               </CardContent>
