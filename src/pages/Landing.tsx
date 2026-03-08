@@ -1,10 +1,27 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Play, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers } from "lucide-react";
+import { ArrowRight, MessageCircle, BookOpen, Users, Brain, Sparkles, BarChart3, Trophy, ChevronRight, Star, Zap, Target, Layers } from "lucide-react";
 import { subjects, testimonials, pricingPlans, faqItems } from "@/data/mockData";
+
+function useScrollRevealSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return { ref, visible };
+}
 
 function HeroParticles() {
   const particles = Array.from({ length: 20 }, (_, i) => ({
@@ -48,6 +65,7 @@ function LandingNavbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link to="/features" className="text-sm text-white/70 hover:text-white transition-colors">Features</Link>
           <Link to="/pricing" className="text-sm text-white/70 hover:text-white transition-colors">Pricing</Link>
+          <Link to="/chatbot" className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-1"><MessageCircle className="w-3.5 h-3.5" />AI Chatbot</Link>
           <Link to="/about" className="text-sm text-white/70 hover:text-white transition-colors">About</Link>
           <Link to="/contact" className="text-sm text-white/70 hover:text-white transition-colors">Contact</Link>
         </div>
@@ -86,9 +104,11 @@ function Hero() {
                 Start Free <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 h-12 px-8">
-              <Play className="w-4 h-4" /> Watch Demo
-            </Button>
+            <Link to="/chatbot">
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 h-12 px-8">
+                <MessageCircle className="w-4 h-4" /> Try Free AI Chatbot
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-wrap gap-8 mt-10 animate-fade-up stagger-4">
             <div><span className="text-2xl font-display font-bold text-white">50,000+</span><p className="text-sm text-white/50">Students</p></div>
@@ -120,6 +140,7 @@ function Hero() {
 }
 
 function SubjectsStrip() {
+  const { ref, visible } = useScrollRevealSection();
   const subjectColors: Record<string, string> = {
     science: "bg-[#3B82F6]",
     math: "bg-[#8B5CF6]",
@@ -129,13 +150,13 @@ function SubjectsStrip() {
   };
 
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Choose Your Subject</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Choose Your Subject</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {subjects.map((s, i) => (
             <Link key={s.id} to={`/subjects/${s.id}`}>
-              <Card className={`card-hover cursor-pointer group animate-fade-up stagger-${i + 1}`}>
+              <Card className={`card-hover cursor-pointer group transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
                 <CardContent className="p-6 text-center">
                   <div className={`w-12 h-12 rounded-lg ${subjectColors[s.id]} mx-auto flex items-center justify-center text-2xl mb-3`}>
                     {s.icon}
@@ -156,6 +177,7 @@ function SubjectsStrip() {
 }
 
 function HowItWorks() {
+  const { ref, visible } = useScrollRevealSection();
   const steps = [
     { icon: "🧪", title: "Take Diagnostic", desc: "40 questions, AI maps your weak areas" },
     { icon: "🎓", title: "Watch AI Lecture", desc: "Personalized whiteboard lecture just for you" },
@@ -163,13 +185,13 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-4">How It Works</h2>
-        <p className="text-center text-muted-foreground mb-12">3 simple steps to better grades</p>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>How It Works</h2>
+        <p className={`text-center text-muted-foreground mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>3 simple steps to better grades</p>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
-            <div key={i} className={`text-center animate-fade-up stagger-${i + 1}`}>
+            <div key={i} className={`text-center transition-all duration-600 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${200 + i * 150}ms` : "0ms" }}>
               <div className="w-20 h-20 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center text-4xl mb-4">
                 {step.icon}
               </div>
@@ -185,6 +207,7 @@ function HowItWorks() {
 }
 
 function FeatureHighlights() {
+  const { ref, visible } = useScrollRevealSection();
   const features = [
     { icon: <Brain className="w-6 h-6" />, title: "AI Whiteboard Lectures", desc: "Teacher writes explanations on screen, adapts to your mistakes" },
     { icon: <Target className="w-6 h-6" />, title: "Group Test", desc: "Challenge 5 friends with 1 code. See who wins in real time" },
@@ -195,12 +218,12 @@ function FeatureHighlights() {
   ];
 
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Everything You Need to Score Big</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Everything You Need to Score Big</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
-            <Card key={i} className={`card-hover animate-fade-up stagger-${i + 1}`}>
+            <Card key={i} className={`card-hover transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">{f.icon}</div>
                 <h3 className="font-display font-semibold text-foreground">{f.title}</h3>
@@ -215,13 +238,14 @@ function FeatureHighlights() {
 }
 
 function Testimonials() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-[#0A0F1E]">
+    <section ref={ref} className="py-20 bg-[#0A0F1E]">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-white mb-12">What Students Say</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-white mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>What Students Say</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <Card key={i} className={`bg-white/5 border-white/10 animate-fade-up stagger-${i + 1}`}>
+            <Card key={i} className={`bg-white/5 border-white/10 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 150}ms` : "0ms" }}>
               <CardContent className="p-6">
                 <div className="flex gap-1 mb-3">
                   {Array(5).fill(0).map((_, j) => <Star key={j} className="w-4 h-4 fill-accent text-accent" />)}
@@ -238,14 +262,15 @@ function Testimonials() {
 }
 
 function PricingPreview() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-4">Simple, Transparent Pricing</h2>
-        <p className="text-center text-muted-foreground mb-12">Start free. Upgrade when you're ready.</p>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Simple, Transparent Pricing</h2>
+        <p className={`text-center text-muted-foreground mb-12 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Start free. Upgrade when you're ready.</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pricingPlans.map((plan, i) => (
-            <Card key={plan.id} className={`card-hover relative animate-fade-up stagger-${i + 1} ${plan.popular ? "border-primary shadow-md" : ""}`}>
+            <Card key={plan.id} className={`card-hover relative transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} ${plan.popular ? "border-primary shadow-md" : ""}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
@@ -272,7 +297,7 @@ function PricingPreview() {
             </Card>
           ))}
         </div>
-        <div className="text-center mt-8">
+        <div className={`text-center mt-8 transition-all duration-700 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <Link to="/pricing" className="text-primary hover:underline text-sm font-medium">
             See Full Pricing <ArrowRight className="inline w-4 h-4" />
           </Link>
@@ -283,27 +308,31 @@ function PricingPreview() {
 }
 
 function FAQ() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Frequently Asked Questions</h2>
-        <Accordion type="single" collapsible className="w-full">
-          {faqItems.map((item, i) => (
-            <AccordionItem key={i} value={`faq-${i}`}>
-              <AccordionTrigger className="font-display font-semibold text-left text-foreground">{item.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Frequently Asked Questions</h2>
+        <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <Accordion type="single" collapsible className="w-full">
+            {faqItems.map((item, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="font-display font-semibold text-left text-foreground">{item.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   );
 }
 
 function FinalCTA() {
+  const { ref, visible } = useScrollRevealSection();
   return (
-    <section className="py-20 bg-[#0A0F1E]">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section ref={ref} className="py-20 bg-[#0A0F1E]">
+      <div className={`max-w-3xl mx-auto px-6 text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"}`}>
         <h2 className="font-display font-bold text-3xl text-white mb-4">Start your free account in 30 seconds</h2>
         <p className="text-white/60 mb-8">No credit card required. Class 6-10 CBSE. Made in India 🇮🇳</p>
         <Link to="/register">
