@@ -21,8 +21,6 @@ export const subjects = [
   { id: "science", name: "Science", icon: "SC", color: "subject-science", chapters: 15, progress: 78, topicsMastered: 11, totalTopics: 15 },
   { id: "math", name: "Mathematics", icon: "MA", color: "subject-math", chapters: 15, progress: 62, topicsMastered: 9, totalTopics: 15 },
   { id: "social", name: "Social Science", icon: "SS", color: "subject-social", chapters: 27, progress: 48, topicsMastered: 7, totalTopics: 27 },
-  { id: "english", name: "English", icon: "EN", color: "subject-english", chapters: 10, progress: 71, topicsMastered: 7, totalTopics: 10 },
-  { id: "hindi", name: "Hindi", icon: "HI", color: "subject-hindi", chapters: 12, progress: 38, topicsMastered: 4, totalTopics: 12 },
 ];
 
 export const scienceChapters = [
