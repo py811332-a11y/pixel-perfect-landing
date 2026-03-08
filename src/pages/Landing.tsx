@@ -357,18 +357,6 @@ function Hero() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-wrap gap-6 mt-10 animate-fade-up stagger-4">
-            {[
-              { end: 10000, suffix: "+", label: "Active Students" },
-              { end: 5000, suffix: "+", label: "Practice Questions" },
-              { end: 80, suffix: "+", label: "NCERT Chapters" },
-            ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                <span className="text-2xl font-display font-bold text-white"><Counter end={stat.end} suffix={stat.suffix} /></span>
-                <span className="text-sm text-white/50">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="lg:col-span-2 hidden lg:block">
           <ElectricBorder>
