@@ -10,6 +10,12 @@ import logo from "@/assets/logo.png";
 import indiaFlagGlow from "@/assets/india-flag-glow.png";
 import globeIndia from "@/assets/globe-india.png";
 import indiaRocket from "@/assets/india-rocket.png";
+import indiaAiWhiteboard from "@/assets/india-ai-whiteboard.png";
+import indiaStudentFuture from "@/assets/india-student-future.png";
+import indiaVirtualLab from "@/assets/india-virtual-lab.png";
+import indiaFlashcards from "@/assets/india-flashcards.png";
+import indiaGroupBattle from "@/assets/india-group-battle.png";
+import indiaServers from "@/assets/india-servers.png";
 import { useMemo, lazy, Suspense } from "react";
 const Hyperspeed = lazy(() => import("@/components/Hyperspeed"));
 
