@@ -86,7 +86,7 @@ export default function Diagnostic() {
     <div className="min-h-screen bg-background flex items-center justify-center p-6">
       <div className="max-w-lg w-full space-y-6 animate-fade-up">
         <div className="text-center">
-          <h1 className="font-display font-bold text-2xl text-foreground">Here's what we found about you! 🎉</h1>
+          <h1 className="font-display font-bold text-2xl text-foreground">Here's what we found about you!</h1>
         </div>
         <div className="w-full h-64">
           <ResponsiveContainer>
