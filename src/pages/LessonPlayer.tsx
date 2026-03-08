@@ -16,7 +16,7 @@ export default function LessonPlayer() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="text-center space-y-6 animate-fade-up">
-          <div className="text-6xl animate-scale-check">🎉</div>
+          <div className="text-6xl animate-scale-check"><CheckCircle className="w-16 h-16 text-success" /></div>
           <h1 className="font-display font-bold text-2xl text-foreground">Great job! You finished the lecture</h1>
           <p className="text-muted-foreground">Ready to test what you learned?</p>
           <div className="flex gap-4 justify-center">
