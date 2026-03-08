@@ -206,6 +206,7 @@ function HowItWorks() {
 }
 
 function FeatureHighlights() {
+  const { ref, visible } = useScrollRevealSection();
   const features = [
     { icon: <Brain className="w-6 h-6" />, title: "AI Whiteboard Lectures", desc: "Teacher writes explanations on screen, adapts to your mistakes" },
     { icon: <Target className="w-6 h-6" />, title: "Group Test", desc: "Challenge 5 friends with 1 code. See who wins in real time" },
@@ -216,12 +217,12 @@ function FeatureHighlights() {
   ];
 
   return (
-    <section className="py-20 bg-card">
+    <section ref={ref} className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-display font-bold text-3xl text-center text-foreground mb-12">Everything You Need to Score Big</h2>
+        <h2 className={`font-display font-bold text-3xl text-center text-foreground mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>Everything You Need to Score Big</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
-            <Card key={i} className={`card-hover animate-fade-up stagger-${i + 1}`}>
+            <Card key={i} className={`card-hover transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">{f.icon}</div>
                 <h3 className="font-display font-semibold text-foreground">{f.title}</h3>
